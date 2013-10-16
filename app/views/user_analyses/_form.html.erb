@@ -1,0 +1,21 @@
+<%= form_for(@user_analysis) do |f| %>
+  <% if @user_analysis.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_analysis.errors.count, "error") %> prohibited this user_analysis from being saved:</h2>
+
+      <ul>
+      <% @user_analysis.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rate %><br>
+    <%= f.text_field :rate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Listing user_analyses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_analyses.each do |user_analysis| %>
+      <tr>
+        <td><%= user_analysis.rate %></td>
+        <td><%= link_to 'Show', user_analysis %></td>
+        <td><%= link_to 'Edit', edit_user_analysis_path(user_analysis) %></td>
+        <td><%= link_to 'Destroy', user_analysis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User analysis', new_user_analysis_path %>
