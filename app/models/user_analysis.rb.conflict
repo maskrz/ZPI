@@ -1,0 +1,8 @@
+class UserAnalysis < ActiveRecord::Base
+<<<<<<< HEAD
+  has_one :user
+=======
+  belongs_to :user
+  belongs_to :analisy
+>>>>>>> 790142e169be5712874fa28b86ffbee8567a3e6b
+end

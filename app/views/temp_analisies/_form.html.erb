@@ -1,0 +1,41 @@
+<%= form_for(@temp_analisy) do |f| %>
+  <% if @temp_analisy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@temp_analisy.errors.count, "error") %> prohibited this temp_analisy from being saved:</h2>
+
+      <ul>
+      <% @temp_analisy.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lowest_rate %><br>
+    <%= f.text_field :lowest_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :medium_rate %><br>
+    <%= f.text_field :medium_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :highest_rate %><br>
+    <%= f.text_field :highest_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :algoritms_rate %><br>
+    <%= f.text_field :algoritms_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.text_field :period %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lowest rate:</strong>
+  <%= @temp_analisy.lowest_rate %>
+</p>
+
+<p>
+  <strong>Medium rate:</strong>
+  <%= @temp_analisy.medium_rate %>
+</p>
+
+<p>
+  <strong>Highest rate:</strong>
+  <%= @temp_analisy.highest_rate %>
+</p>
+
+<p>
+  <strong>Algoritms rate:</strong>
+  <%= @temp_analisy.algoritms_rate %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @temp_analisy.period %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @temp_analisy.date %>
+</p>
+
+<%= link_to 'Edit', edit_temp_analisy_path(@temp_analisy) %> |
+<%= link_to 'Back', temp_analisies_path %>

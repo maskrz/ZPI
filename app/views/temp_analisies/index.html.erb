@@ -1,0 +1,37 @@
+<h1>Listing temp_analisies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lowest rate</th>
+      <th>Medium rate</th>
+      <th>Highest rate</th>
+      <th>Algoritms rate</th>
+      <th>Period</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @temp_analisies.each do |temp_analisy| %>
+      <tr>
+        <td><%= temp_analisy.lowest_rate %></td>
+        <td><%= temp_analisy.medium_rate %></td>
+        <td><%= temp_analisy.highest_rate %></td>
+        <td><%= temp_analisy.algoritms_rate %></td>
+        <td><%= temp_analisy.period %></td>
+        <td><%= temp_analisy.date %></td>
+        <td><%= link_to 'Show', temp_analisy %></td>
+        <td><%= link_to 'Edit', edit_temp_analisy_path(temp_analisy) %></td>
+        <td><%= link_to 'Destroy', temp_analisy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Temp analisy', new_temp_analisy_path %>

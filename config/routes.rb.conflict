@@ -1,4 +1,6 @@
 ZPI::Application.routes.draw do
+<<<<<<< HEAD
+=======
   resources :analisies
 
   resources :temp_analisies
@@ -7,12 +9,17 @@ ZPI::Application.routes.draw do
 
   resources :indices
   
+>>>>>>> 790142e169be5712874fa28b86ffbee8567a3e6b
   resources :user_analyses
 
   resources :messages
 
   resources :users
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> 790142e169be5712874fa28b86ffbee8567a3e6b
   get "static_pages/about"
   get "static_pages/media"
   get "static_pages/contact"
