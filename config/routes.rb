@@ -1,4 +1,10 @@
 ZPI::Application.routes.draw do
+  resources :user_analyses
+
+  resources :messages
+
+  resources :users
+
   get "static_pages/about"
   get "static_pages/media"
   get "static_pages/contact"
