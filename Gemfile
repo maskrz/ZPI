@@ -3,12 +3,8 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-group :development do
-  gem 'mysql2', '0.3.11'
-end
-group :production do
-  gem 'pg'
-end
+gem 'mysql2', '0.3.11'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
