@@ -1,4 +1,5 @@
 ZPI::Application.routes.draw do
+  root :to => 'home#index'
   resources :analisies
 
   resources :temp_analisies
