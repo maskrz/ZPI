@@ -11,8 +11,7 @@ production:
    adapter: postgresql
    database: maskrz_prod
    host: pgsql-591378.vipserv.org
-   username: maskrz
-   password: Nowe1haslo
+   username: maskrz_dev
+   password: develo
    pool: 5
    timeout: 5000
-   port: 5433

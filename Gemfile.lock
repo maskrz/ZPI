@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: addb7143365f97f938e3bdbb2ccfc52591230eda
+  branch: 3.0.0
+  specs:
+    anjlab-bootstrap-rails (3.0.0.rc2)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -27,8 +36,6 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
-    bootstrap-sass (2.3.2.2)
-      sass (~> 3.2)
     builder (3.1.4)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -105,7 +112,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bootstrap-sass
+  anjlab-bootstrap-rails!
   jbuilder (~> 1.2)
   jquery-rails
   mysql2 (= 0.3.11)

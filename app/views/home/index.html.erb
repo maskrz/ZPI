@@ -1,7 +1,13 @@
-<h1>Home#home</h1>
-<p>Find me in app/views/home/home.html.erb</p>
+<%= render "partials/header" %>
+<section id="content">
+	<div class="wrapper">
+		<h1>Home#home</h1>
+		<p>
+			Find me in app/views/home/home.html.erb
+		</p>
 
-
-
-<h1>krok 1, wybierz spolke</h1>
-<%= select_tag("indices", options_from_collection_for_select(@indices, "id", "name"), {:include_blank => 'nil'}) %>
+		<h1>krok 1, wybierz spolke</h1>
+		<%= select_tag("indices", options_from_collection_for_select(@indices, "id", "name"), {:include_blank => 'nil'}) %>
+	</div>
+</section>
+<%= render "partials/footer" %>
