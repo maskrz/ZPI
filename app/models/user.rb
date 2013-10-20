@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
     self.password == pass
   end
   
+  def display_name
+    self.first_name + " " +self.last_name + "  "+ self.email
+  end
+  
 end
