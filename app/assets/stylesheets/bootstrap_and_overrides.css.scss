@@ -1,3 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Varela);
+
+body { font-family: 'Varela', sans-serif !important; }
+
 .wrapper { width: 1000px; margin:0 auto }
 
-#header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; }
+#header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.225); -moz-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.25); box-shadow:  0px 5px 5px rgba(50, 50, 50, 0.25); }
+  #header .login-form { margin:20px 0; }
+    #header .login-form .row { color:#fff; }
+    #header .login-form a { color:#fff; }
+    #header .login-form .btn-primary { background-color:#1f5479; border:none; border-bottom:2px solid #163b55; }
+    
+#landing-page { height:595px; background:url(landing-page-form-bg.png) no-repeat; }
+
+#footer { width:100%; height:240px; background-color:#c5d4e1;}
