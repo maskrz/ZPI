@@ -1,22 +1,26 @@
 @import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
 
 body { font-family: 'Varela', sans-serif !important; color: #37698c}
-.wrapper { width: 1000px; margin:0 auto }
-
-
+    .wrapper { width: 1000px; margin:0 auto }
+    .form-horizontal .btn-default {background-color:#92cf42; border-bottom:2px solid #81b845; color: #2b440a; margin-left: 257px; font-weight: bolder; font-size: 20px; width:302px; height:50px; }
+    .control-label {font-size:15px; font-weight: lighter; color: #37698c; }
+   
 #header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.225); -moz-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.25); box-shadow:  0px 5px 5px rgba(50, 50, 50, 0.25); }
   #header .login-form { margin:20px 0; }
     #header .login-form .row { color:#fff; }
     #header .login-form a { color:#fff; }
     #header .login-form .btn-primary { background-color:#1f5479; border:none; border-bottom:2px solid #163b55; }
     
-#landing-page { height:595px; background:url(landing-page-form-bg.png) no-repeat; }
-
-#contact {padding-top:488px; background:url(contact-form-bg.png) 50% 55px no-repeat; color: #37698c; }
+#landing-page { height:595px; background:url(landing-page-form-bg.png) no-repeat; color: #37698c; }
+    #landing-page .form-control {background-color:#ebe7e0;}
+    #landing-page h3 {text-align: center; margin-top: 80px; margin-bottom: 40px}
+    #landing-page .control-label {margin-left: 257px;}
+    #landing-page .checkbox {margin-left: 257px;}
+    #landing-page .horizontal-form  {margin-top: 40px}
+    
+#contact {padding-top:488px; background:url(contact-form-bg.png) 50% 55px no-repeat; color: #37698c}
     #contact .form-control {background-color:#ebe7e0;}
-    #contact .control-label {font-size:15px; font-weight: lighter;}
     #contact textarea.form-control {height: 250px;}
-    #contact .form-horizontal .btn-default {background-color:#92cf42; border-bottom:2px solid #81b845; color: #2b440a; margin-left: 257px; font-weight: bolder; font-size: 20px; width:302px; height:50px; }
-
+   
 #footer { width:100%; height:240px; background-color:#c5d4e1;}
 
