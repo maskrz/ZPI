@@ -1,10 +1,11 @@
 class CreateMessages < ActiveRecord::Migration
   def change
+    drop_table :messages
     create_table :messages do |t|
       t.text :content
       t.boolean :is_read
-      t.references :sender
-      t.references :reciver
+      t.references :sender, :class_name => "User"
+      t.references :reciver, :class_name => "User"
       t.timestamps
     end
   end

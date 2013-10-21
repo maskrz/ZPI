@@ -1,12 +1,18 @@
 ZPI::Application.routes.draw do
+  resources :cindices
+
   root :to => 'home#index'
   resources :analisies
 
   resources :temp_analisies
 
   resources :companies
+  
+  resources :company
 
   resources :indices
+  
+  resources :index
   
   resources :user_analyses
 
@@ -17,6 +23,7 @@ ZPI::Application.routes.draw do
   get "static_pages/about"
   get "static_pages/media"
   get "static_pages/contact"
+  get "home/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

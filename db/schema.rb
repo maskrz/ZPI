@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020090739) do
+ActiveRecord::Schema.define(version: 20131021173445) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 20131020090739) do
     t.datetime "updated_at"
   end
 
+  create_table "cindices", force: true do |t|
+    t.integer "company_id"
+    t.integer "index_id"
+  end
+
   create_table "companies", force: true do |t|
     t.string   "shortcut"
     t.string   "name"
@@ -66,7 +71,7 @@ ActiveRecord::Schema.define(version: 20131020090739) do
     t.datetime "updated_at"
   end
 
-  create_table "companys_indices", force: true do |t|
+  create_table "companies_indices", force: true do |t|
     t.integer "company_id"
     t.integer "index_id"
   end
