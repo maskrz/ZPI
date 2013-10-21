@@ -1,4 +1,5 @@
 class Index < ActiveRecord::Base
-  has_many :companys_indices
-  has_many :companies, :through => :companys_indices
+  attr_accessible :companies_indices_id, :company_id
+  has_many :companies_indices
+  has_many :companies, :through => :companies_indices
 end
