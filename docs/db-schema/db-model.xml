@@ -625,7 +625,7 @@
 <INDEXCOLUMN idColumn="1197" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
-<INDEX ID="1192" IndexName="FK_companys_index" IndexKind="1" FKRefDef_Obj_id="1177">
+<INDEX ID="1192" IndexName="FK_companies_index" IndexKind="1" FKRefDef_Obj_id="1177">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="1191" LengthParam="0" />
 </INDEXCOLUMNS>
