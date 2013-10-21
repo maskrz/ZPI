@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def home
     @indices = Index.all
   end
 end
