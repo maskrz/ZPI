@@ -1,6 +1,6 @@
 class CreateMessages < ActiveRecord::Migration
   def change
-    drop_table :messages
+    drop_table :messages if self.table_exists?("messages")
     create_table :messages do |t|
       t.text :content
       t.boolean :is_read
