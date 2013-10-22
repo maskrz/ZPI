@@ -1,6 +1,15 @@
 class IndicesController < ApplicationController
   before_action :set_index, only: [:show, :edit, :update, :destroy]
 
+
+  
+    def get_companies
+      puts :param['index_id']
+      ary = [1, "two", 3.0]
+        render json: :params['index_id'] 
+    end
+    
+    
   # GET /indices
   # GET /indices.json
   def index
@@ -71,4 +80,5 @@ class IndicesController < ApplicationController
     def index_params
       params.require(:index).permit(:name)
     end
+    
 end
