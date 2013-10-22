@@ -2,6 +2,9 @@ ZPI::Application.routes.draw do
   resources :cindices
 
   root :to => 'home#index'
+  
+  get 'index/get_companies' => 'indices#get_companies'
+  
   resources :analisies
 
   resources :temp_analisies
@@ -20,7 +23,6 @@ ZPI::Application.routes.draw do
 
   resources :users
   
-  #match 'getCompanies' => 'company#getCompanies', :via => [:get, :post]
   
   get "static_pages/about"
   get "static_pages/media"

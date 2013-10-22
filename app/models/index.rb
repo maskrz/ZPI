@@ -3,7 +3,7 @@ class Index < ActiveRecord::Base
   has_many :cindices
   has_many :companies, :through => :cindices
   
-  def getCompanies(index_id)
-    Companies.where("index_id = ?", index_id)
+  def get_companies(index_id)
+    Companies.where("index_id = ?", index_id);
   end
 end
