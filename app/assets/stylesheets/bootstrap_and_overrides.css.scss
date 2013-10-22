@@ -4,7 +4,9 @@ body { font-family: 'Varela', sans-serif !important; color: #37698c}
     .wrapper { width: 1000px; margin:0 auto }
     .form-horizontal .btn-green { background-color:#92cf42; border-bottom:3px solid #81b845; color: #2b440a; font-weight: bold; font-size: 20px; line-height:40px;}
     .control-label {font-size:15px; font-weight: lighter; color: #37698c; }
-    h2, h3 {color: #37698c; };
+    hr { border-color:#d7d7d7; margin-top:35px }
+    hr + h2 { margin-top:-40px; }
+    h2, h3, h4 {color: #37698c; font-family: 'Varela', sans-serif !important; font-weight: bold; }
     
 #header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.225); -moz-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.25); box-shadow:  0px 5px 5px rgba(50, 50, 50, 0.25); }
   #header .login-form { margin:20px 0; }
@@ -19,17 +21,23 @@ body { font-family: 'Varela', sans-serif !important; color: #37698c}
     #landing-page-top { background:url(man-lean.jpg) 100% 20px no-repeat; }
     #landing-page #go-further { cursor:pointer; font-size:18px; padding-bottom:30px; margin-top:40px; background:url(ico-arrow-down.png) 50% 100% no-repeat }
 
-#about h2 {font-weight: bold;}
+#about h2 {}
     #about .about-us { background:url(about-us-bg.png) 50% 50% no-repeat; min-height:450px;}
     #about .left { background:url(about-us-graph.png) 50% 0% no-repeat; margin-top: 15px; }
     #about .right { background:url(about-us-shield.png) 50% 0% no-repeat; margin-top: 15px; }
     #about .about-text {margin: 125px 0 40px 0; }
     #about .about-us h3 {font-weight: bold; margin-bottom: 15px;}
     #about .about-us-imgbuild { background:url(about-us-b4.png) no-repeat; min-height:450px }
+    #about {color: #37698c;}
+    #about .ceos {min-height:650px; margin-top: 40px}
+    #about h4 {margin-top: 15px;}
     
 #contact {background:url(contact-form-bg.png) 90% 55px no-repeat; color: #37698c; }
     #contact .form-control {background-color:#ebe7e0;}
     #contact textarea.form-control {height: 250px; width:313px;}
-   
+    
+
+
+
 #footer { width:100%; height:240px; background-color:#c5d4e1;}
 
