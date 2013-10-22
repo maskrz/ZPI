@@ -2,9 +2,10 @@
 
 body { font-family: 'Varela', sans-serif !important; color: #37698c}
     .wrapper { width: 1000px; margin:0 auto }
-    .form-horizontal .btn-green { background-color:#92cf42; border-bottom:2px solid #81b845; color: #2b440a; font-weight: bold; font-size: 20px; line-height:50px;}
+    .form-horizontal .btn-green { background-color:#92cf42; border-bottom:3px solid #81b845; color: #2b440a; font-weight: bold; font-size: 20px; line-height:40px;}
     .control-label {font-size:15px; font-weight: lighter; color: #37698c; }
-   
+    h2, h3 {color: #37698c; };
+    
 #header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.225); -moz-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.25); box-shadow:  0px 5px 5px rgba(50, 50, 50, 0.25); }
   #header .login-form { margin:20px 0; }
     #header .login-form .row { color:#fff; }
@@ -13,11 +14,16 @@ body { font-family: 'Varela', sans-serif !important; color: #37698c}
     
 #landing-page { height:595px; background:url(landing-page-form-bg.png) no-repeat; color: #37698c; }
     #landing-page .form-control {background-color:#ebe7e0;}
-    #landing-page h3 { font-weight:bold; margin: 80px 0 40px 0}
+    #landing-page h3 {  margin: 80px 0 40px 0}
     #landing-page .horizontal-form  {margin-top: 40px}
-
-#about .about-us { background:url(about-us-bg.png) 50% 50% no-repeat; min-height:450px;}
-  #about .about-us .left { }
+    
+#about h2 {font-weight: bold;}
+    #about .about-us { background:url(about-us-bg.png) 50% 50% no-repeat; min-height:450px;}
+    #about .left { background:url(about-us-graph.png) 50% 0% no-repeat; margin-top: 15px; }
+    #about .right { background:url(about-us-shield.png) 50% 0% no-repeat; margin-top: 15px; }
+    #about .about-text {margin: 125px 0 40px 0; }
+    #about .about-us h3 {font-weight: bold; margin-bottom: 15px;}
+    #about .about-us-imgbuild { background:url(about-us-b4.png) no-repeat; min-height:450px }
     
 #contact {padding-top:488px; background:url(contact-form-bg.png) 50% 55px no-repeat; color: #37698c}
     #contact .form-control {background-color:#ebe7e0;}
