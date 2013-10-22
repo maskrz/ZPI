@@ -7,4 +7,10 @@ $(document).ready(function() {
 			console.log(data);
 		});
 	});
+	$('#go-further').click(function() {
+		var scrollTo =  $('#landing-page-main').offset().top;
+		$('html, body').animate({
+		    scrollTop : scrollTo
+		}, 1000);
+	});
 });
