@@ -20,6 +20,8 @@ ZPI::Application.routes.draw do
 
   resources :users
   
+  #match 'getCompanies' => 'company#getCompanies', :via => [:get, :post]
+  
   get "static_pages/about"
   get "static_pages/media"
   get "static_pages/contact"

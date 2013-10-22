@@ -6,8 +6,13 @@
 			Find me in app/views/home/home.html.erb
 		</p>
 
-		<h1>krok 1, wybierz spolke</h1>
+		<h1>krok 1, wybierz indeks</h1>
 		<%= select_tag("indices", options_from_collection_for_select(@indices, "id", "name"), {:include_blank => 'nil'}) %>
+	
+		<%= 
+		#button_to 'Dalej', {:controller => "indices", :action => "getCompanies", :index_id => id, :method=>:get } 
+		%>
+		
 	</div>
 </section>
 <%= render "partials/footer" %>
