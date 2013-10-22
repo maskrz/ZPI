@@ -13,10 +13,12 @@ body { font-family: 'Varela', sans-serif !important; color: #37698c}
     #header .login-form .btn-primary { background-color:#1f5479; border:none; border-bottom:2px solid #163b55; }
     
 #landing-page { height:595px; background:url(landing-page-form-bg.png) no-repeat; color: #37698c; }
-    #landing-page .form-control {background-color:#ebe7e0;}
-    #landing-page h3 {  margin: 80px 0 40px 0}
     #landing-page .horizontal-form  {margin-top: 40px}
-    
+    #landing-page .form-control {background-color:#ebe7e0;}
+    #landing-page h3 {  margin: 60px 0 40px 0}
+    #landing-page-top { background:url(man-lean.jpg) 100% 20px no-repeat; }
+    #landing-page #go-further { cursor:pointer; font-size:18px; padding-bottom:30px; margin-top:40px; background:url(ico-arrow-down.png) 50% 100% no-repeat }
+
 #about h2 {font-weight: bold;}
     #about .about-us { background:url(about-us-bg.png) 50% 50% no-repeat; min-height:450px;}
     #about .left { background:url(about-us-graph.png) 50% 0% no-repeat; margin-top: 15px; }

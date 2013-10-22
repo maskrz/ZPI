@@ -1,8 +1,22 @@
 <%= render "partials/header" %>
 <section id="content">
 	<div class="wrapper container" id="landing-page">
-		<h3 class="text-center">Zarejestruj nowe konto</h3>
-		<%= render "partials/registration_box" %>
+		<section id="landing-page-top">
+			<h3 class="text-center">Zarejestruj nowe konto</h3>
+			<%= render "partials/registration_box" %>
+			<p id="go-further" class="text-center col-lg-12">Chcesz wiedzieć więcej na temat GPW Analizer? Zejdź niżej...</p>
+		</section>
+		<section id="landing-page-main">
+			<div class="col-lg-4">
+				<h2>Pewna inwestycja</h2>
+			</div>
+			<div class="col-lg-4">
+				<h2>Bezpieczeństwo</h2>
+			</div>
+			<div class="col-lg-4">
+				<h2>Giełda dla każdego</h2>
+			</div>
+		</section>
 	</div>
 </section>
 <%= render "partials/footer" %>
