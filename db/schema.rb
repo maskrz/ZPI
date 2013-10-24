@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131021173445) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "analisies", force: true do |t|
     t.float    "lowest_rate"
     t.float    "medium_rate"
