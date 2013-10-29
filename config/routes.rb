@@ -4,6 +4,7 @@ ZPI::Application.routes.draw do
   root :to => 'home#index'
   
   get 'index/get_companies' => 'indices#get_companies'
+  get 'fetch_companies' => 'companies#fetch_companies'
   
   resources :analisies
 
