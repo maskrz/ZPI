@@ -8,4 +8,4 @@
 /log/*.log
 
 /tmp
-/config/database.yml
+/config/database.ymlapp/assets/images/Thumbs.db
