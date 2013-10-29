@@ -3,8 +3,7 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'pg', group: [:development]
-gem 'pg', group: [:production]
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -12,8 +11,6 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                           :github => 'anjlab/bootstrap-rails',
                           :branch => '3.0.0'
-
-gem 'protected_attributes'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
