@@ -13,4 +13,10 @@ $(document).ready(function() {
 		    scrollTop : scrollTo
 		}, 1000);
 	});
+	$('#register').click(function() {
+		var scrollTo =  $('#header').offset().top;
+		$('html, body').animate({
+		    scrollTop : scrollTo
+		}, 500);
+	});
 });
