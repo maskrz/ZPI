@@ -27,6 +27,13 @@ GPW.View.scrollTo = function(elem, dest) {
 		}, 500);
 	});
 };
+GPW.View.scrollListener = function() {
+	$(window).scroll(function(e) {
+		var offsetY = $(document).scrollTop();
+		var visibility = (100 - offsetY*2) / 100;
+		$('#go-further').css('opacity', visibility);
+	});
+};
 GPW.Ajax.getCompanies = function() {
 	$('select#indices').change(function() {
 		var selectedIndex = $(this).val();
@@ -37,4 +44,4 @@ GPW.Ajax.getCompanies = function() {
 		});
 	});
 };
-
+GPW.View.scrollListener();
