@@ -3,6 +3,13 @@
 <p>
   <strong>Name:</strong>
   <%= @index.name %>
+  <hr>
+  <strong>Companies</strong>
+  <% @companies.each_with_index do |c, i| %>
+  	<p>
+  		<em><%= i+1 %>. <%= c.name %></em>
+  	</p>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_index_path(@index) %> |
