@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+var GPW = {};
+GPW.Ajax = {};
+GPW.View = {};
+
+GPW.View.scrollTo = function(elem, dest) {
+	$(elem).click(function() {
+		var scrollTo =  $(dest).offset().top;
+		$('html, body').animate({
+		    scrollTop : scrollTo
+		}, 500);
+	});
+};
+GPW.Ajax.getCompanies = function() {
+	$('select#indices').change(function() {
+		var selectedIndex = $(this).val();
+		$.get('/index/get_companies', {
+			'index_id' : selectedIndex
+		}, function(data) {
+			console.log(data);
+		});
+	});
+};
+
