@@ -1,12 +1,5 @@
 class CompaniesController < ApplicationController
-  include CompaniesHelper
-  
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  
-  def fetch_companies
-    @c = CompaniesHelper.fetch_companies(params["index_id"])
-    render json: @c
-  end
 
   # GET /companies
   # GET /companies.json

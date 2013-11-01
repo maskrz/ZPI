@@ -1,5 +1,7 @@
+
 module CompaniesHelper
   require 'open-uri'
+  
   def self.fetch_companies(index_name)
     response =  open(URI.parse('http://www.gpw.pl/ajaxindex.php?action=GPWCompanySearch&start=listForIndex&listTemplateName=GPWCompanySearch/ajaxList_PL&index='+index_name)).read
     
