@@ -3,7 +3,7 @@ class CreateCompanies < ActiveRecord::Migration
     create_table :companies do |t|
       t.string :shortcut
       t.string :name
-      t.text :description
+      t.string :full_id
 
       t.timestamps
     end

@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20131021173445) do
   create_table "companies", force: true do |t|
     t.string   "shortcut"
     t.string   "name"
-    t.text     "description"
+    t.string   "full_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
