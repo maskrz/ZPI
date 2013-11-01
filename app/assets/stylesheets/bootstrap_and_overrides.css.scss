@@ -2,7 +2,21 @@
 
 body {color: #37698c}
 body * { font-family: 'Varela', sans-serif !important; }
-    .wrapper { width: 1000px; margin:0 auto }
+    .wrapper { 
+      @media screen and (min-width:1024px) {
+        width: 1000px; 
+      }
+      @media screen and (min-width:1015px) and (max-width:1023px) {
+        width: 930px;
+      } 
+      @media screen and (min-width:768px) and (max-width:1014px) {
+        width: 720px; 
+      } 
+      @media screen and (max-width:767px) {
+        width: 600px;  
+      } 
+       margin:0 auto 
+      }
     .btn.btn-green { background-color:#92cf42; border-bottom:3px solid #81b845; color: #2b440a; font-weight: bold; font-size: 20px; line-height:40px;}
     .control-label {font-size:15px; font-weight: lighter; color: #37698c; }
     
@@ -45,7 +59,7 @@ body * { font-family: 'Varela', sans-serif !important; }
   #media .row { margin-top:30px}
   #media h1 { margin-top:75px; }
     
-#contact {background:url(contact-form-bg.png) 90% 55px no-repeat; color: #37698c; }
+#contact {background:url(man-happy.png) 90% 55px no-repeat; color: #37698c; }
     #contact .form-control {background-color:#ebe7e0;}
     #contact textarea.form-control {height: 250px; width:313px;}
 
