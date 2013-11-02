@@ -18,6 +18,7 @@
 var GPW = {};
 GPW.Ajax = {};
 GPW.View = {};
+GPW.View.Home = {};
 
 GPW.View.scrollTo = function(elem, dest) {
 	$(elem).click(function() {
@@ -27,7 +28,15 @@ GPW.View.scrollTo = function(elem, dest) {
 		}, 500);
 	});
 };
-GPW.View.scrollListener = function() {
+GPW.View.Home.setMainContentPosition = function() {
+	var mainContent = $('#landing-page-main');
+	var innerHeight = $(window).innerHeight(); //get heigth of shown page part
+	var offsetY = mainContent.offset().top;
+	if(offsetY < innerHeight) {
+		mainContent.css('margin-top',innerHeight-offsetY+'px');
+	}
+};
+GPW.View.Home.scrollListener = function() {
 	$(window).scroll(function(e) {
 		var offsetY = $(document).scrollTop();
 		var visibility = (100 - offsetY*2) / 100;
@@ -44,4 +53,3 @@ GPW.Ajax.getCompanies = function() {
 		});
 	});
 };
-GPW.View.scrollListener();
