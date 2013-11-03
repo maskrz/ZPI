@@ -1,12 +1,12 @@
-<form class="form-inline pull-right login-form" role="form">
+<form class="form-inline pull-right login-form" action="<%= auth_sign_in_path %>" role="form">
 	<div class="row">
 		<div class="form-group col-lg-5 col-md-5 col-sm-5">
-			<label class="sr-only" for="exampleInputEmail2">E-mail</label>
-			<input type="email" class="form-control input-group-lg input-group-md input-group-sm" id="exampleInputEmail2" placeholder="E-mail">
+			<label class="sr-only" for="login-email">E-mail</label>
+			<input type="email" class="form-control input-group-lg input-group-md input-group-sm" id="login-email" placeholder="E-mail">
 		</div>
 		<div class="form-group col-lg-5 col-md-5 col-sm-5">
-			<label class="sr-only" for="exampleInputPassword2">Hasło</label>
-			<input type="password" class="form-control input-group-lg input-group-md input-group-sm" id="exampleInputPassword2" placeholder="Hasło">
+			<label class="sr-only" for="login-password">Hasło</label>
+			<input type="password" class="form-control input-group-lg input-group-md input-group-sm" id="login-password" placeholder="Hasło">
 		</div>
 		<button type="submit" class="btn btn-primary col-lg-2 col-md-2 col-sm-2" id "button">
 			Zaloguj
@@ -17,7 +17,7 @@
 			<label><input type="checkbox"> Pamiętaj logowanie</label>
 		</div>
 		<div class="col-lg-5 col-md-5 col-sm-5">
-			<label><a href="#">Zapomnialem hasła</a></label>
+			<label><a href="<%= auth_forgot_password_path %>">Zapomnialem hasła</a></label>
 		</div>
 	</div>
 </form>

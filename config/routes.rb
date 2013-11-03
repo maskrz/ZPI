@@ -1,7 +1,5 @@
 ZPI::Application.routes.draw do
-  root :to => 'home#index'
-  resources :analisies, :temp_analisies, :companies, :company, :indices, :index, :user_analyses, :messages, :users, :cindices
-    
+  root 'home#index'
   scope :page, :controller => :static_pages, :as => :page do
       get 'about'
       get 'contact'
@@ -17,10 +15,11 @@ ZPI::Application.routes.draw do
   end
   
   scope :auth, :controller => :auth, :as => :auth do
-    get 'sign_in', action: :login
-    get 'sign_up', action: :register
+    match 'sign_in', action: :login, via: [:get, :post]
+    match 'sign_up', action: :register, via: [:get, :post]
     get 'sign_out', action: :logout
-    get 'forgot_password'
-    get 'confirm_email'
+    match 'forgot_password', via: [:get, :post]
+    match 'confirm_email', via: [:get, :post]
   end
+  resources :analisies, :temp_analisies, :companies, :company, :indices, :index, :user_analyses, :messages, :users, :cindices
 end
