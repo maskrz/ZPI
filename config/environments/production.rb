@@ -77,4 +77,15 @@ ZPI::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'gpwanalizer.pl',
+    port:                 587,
+    domain:               'gpwanalizer.pl',
+    user_name:            'no-reply',
+    password:             'Nowe1haslo',
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 end

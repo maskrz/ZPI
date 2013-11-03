@@ -26,4 +26,17 @@ ZPI::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    address:              'gpwanalizer.pl',
+    port:                 587,
+    domain:               'gpwanalizer.pl',
+    user_name:            'no-reply@gpwanalizer.pl',
+    password:             'Nowe1haslo',
+    authentication:       :login,
+    enable_starttls_auto: true
+  }
 end
