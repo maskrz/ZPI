@@ -35,6 +35,8 @@ body * { font-family: 'Varela', sans-serif !important; }
     #header .login-form .btn-primary { background-color:#1f5479; border:none; border-bottom:2px solid #163b55; }
     #header .login-form .form-group { padding:0 3px}
     #header .login-form label { font-weight:normal; width:100%; text-align:center; line-height:35px; vertical-align:middle}
+
+#flash-messages { position:relative; top:10px; }
     
 #landing-page { min-height:595px; background:url(landing-page-form-bg.png) no-repeat; color: #37698c; }
     #landing-page .horizontal-form  {margin-top: 40px}

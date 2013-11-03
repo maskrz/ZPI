@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.first_name %>, witaj w GPW Analizer!</h1>
+    <p>
+      Dokonałeś/aś rejestracji w naszym serwisie. Do zalogowania użyj swojego adresu email: <strong><%= @user.email %></strong>.<br>
+    </p>
+    <p>
+      Przed pierwszym logowaniem należy aktywować swoje konto użytkownika. By to zrobić, proszę klilnąć w <%= link_to "ten link", @url %> lub wpisać poniższy adres w przeglądarce:<br />
+      <em><%= @url %></em>
+    </p>
+    <p>Dziękujemy za dołączenie do społeczności inwestorów korzystających z naszy analiz Giełdy Papierów Wartościowych!</p>
+  </body>
+</html>
