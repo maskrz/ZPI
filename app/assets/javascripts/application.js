@@ -21,7 +21,8 @@ GPW.View = {};
 GPW.View.Home = {};
 
 GPW.View.scrollTo = function(elem, dest) {
-	$(elem).click(function() {
+	$(elem).click(function(e) {
+		e.preventDefault();
 		var scrollTo =  $(dest).offset().top;
 		$('html, body').animate({
 		    scrollTop : scrollTo
@@ -38,9 +39,11 @@ GPW.View.Home.setMainContentPosition = function() {
 };
 GPW.View.Home.scrollListener = function() {
 	$(window).scroll(function(e) {
-		var offsetY = $(document).scrollTop();
-		var visibility = (100 - offsetY*2) / 100;
-		$('#go-further').css('opacity', visibility);
+		if($(document).scrollTop() == 0) {
+			$('#go-further').fadeIn();
+		} else {
+			$('#go-further').fadeOut();
+		}
 	});
 };
 GPW.Ajax.getCompanies = function() {
@@ -51,5 +54,38 @@ GPW.Ajax.getCompanies = function() {
 		}, function(data) {
 			console.log(data);
 		});
+	});
+};
+GPW.Ajax.registration = function(form){
+	_form = $(form);
+	_form.submit(function(e){
+		// e.preventDefault();
+		var _data = {
+			'user' : {
+				'first_name' : $(this).find('[name="user[first_name]"]').val(),
+				'last_name' : $(this).find('[name="user[last_name]"]').val(),
+				'email' : $(this).find('[name="user[email]"]').val(),
+				'password' : $(this).find('[name="user[password]"]').val(),
+				'password_confirmation' : $(this).find('[name="user[password_confirmation]"]').val(),
+				'accept_statuate' : $(this).find('[name="user[accept_statuate]"]').val()
+			}
+		};
+		// $.post('/auth/sign_up', _data, function(response){
+			// var _response = JSON.parse(response);
+			// console.log(_response);
+			// if(_response.status != 'success') {
+				// $.each(_response.errors, function(field, error){
+					// _form.find('[name="user['+field+']"]').not('[type="hidden"]').each(function(){
+						// var baseColor = $(this).css('border-color','red');
+						// $(this).css('border-color','red').attr('placeholder',error)
+						// .on('keypress click focus', function() {
+							// $(this).css('border-color', baseColor);
+						// });
+					// });
+				// });
+			// } else {
+// 				
+			// }
+		// });
 	});
 };

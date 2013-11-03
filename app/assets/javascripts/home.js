@@ -3,6 +3,7 @@ $(document).ready(function() {
 	GPW.View.scrollTo('#register', '#header');
 	GPW.View.Home.scrollListener();
 	GPW.View.Home.setMainContentPosition();
+	GPW.Ajax.registration('#registration_form');
 });
 
 $(window).resize(function(){
