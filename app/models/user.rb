@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
   
   def display_name
-    self.first_name + " " +self.last_name + "  "+ self.email
+    self.first_name + " " +self.last_name + " "+ self.email
   end
   
   def prepare_to_save
