@@ -18,7 +18,7 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "should create company" do
     assert_difference('Company.count') do
-      post :create, company: { description: @company.description, name: @company.name, shortcut: @company.shortcut }
+      post :create, company: { full_id: @company.full_id, name: @company.name, shortcut: @company.shortcut }
     end
 
     assert_redirected_to company_path(assigns(:company))
@@ -35,7 +35,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should update company" do
-    patch :update, id: @company, company: { description: @company.description, name: @company.name, shortcut: @company.shortcut }
+    patch :update, id: @company, company: { full_id: @company.full_id, name: @company.name, shortcut: @company.shortcut }
     assert_redirected_to company_path(assigns(:company))
   end
 

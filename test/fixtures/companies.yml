@@ -3,9 +3,9 @@
 one:
   shortcut: MyString
   name: MyString
-  description: MyText
+  full_id: MyText
 
 two:
   shortcut: MyString
   name: MyString
-  description: MyText
+  full_id: MyText

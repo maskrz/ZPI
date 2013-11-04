@@ -1,6 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  first_name: Maciej
+  last_name: Testowy
+  email: test@gmail.com
+  password: test1test
+  password_hash: MyString
+  registration_hash: MyString
+  last_logged_at: 2013-10-16 09:52:44
+  status: 1
+
+two:
   first_name: MyString
   last_name: MyString
   email: MyString
@@ -9,8 +19,8 @@ one:
   registration_hash: MyString
   last_logged_at: 2013-10-16 09:52:44
   status: 1
-
-two:
+  
+three:
   first_name: MyString
   last_name: MyString
   email: MyString

@@ -2,10 +2,8 @@
 
 one:
   content: MyText
-  sent_at: 2013-10-16 09:56:18
   is_read: false
 
 two:
   content: MyText
-  sent_at: 2013-10-16 09:56:18
   is_read: false
