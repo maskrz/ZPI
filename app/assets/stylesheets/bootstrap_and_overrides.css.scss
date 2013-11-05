@@ -80,6 +80,8 @@ body * { font-family: 'Varela', sans-serif !important; }
    .wizard .caret {border-top-color:#c3bfb9;} 
    .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
    .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
+   .wizard-dropdown-list {text-align: left; width: 100%; margin-top: -20px !important; margin-left: 20px !important; width: 510px; max-height: 250px; overflow:auto}
+   .wizard-dropdown-list a {padding-left: 10px !important}
    
    
 

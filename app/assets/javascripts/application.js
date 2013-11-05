@@ -15,7 +15,6 @@
 //= require twitter/bootstrap
 //= require jquery.bootstrap.wizard
 //= require_tree .
-//= require bootstrap.min
 
 var GPW = {};
 GPW.Ajax = {};
