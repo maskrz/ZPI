@@ -15,7 +15,6 @@
 //= require twitter/bootstrap
 //= require jquery.bootstrap.wizard
 //= require_tree .
-//= require bootstrap.min
 
 var GPW = {};
 GPW.Ajax = {};
@@ -105,3 +104,6 @@ GPW.Ajax.registration = function(form) {
 GPW.View.Analysis = {};
 GPW.View.Analysis.wizardForm = function(wizardFormId) {
 }; 
+GPW.View.setTooltip = function(selector, options) {
+	$(selector).tooltip(options);
+};
