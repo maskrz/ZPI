@@ -64,6 +64,24 @@ body * { font-family: 'Varela', sans-serif !important; }
 #contact {background:url(man-happy.png) 90% 55px no-repeat; color: #37698c; }
     #contact .form-control {background-color:#ebe7e0;}
     #contact textarea.form-control {height: 250px; width:313px;}
+    
+#main {text-align: center; color:#37698c}
+
+.wizard { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px}
+   .wizard  { margin-top: 50px;  }
+     .wizard .navi {width:100%;border-bottom: solid 1px #c3bfb9; background:#ebe7e0 }
+     .wizard .navi li {margin: 0; padding:0; border-right: solid 1px #c3bfb9; }
+     .wizard .navi li:last-child { border-right:0 !important }
+        .wizard .navi li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px}
+        .wizard .navi li.active a {background-color:white; color:#c3bfb9; }
+        .wizard .navi li .nav-pills{border-radius: 0;}
+   .wizard p {font-size: 25px; padding-top: 70px; font-weight: bold}
+   .wizard .input-group{width: 550px; padding: 20px; margin: auto}
+   .wizard .caret {border-top-color:#c3bfb9;} 
+   .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
+   .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
+   
+   
 
 #footer { width:100%; background-color:#c5d4e1; color:#37698c; border-bottom:10px solid #37698c}
   #footer .menu { float:right; font-size:16px; margin:43px 0 }
