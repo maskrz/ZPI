@@ -1,11 +1,13 @@
 ZPI::Application.routes.draw do
   root 'home#index'
+  scope :home, :controller =>:home do
+      get 'main'
+  end
   scope :page, :controller => :static_pages, :as => :page do
       get 'about'
       get 'contact'
       get 'media'
       get 'home'
-      get 'main'
   end
   
   scope :ajax, :controller => :ajax do
