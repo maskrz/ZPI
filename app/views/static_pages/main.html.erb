@@ -1,0 +1,77 @@
+<%= render "partials/header" %>
+<section id="content">
+	<div class="wrapper" id="main">
+		<div id="rootwizard" class="wizard">
+			<ul class ="navi ">
+				<li class = "col-lg-4 col-md-4 col-sm-4">
+					<a href="#tab1" data-toggle="tab" class=" nav-pills pills">KROK 1</a>
+				</li>
+				<li class = "col-lg-4 col-md-4 col-sm-4">
+					<a href="#tab2" data-toggle="tab" class=" nav-pills pills">KROK 2</a>
+				</li>
+				<li class = "col-lg-4 col-md-4 col-sm-4">
+					<a href="#tab3" data-toggle="tab" class=" nav-pills pills">KROK 3</a>
+				</li>
+
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane" id="tab1">
+					<p class=" text ">
+						Wybierz interesujące Cię indeksy:
+					</p>
+
+					<div class="input-group " >
+
+						<input type="text" class="form-control ">
+						<div class="input-group-btn index-input">
+							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="tab2">
+					<p class=" text ">
+						Wybierz interesujące Cię spółki:
+					</p>
+
+					<div class="input-group " >
+
+						<input type="text" class="form-control ">
+						<div class="input-group-btn index-input">
+							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="tab3">
+					3
+				</div>
+
+				<ul class="pager steps ">
+					<li class="previous first " style="display:none;">
+						<a href="#">First</a>
+					</li>
+					<li class="previous step">
+						<a href="#">Poprzedni krok</a>
+					</li>
+					<li class="next last" style="display:none;">
+						<a href="#">Last</a>
+					</li>
+					<li class="next step">
+						<a href="#">Następny krok</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="downText" class="wizard">
+			<div class= "col-lg-3">
+				<p class=" text ">
+				Czym jest prognoza?
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<%= render "partials/footer" %>

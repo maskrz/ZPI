@@ -5,6 +5,7 @@ ZPI::Application.routes.draw do
       get 'contact'
       get 'media'
       get 'home'
+      get 'main'
   end
   
   scope :ajax, :controller => :ajax do
