@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
-
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
+@import url(//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css);
 body {color: #37698c}
 body * { font-family: 'Varela', sans-serif !important; }
     .wrapper { 
@@ -66,7 +67,7 @@ body * { font-family: 'Varela', sans-serif !important; }
     #contact textarea.form-control {height: 250px; width:313px;}
     
 #main {text-align: center; color:#37698c}
-
+    #main h2 {font-size: 30px; padding-top: 70px; font-weight: bold}
 .wizard { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px}
    .wizard  { margin-top: 50px;  }
      .wizard .navi {width:100%;border-bottom: solid 1px #c3bfb9; background:#ebe7e0 }
@@ -74,20 +75,23 @@ body * { font-family: 'Varela', sans-serif !important; }
      .wizard .navi li:last-child { border-right:0 !important }
         .wizard .navi li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px}
         .wizard .navi li.active a {background-color:white; color:#c3bfb9; }
-        .wizard .navi li .nav-pills{border-radius: 0;}
-   .wizard p {font-size: 25px; padding-top: 70px; font-weight: bold}
+        .wizard .navi li .nav-pills{border-radius: 0;}  
    .wizard .input-group{width: 550px; padding: 20px; margin: auto}
    .wizard .caret {border-top-color:#c3bfb9;} 
    .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
    .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
-   .wizard-dropdown-list {text-align: left; width: 100%; margin-top: -20px !important; margin-left: 20px !important; width: 510px; max-height: 250px; overflow:auto}
-   .wizard-dropdown-list a {padding-left: 10px !important}
-   
-   
-
+   .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c} 
+   .wizard .checkboxes .active {background: #716e67; color: white}       
+   .wizard .tooltip {width: 160px}      
+.advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
+  .advice h2{text-align: left} 
+  .advice p{text-align: left; }   
+  .advice .img-advice {padding-top: 70px; text-align: right}
+  
+  
 #footer { width:100%; background-color:#c5d4e1; color:#37698c; border-bottom:10px solid #37698c}
   #footer .menu { float:right; font-size:16px; margin:43px 0 }
     #footer .menu li { display:inline }
-      #footer .menu li a { color:#37698c}
+      #footer .menu li a { color:#37698c; }
       
 .modal-body {text-align:justify; text-justify:inter-word; }
