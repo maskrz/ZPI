@@ -18,7 +18,13 @@
 							</a>
 						</strong>
 					</div>
-					<div class="col-lg-8 col-md-8 col-sm-8"><%= render "partials/login_box" %></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<% if signed_in? %>
+						<%= render "partials/user_box" %>
+						<% else %>
+						<%= render "partials/login_box" %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</header>
