@@ -14,12 +14,11 @@
 				</li>
 
 			</ul>
-
 			<div class="tab-content">
 				<div class="tab-pane" id="tab1">
-					<p class=" text ">
+					<h2>
 						Wybierz interesujące Cię indeksy:
-					</p>
+					</h2>
 
 					<div class="input-group " >
 
@@ -44,11 +43,10 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="tab2">
-					<p class=" text ">
+					<h2>
 						Wybierz interesujące Cię spółki:
-					</p>
-
-					<div class="input-group " >
+					</h2>  
+					<div class="input-group " > 
 
 						<input type="text" class="form-control ">
 						<div class="input-group-btn index-input">
@@ -56,10 +54,31 @@
 								<span class="caret"></span>
 							</button>
 						</div>
+						<span class="tooltip-element" title="Dodaj więcej spółek">+</span>
 					</div>
 				</div>
 				<div class="tab-pane" id="tab3">
-					3
+					<h2>
+						Zaznacz przedział prognozy jakim jesteś zainteresowany:
+					</h2>
+					<div class="btn-group checkboxes" data-toggle="buttons">
+						<label class="btn btn-primary">
+							<input type="checkbox">
+							30 dni </label>
+						<label class="btn btn-primary">
+							<input type="checkbox">
+							60 dni </label>
+						<label class="btn btn-primary">
+							<input type="checkbox">
+							90 dni </label>
+						<label class="btn btn-primary">
+							<input type="checkbox">
+							180 dni </label>
+						<label class="btn btn-primary">
+							<input type="checkbox">
+							360 dni </label>
+					</div>
+					
 				</div>
 
 				<ul class="pager steps ">
@@ -67,7 +86,7 @@
 						<a href="#">First</a>
 					</li>
 					<li class="previous step">
-						<a href="#">Poprzedni krok</a>
+						<a href="#"><span class="glyphicon glyphicon-search"></span> Poprzedni krok</a>
 					</li>
 					<li class="next last" style="display:none;">
 						<a href="#">Last</a>
@@ -78,10 +97,16 @@
 				</ul>
 			</div>
 		</div>
-		<div id="downText" class="wizard">
-			<div class= "col-lg-3">
-				<p class=" text ">
+		<div id= "advice-place" class="advice ">
+			<div class= "col-lg-3 col-md-3 col-sm-3 img-advice">
+				<%= image_tag "books.png", :title => "Porady" %>
+			</div>
+			<div class= "col-lg-9 col-md-9 col-sm-9">
+				<h2>
 					Czym jest prognoza?
+				</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod
 				</p>
 			</div>
 		</div>
