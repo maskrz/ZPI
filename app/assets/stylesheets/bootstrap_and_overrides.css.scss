@@ -83,6 +83,8 @@ body * { font-family: 'Varela', sans-serif !important; }
    .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c} 
    .wizard .checkboxes .active {background: #716e67; color: white}       
    .wizard .tooltip {width: 160px}      
+   .wizard-dropdown-list {text-align: left; width: 100%; margin-top: -20px !important; margin-left: 20px !important; width: 510px; max-height: 250px; overflow:auto}
+   .wizard-dropdown-list a {padding-left: 10px !important}
 .advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
   .advice h2{text-align: left} 
   .advice p{text-align: left; }   
