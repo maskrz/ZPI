@@ -67,9 +67,10 @@ body * { font-family: 'Varela', sans-serif !important; }
     #contact textarea.form-control {height: 250px; width:313px;}
     
 #main {text-align: center; color:#37698c}
-    #main h2 {font-size: 30px; padding-top: 70px; font-weight: bold}
+    #main h2 {font-size: 30px;  font-weight: bold; }
 .wizard { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px}
    .wizard  { margin-top: 50px;  }
+     .wizard h2 {margin-top: 70px}
      .wizard .navi {width:100%;border-bottom: solid 1px #c3bfb9; background:#ebe7e0 }
      .wizard .navi li {margin: 0; padding:0; border-right: solid 1px #c3bfb9; }
      .wizard .navi li:last-child { border-right:0 !important }
@@ -84,10 +85,10 @@ body * { font-family: 'Varela', sans-serif !important; }
    .wizard .checkboxes .active {background: #716e67; color: white}       
    .wizard .tooltip {width: 160px}      
 .advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
-  .advice h2{text-align: left} 
+  .advice h2{text-align: left; } 
   .advice p{text-align: left; }   
   .advice .img-advice {padding-top: 70px; text-align: right}
-  
+  .advice .forecast {margin-top: 50px !important; padding-right: 100px}
   
 #footer { width:100%; background-color:#c5d4e1; color:#37698c; border-bottom:10px solid #37698c}
   #footer .menu { float:right; font-size:16px; margin:43px 0 }
