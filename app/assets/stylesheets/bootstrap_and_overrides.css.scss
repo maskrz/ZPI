@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
 @import url(//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css);
-body {color: #37698c}
-body * { font-family: 'Varela', sans-serif !important; }
+
+
+body {color: #37698c; font-family: 'Varela', sans-serif; }
     .wrapper {
       @media screen and (min-width:1024px) {
         width: 1000px;
@@ -23,7 +23,7 @@ body * { font-family: 'Varela', sans-serif !important; }
 
     .caret {border-top-color:#c3bfb9 !important;} 
     .btn-common {background: white; border-color:#c3bfb9 !important; border-left: 0; border-top-left-radius: 0px !important; border-bottom-left-radius: 0px !important}  
-    
+    .glyphicon-plus-sign {font-size: 25px; color:#81b845}
 
     h1, h2, h3, h4 {color: #37698c; font-family: 'Varela', sans-serif !important; font-weight: bold; }
  
@@ -81,8 +81,8 @@ body * { font-family: 'Varela', sans-serif !important; }
         .wizard .navi li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px}
         .wizard .navi li.active a {background-color:white; color:#c3bfb9; }
         .wizard .navi li .nav-pills{border-radius: 0;}  
-   .wizard .input-group{width: 550px; padding: 20px; margin: auto}     
-   .wizard .input-group{width: 550px; padding: 20px; margin: auto}
+   .wizard .input-group{width: 500px; padding: 20px; margin: auto}     
+   .wizard .input-group{width: 500px; padding: 20px; margin: auto}
    .wizard .caret {border-top-color:#c3bfb9;}
    .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
    .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
