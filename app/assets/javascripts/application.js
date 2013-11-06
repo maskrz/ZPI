@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require typeahead.min
 //= require twitter/bootstrap
 //= require jquery.bootstrap.wizard
 //= require_tree .
@@ -73,3 +74,9 @@ GPW.View.setTooltip= function(options){
 GPW.View.Analysis = {};
 GPW.View.Analysis.wizardForm = function(wizardFormId) {
 }; 
+$(document).ready(function(){	
+	$('.typeahead').typeahead({
+		minLength: 0,
+		prefetch: '/ajax/get_indices.json'                     
+	});
+});

@@ -4,6 +4,11 @@ class AjaxController < ApplicationController
   end
   
   def get_indices
+    result = []
+    indices = Index.all.select([:id, :name]).each{ |item|
+     result << { :id => item.id, :name => item.name, :tokens => [item.name], :value => item.name }
+    }
+    render json: result
   end    
   
   def get_companies
