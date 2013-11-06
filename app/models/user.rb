@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates_acceptance_of :accept_statuate
   
   def authenticate (pass)
-    self.password == Digest::MD5.hexdigest(pass)
+    self.password == Digest::MD5.hexdigest(pass) && self.status > 0
   end
   
   def display_name
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     if self.new_record?
       crypted_password = Digest::MD5.hexdigest(self.password)
       self.password = crypted_password
-      self.registration_hash = Digest::MD5.hexdigest(self.first_name+  self.password + self.last_name + (0...8).map { (65 + rand(26)).chr }.join)
+      self.registration_hash = Digest::MD5.hexdigest((0...8).map { (65 + rand(26)).chr }.join)
       self.status = 0;
     end
   end
