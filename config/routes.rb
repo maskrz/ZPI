@@ -2,6 +2,7 @@ ZPI::Application.routes.draw do
   root 'home#index'
   scope :home, :controller =>:home do
       get 'main'
+      get 'wall'
   end
   scope :page, :controller => :static_pages, :as => :page do
       get 'about'
