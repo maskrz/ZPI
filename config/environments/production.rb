@@ -79,13 +79,15 @@ ZPI::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
   
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     address:              'gpwanalizer.pl',
     port:                 587,
     domain:               'gpwanalizer.pl',
-    user_name:            'no-reply',
+    user_name:            'no-reply@gpwanalizer.pl',
     password:             'Nowe1haslo',
-    authentication:       'plain',
+    authentication:       :login,
     enable_starttls_auto: true
   }
 end

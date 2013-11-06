@@ -12,7 +12,12 @@ class AuthController < ApplicationController
   end
   
   def logout
-    
+    if signed_in?
+      sign_out
+      redirect_to root_path, success: 'Logged out!'
+    else
+      redirect_to root_path, error: 'You are not logged in. Can not log out.'
+    end
   end
   
   def register
@@ -35,8 +40,8 @@ class AuthController < ApplicationController
       @user = User.where(email: params[:user][:email]).first
       if @user
         @user.password_hash = Digest::MD5.hexdigest(@user.password)
-        UserMailer.after_sign_up(@user).deliver
-        redirect_to root_path, success: "Check your email and restore youre access!" 
+        UserMailer.reset_password(@user).deliver
+        redirect_to root_path, success: "Check your email and restore access to your account!" 
       else
         redirect_to root_path, error: "No account has been registered for typed email address"
       end
