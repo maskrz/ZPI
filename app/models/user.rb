@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates_acceptance_of :accept_statuate
   
   def authenticate (pass)
-    self.password == Digest::MD5.hexdigest(pass)
+    self.password == Digest::MD5.hexdigest(pass) && self.status > 0
   end
   
   def display_name
