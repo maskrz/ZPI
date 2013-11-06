@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
   
   def forgot_password(user)
     @user = user
-    @url  = 'http://gpwanalizer.pl'+auth_confirm_email_path+'?token='+@user.registration_hash
-    mail(to: @user.email, subject: 'Przypomnienie GPW Analizer')
+    @url  = 'http://gpwanalizer.pl'+auth_forgot_password_path+'?token='+@user.password_hash
+    mail(to: @user.email, subject: 'Reset hałsa do konta w GPW Analizer')
   end
 end

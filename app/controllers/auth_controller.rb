@@ -31,6 +31,16 @@ class AuthController < ApplicationController
   end
   
   def forgot_password
+    if request.post?
+      @user = User.where(email: params[:user][:email]).first
+      if @user
+        @user.password_hash = Digest::MD5.hexdigest(@user.password)
+        UserMailer.after_sign_up(@user).deliver
+        redirect_to root_path, success: "Check your email and restore youre access!" 
+      else
+        redirect_to root_path, error: "No account has been registered for typed email address"
+      end
+    end
   end
   
   def confirm_email
@@ -41,7 +51,7 @@ class AuthController < ApplicationController
       user.registration_hash = nil
       user.status = 1
       user.save
-      redirect_to root_path, notice: "Your account has been activated. Feel free to sign in!" 
+      redirect_to root_path, success: "Your account has been activated. Feel free to sign in!" 
     else
       redirect_to root_path, error: "Your account has not been activated. Plase check registration token"
     end
