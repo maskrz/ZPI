@@ -1,9 +1,9 @@
 class AuthController < ApplicationController
   require 'digest/md5'
   def login
-    user = User.where(email: params[:user][:email]).first
+    user = User.where(email: params[:login][:email]).first
     
-    if user && user.authenticate(params[:user][:password])
+    if user && user.authenticate(params[:login][:password])
       sign_in_in user
       redirect_to root_path, success: 'Logged in!'
     else
