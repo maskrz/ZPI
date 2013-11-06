@@ -3,44 +3,46 @@
 @import url(//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css);
 body {color: #37698c}
 body * { font-family: 'Varela', sans-serif !important; }
-    .wrapper { 
+    .wrapper {
       @media screen and (min-width:1024px) {
-        width: 1000px; 
+        width: 1000px;
       }
       @media screen and (min-width:1015px) and (max-width:1023px) {
         width: 930px;
-      } 
+      }
       @media screen and (min-width:768px) and (max-width:1014px) {
-        width: 720px; 
-      } 
+        width: 720px;
+      }
       @media screen and (max-width:767px) {
         width: 600px;  
-      } 
-       margin:0 auto 
+      }
+       margin:0 auto
       }
     .btn.btn-green { background-color:#92cf42; border-bottom:3px solid #81b845; color: #2b440a; font-weight: bold; font-size: 20px; line-height:40px;}
     .control-label {font-size:15px; font-weight: lighter; color: #37698c; }
+
     .caret {border-top-color:#c3bfb9 !important;} 
     .btn-common {background: white; border-color:#c3bfb9 !important; border-left: 0; border-top-left-radius: 0px !important; border-bottom-left-radius: 0px !important}  
     
-    h1, h2, h3, h4 {color: #37698c; font-family: 'Varela', sans-serif !important; font-weight: bold; }
 
+    h1, h2, h3, h4 {color: #37698c; font-family: 'Varela', sans-serif !important; font-weight: bold; }
+ 
     hr { border-color:#d7d7d7; margin:40px 0 -40px 0 !important; }
     hr + h2 { background-color:#fff; padding-right:10px; display:inline-block }
-    
+   
     h1 + p { font-size:1em; color: #37698c; }
-    
+   
 #header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.225); -moz-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.25); box-shadow:  0px 5px 5px rgba(50, 50, 50, 0.25); }
   #header #logo { margin:33px 0 0 33px; display:inline-block}
   #header .login-form { margin:20px 0; }
-    #header .login-form .row { color:#fff; }
+    #header .login-form .row { color:#fff; text-align:center }
     #header .login-form a { color:#fff; }
     #header .login-form .btn-primary { background-color:#1f5479; border:none; border-bottom:2px solid #163b55; }
     #header .login-form .form-group { padding:0 3px}
-    #header .login-form label { font-weight:normal; width:100%; text-align:center; line-height:35px; vertical-align:middle}
-
+    #header .login-form label { font-weight:normal; line-height:35px; vertical-align:middle}
+ 
 #flash-messages { position:relative; top:10px; }
-    
+   
 #landing-page { min-height:595px; background:url(landing-page-form-bg.png) no-repeat; color: #37698c; }
     #landing-page .horizontal-form  {margin-top: 40px}
     #landing-page .form-control {background-color:#ebe7e0;}
@@ -50,24 +52,24 @@ body * { font-family: 'Varela', sans-serif !important; }
     #landing-page-main p { font-size:16px; padding:0 10px; }
     #landing-page-main #register { margin:15px 0 }
     #landing-page #go-further { position:fixed; bottom:0; left:0; width:100%; cursor:pointer; font-size:18px; padding:30px 0; margin-bottom:0; margin-top:40px; background:url(ico-arrow-down.png) 50% 55px no-repeat #fff; z-index:100; }
-
+ 
 #about h2 {}
     #about .about-us { background:url(man-happy.png) 50% 50% no-repeat; min-height:450px; text-align:center; padding:25px 0}
     #about .about-us h3 {font-weight: bold; margin-bottom: 15px;}
     #about {color: #37698c;}
-
+ 
     #about .ceos { text-align:center; padding-bottom:25px; }
-
+ 
     #about h4 {margin-top: 15px;}
  
 #media { padding:0 0 30px 0}
   #media .row { margin-top:30px}
   #media h1 { margin-top:75px; }
-    
+   
 #contact {background:url(man-happy.png) 90% 55px no-repeat; color: #37698c; }
     #contact .form-control {background-color:#ebe7e0;}
     #contact textarea.form-control {height: 250px; width:313px;}
-    
+   
 #main {text-align: center; color:#37698c}
     #main h2 {font-size: 30px;  font-weight: bold; }
 .wizard { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px}
@@ -80,11 +82,17 @@ body * { font-family: 'Varela', sans-serif !important; }
         .wizard .navi li.active a {background-color:white; color:#c3bfb9; }
         .wizard .navi li .nav-pills{border-radius: 0;}  
    .wizard .input-group{width: 550px; padding: 20px; margin: auto}     
+   .wizard .input-group{width: 550px; padding: 20px; margin: auto}
+   .wizard .caret {border-top-color:#c3bfb9;}
+   .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
    .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
-   .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c} 
-   .wizard .checkboxes .active {background: #716e67; color: white}       
+   .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c}
+   .wizard .checkboxes .active {background: #716e67; color: white}      
    .wizard .tooltip {width: 160px}      
+   .wizard-dropdown-list {text-align: left; width: 100%; margin-top: -20px !important; margin-left: 20px !important; width: 510px; max-height: 250px; overflow:auto}
+   .wizard-dropdown-list a {padding-left: 10px !important}
 .advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
+
     .advice h2{text-align: left; } 
     .advice p{text-align: left; }   
     .advice .img-advice {padding-top: 70px; text-align: right}
@@ -99,9 +107,14 @@ body * { font-family: 'Varela', sans-serif !important; }
                   .panel-body .btn-common {border-left: 0;}
               .panel-body .checkbox {padding-bottom: 10px}               
   
+  .advice h2{text-align: left; }
+  .advice p{text-align: left; }  
+  .advice .img-advice {padding-top: 70px; text-align: right}
+  .advice .forecast {margin-top: 50px !important; padding-right: 100px}
+ 
 #footer { width:100%; background-color:#c5d4e1; color:#37698c; border-bottom:10px solid #37698c}
   #footer .menu { float:right; font-size:16px; margin:43px 0 }
     #footer .menu li { display:inline }
       #footer .menu li a { color:#37698c; }
-      
+     
 .modal-body {text-align:justify; text-justify:inter-word; }
