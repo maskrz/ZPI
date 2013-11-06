@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
-    
-  def main
-    @indices = Index.all
+  def index
+    redirect_to '/home/main' if signed_in?
   end
-  
+
+  def main
+    redirect_to root_path unless signed_in?
+  end
+
 end
