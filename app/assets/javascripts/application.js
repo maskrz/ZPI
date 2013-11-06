@@ -67,43 +67,7 @@ GPW.Ajax.getCompanies = function() {
 		});
 	});
 };
-GPW.Ajax.registration = function(form) {
-	_form = $(form);
-	_form.submit(function(e) {
-		// e.preventDefault();
-		var _data = {
-			'user' : {
-				'first_name' : $(this).find('[name="user[first_name]"]').val(),
-				'last_name' : $(this).find('[name="user[last_name]"]').val(),
-				'email' : $(this).find('[name="user[email]"]').val(),
-				'password' : $(this).find('[name="user[password]"]').val(),
-				'password_confirmation' : $(this).find('[name="user[password_confirmation]"]').val(),
-				'accept_statuate' : $(this).find('[name="user[accept_statuate]"]').val()
-			}
-		};
-		// $.post('/auth/sign_up', _data, function(response){
-		// var _response = JSON.parse(response);
-		// console.log(_response);
-		// if(_response.status != 'success') {
-		// $.each(_response.errors, function(field, error){
-		// _form.find('[name="user['+field+']"]').not('[type="hidden"]').each(function(){
-		// var baseColor = $(this).css('border-color','red');
-		// $(this).css('border-color','red').attr('placeholder',error)
-		// .on('keypress click focus', function() {
-		// $(this).css('border-color', baseColor);
-		// });
-		// });
-		// });
-		// } else {
-		//
-		// }
-		// });
-	});
-};
 
 GPW.View.Analysis = {};
 GPW.View.Analysis.wizardForm = function(wizardFormId) {
 }; 
-GPW.View.setTooltip = function(selector, options) {
-	$(selector).tooltip(options);
-};
