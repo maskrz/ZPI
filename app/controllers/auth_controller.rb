@@ -7,7 +7,7 @@ class AuthController < ApplicationController
       sign_in_in user
       redirect_to root_path, success: 'Logged in!'
     else
-      redirect_to root_path, error: 'Wrong email/password'
+      redirect_to root_path, error: 'Wrong email/password or account is inactive'
     end
   end
   
