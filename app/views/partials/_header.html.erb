@@ -8,7 +8,7 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<header id="header">
+		<header id="header" class="header">
 			<div class="wrapper">
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4">
@@ -20,9 +20,9 @@
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8">
 						<% if signed_in? %>
-						<%= render "partials/user_box" %>
+						 <%= render "partials/user_box" %>
 						<% else %>
-						<%= render "partials/login_box" %>
+						 <%= render "partials/login_box" %>
 						<% end %>
 					</div>
 				</div>

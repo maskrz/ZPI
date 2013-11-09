@@ -1,7 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
 @import url(//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css);
 
-
 body {color: #37698c; font-family: 'Varela' , sans-serif  ;}
     .wrapper {
       @media screen and (min-width:1024px) {
@@ -45,6 +44,13 @@ box-shadow:         -1px 0px 6px rgba(255, 94, 0, 1);}
     #header .login-form .form-group { padding:0 3px}
     #header .login-form label { font-weight:normal; line-height:35px; vertical-align:middle}
  
+#user_box .nav{ margin-top: 20px; font-size: 25px; color:#08385a}
+        
+      #user_box .dropdown-toggle {color: #093d61; margin:15px 10px; padding:0 !important}
+      #user_box .dropdown-toggle:hover, 
+      #user_box .open .dropdown-toggle  {color: white; background-color:transparent;}
+         
+    
 #flash-messages { position:relative; top:10px; }
    
 #landing-page { min-height:595px; background:url(landing-page-form-bg.png) no-repeat; color: #37698c; }
