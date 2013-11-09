@@ -16,30 +16,16 @@
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane" id="tab1">
-					<h2>
-						Wybierz interesujące Cię indeksy:
-					</h2>
+					<h2> Wybierz interesujące Cię indeksy: </h2>
 
-					<div class="input-group " >
-
-						<input type="text" class="form-control" value = "">
-						<div class="input-group-btn index-input">
-
+					<div class="input-group">
+						<input type="text" class="form-control typeahead">
+						<div class="input-group-btn index-input ">
 							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-
 								<span class="caret"></span>
-
 							</button>
-							<ul class="dropdown-menu wizard-dropdown-list" role="menu">
-								<% @indices.each do |index| %>
-								<li>
-									<a href="#"><%= index.name %></a>
-								</li>
-								<% end %>
-
-							</ul>
 						</div>
-					<span class="tooltip-element " title="Dodaj więcej indeksów"><span class="glyphicon glyphicon-plus-sign"></span></span>
+						<span class="tooltip-element " title="Dodaj więcej indeksów"><span class="glyphicon glyphicon-plus-sign"></span></span>
 					</div>
 				</div>
 				<div class="tab-pane" id="tab2">
