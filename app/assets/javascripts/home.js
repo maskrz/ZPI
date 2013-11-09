@@ -3,7 +3,8 @@ $(document).ready(function() {
 	GPW.View.scrollTo('#register', '#header');
 	GPW.View.Home.scrollListener();
 	GPW.View.Home.setMainContentPosition();
-	GPW.View.setTooltip({placement: 'right'});
+
+	GPW.View.setTooltip('#user_box .nav .dropdown-toggle', { placement : 'top' });
 });
 
 $(window).resize(function(){

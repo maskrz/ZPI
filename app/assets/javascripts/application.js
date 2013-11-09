@@ -68,8 +68,8 @@ GPW.Ajax.getCompanies = function() {
 		});
 	});
 };
-GPW.View.setTooltip= function(options){
-	$('.tooltip-element').tooltip(options);
+GPW.View.setTooltip= function(element, options){
+	$(element).tooltip(options);
 };
 GPW.View.Analysis = {};
 GPW.View.Analysis.wizardForm = function(wizardFormId) {
