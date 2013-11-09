@@ -127,8 +127,10 @@ box-shadow:         -1px 0px 6px rgba(255, 94, 0, 1);}
 
  
 #footer { width:100%; background-color:#c5d4e1; color:#37698c; border-bottom:10px solid #37698c}
-  #footer .menu { float:right; font-size:16px; margin:43px 0 }
-    #footer .menu li { display:inline }
-      #footer .menu li a { color:#37698c; }
+  #footer nav {padding-right: 0 }
+    #footer .menu { float:right; font-size:16px; margin:43px 0; }
+      #footer .menu li { display:inline }
+        #footer .menu li a { color:#37698c; }
+  #footer address {text-align: left; padding-left: 0; }
      
 .modal-body {text-align:justify; text-justify:inter-word; }
