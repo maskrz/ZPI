@@ -1,11 +1,11 @@
-<div id="analysis-header">
+<div id="analysis-header" class="row">
 	<div class="col-lg-6 col-md-6 col-sm-6 head-line">
 		<h2>Bank Zachodni WBK</h2>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-3 head-line">
 		<span class="tooltip-element" title="Usuń spółkę z listy"><span class="glyphicon glyphicon-plus-sign"></span></span>
 	</div>
-	<div class="panel-body">
+	<div class="panel-body col-lg-3 col-md-3 col-sm-3">
 		<div class="input-group">
 			<input type="text" class="form-control " placeholder="Wybierz datę">
 			<div class="input-group-btn index-input">
@@ -15,6 +15,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="clearfix "></div>
 </div>
 
 <div id="analysis-wizard">
@@ -37,20 +38,29 @@
 			</li>
 		</ul>
 		<div class="tab-content">
-			<div class="tab-pane" id="tab1">
+			<div class="tab-pane row" id="tab1">
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<%= image_tag "good-analysis.png", :title => "Trafnie" %>
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-4 analysis-data">
-					<div class="text"><h4>Kurs początkowy</h4> <label class="course-value">315.15 zł<label></div>
-					<div class="text color-data"><h4>Zm. na przedziale prognozy</h4> <label class="course-value"><label>15%</div>
+					<div class="text">
+						<h4>Kurs początkowy</h4><label class="course-value">315.15 zł<label>
+					</div>
+					<div class="text color-data">
+						<h4>Zm. na przedziale prognozy</h4><label class="course-value"><label>15%
+					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 analysis-data">
-					<div class="text color-data"><h4>Aktualny kurs</h4> <label class="course-value">375.00 zł<label></div>
-					<div class="text color-data"><h4>Aktualna wartość akcji</h4> <label class="course-value">10 000.00<label></div>
+					<div class="text color-data">
+						<h4>Aktualny kurs</h4><label class="course-value">375.00 zł<label>
+					</div>
+					<div class="text color-data">
+						<h4>Aktualna wartość akcji</h4><label class="course-value">10 000.00<label>
+					</div>
 				</div>
 			</div>
+			<div class="clearfix "></div>
 			<div class="tab-pane" id="tab2">
 				<h2></h2>
 
