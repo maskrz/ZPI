@@ -1,83 +1,592 @@
-<div id="analysis-header" class="row">
-	<div class="col-lg-6 col-md-6 col-sm-6 head-line">
-		<h2>Bank Zachodni WBK</h2>
+<div class="analysis-item">
+	<div class="analysis-header" class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 head-line">
+			<h2>Bank Zachodni WBK</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 head-line">
+			<span class="tooltip-element" title="Usuń spółkę z listy"><span class="glyphicon glyphicon-plus-sign"></span></span>
+		</div>
+		<div class="panel-body col-lg-3 col-md-3 col-sm-3">
+			<div class="input-group">
+				<input type="text" class="form-control " placeholder="Wybierz datę">
+				<div class="input-group-btn index-input">
+					<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix "></div>
 	</div>
-	<div class="col-lg-3 col-md-3 col-sm-3 head-line">
-		<span class="tooltip-element" title="Usuń spółkę z listy"><span class="glyphicon glyphicon-plus-sign"></span></span>
-	</div>
-	<div class="panel-body col-lg-3 col-md-3 col-sm-3">
-		<div class="input-group">
-			<input type="text" class="form-control " placeholder="Wybierz datę">
-			<div class="input-group-btn index-input">
-				<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-					<span class="caret"></span>
-				</button>
+
+	<div class="analysis-wizard">
+		<div class="wizard">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#bzbwk-days-30" data-toggle="tab">30 DNI</a>
+				</li>
+				<li>
+					<a href="#bzbwk-days-60" data-toggle="tab">60 DNI</a>
+				</li>
+				<li>
+					<a href="#bzbwk-days-360" data-toggle="tab">360 DNI</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active row" id="bzbwk-days-30">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									502.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									73%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									158.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									10 708.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row" id="bzbwk-days-60">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									332.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									23%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									888.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									708.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row " id="bzbwk-days-360">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									112.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									23%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									58.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									99 532.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="clearfix "></div>
 </div>
 
-<div id="analysis-wizard">
-	<div id="rootwizard" class="wizard">
-		<ul class ="navi ">
-			<li>
-				<a href="#tab1" data-toggle="tab" class=" nav-pills pills">30 DNI</a>
-			</li>
-			<li>
-				<a href="#tab2" data-toggle="tab" class=" nav-pills pills">60 DNI</a>
-			</li>
-			<li>
-				<a href="#tab3" data-toggle="tab" class=" nav-pills pills">90 DNI</a>
-			</li>
-			<li>
-				<a href="#tab2" data-toggle="tab" class=" nav-pills pills">180 DNI</a>
-			</li>
-			<li>
-				<a href="#tab2" data-toggle="tab" class=" nav-pills pills">360 DNI</a>
-			</li>
-		</ul>
-		<div class="tab-content">
-			<div class="tab-pane row" id="tab1">
-				<div class="col-lg-3 col-md-3 col-sm-3">
-					<%= image_tag "good-analysis.png", :title => "Trafnie" %>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-4 analysis-data">
-					<div class="text">
-						<h4>Kurs początkowy</h4><label class="course-value">315.15 zł<label>
-					</div>
-					<div class="text color-data">
-						<h4>Zm. na przedziale prognozy</h4><label class="course-value"><label>15%
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 analysis-data">
-					<div class="text color-data">
-						<h4>Aktualny kurs</h4><label class="course-value">375.00 zł<label>
-					</div>
-					<div class="text color-data">
-						<h4>Aktualna wartość akcji</h4><label class="course-value">10 000.00<label>
-					</div>
+<div class="analysis-item">
+	<div class="analysis-header" class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 head-line">
+			<h2>BRE Bank</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 head-line">
+			<span class="tooltip-element" title="Usuń spółkę z listy"><span class="glyphicon glyphicon-plus-sign"></span></span>
+		</div>
+		<div class="panel-body col-lg-3 col-md-3 col-sm-3">
+			<div class="input-group">
+				<input type="text" class="form-control " placeholder="12-11-2013 (wtorek)">
+				<div class="input-group-btn index-input">
+					<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
 				</div>
 			</div>
-			<div class="clearfix "></div>
-			<div class="tab-pane" id="tab2">
-				<h2></h2>
+		</div>
+		<div class="clearfix "></div>
+	</div>
 
+	<div class="analysis-wizard">
+		<div class="wizard">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#inna-days-30" data-toggle="tab">30 DNI</a>
+				</li>
+				<li>
+					<a href="#inna-days-60" data-toggle="tab">60 DNI</a>
+				</li>
+				<li>
+					<a href="#inna-days-90" data-toggle="tab">90 DNI</a>
+				</li>
+				<li>
+					<a href="#inna-days-180" data-toggle="tab">180 DNI</a>
+				</li>
+				<li>
+					<a href="#inna-days-360" data-toggle="tab">360 DNI</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active row" id="inna-days-30">
+					<div class="col-sm-3">
+						<%= image_tag "bad-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									132.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="fall">
+									45%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="fall">
+									876.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="fall">
+									5 708.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row" id="inna-days-60">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									98.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									20%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									980.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									123 45.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row" id="inna-days-90">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									32.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									25%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									153.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									943 00.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row" id="inna-days-180">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									12.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									72%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									158.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									807.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row " id="inna-days-360">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									53.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									87%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									158.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									70 708.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="tab-pane" id="tab3">
-				<h2></h2>
+		</div>
+	</div>
+</div>
 
+<div class="analysis-item">
+	<div class="analysis-header" class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 head-line">
+			<h2>KGHM Miedź Polska SA</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 head-line">
+			<span class="tooltip-element" title="Usuń spółkę z listy"><span class="glyphicon glyphicon-plus-sign"></span></span>
+		</div>
+		<div class="panel-body col-lg-3 col-md-3 col-sm-3">
+			<div class="input-group">
+				<input type="text" class="form-control " placeholder="12-11-2013 (wtorek)">
+				<div class="input-group-btn index-input">
+					<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+				</div>
 			</div>
-			<div class="tab-pane" id="tab4">
-				<h2></h2>
+		</div>
+		<div class="clearfix "></div>
+	</div>
 
+	<div class="analysis-wizard">
+		<div class="wizard">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#kghm-days-30" data-toggle="tab">30 DNI</a>
+				</li>
+				<li>
+					<a href="#kghm-days-60" data-toggle="tab">60 DNI</a>
+				</li>
+				<li>
+					<a href="#kghm-days-90" data-toggle="tab">90 DNI</a>
+				</li>
+				<li>
+					<a href="#kghm-days-180" data-toggle="tab">180 DNI</a>
+				</li>
+				<li>
+					<a href="#kghm-days-360" data-toggle="tab">360 DNI</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active row" id="kghm-days-30">
+					<div class="analysis-done">
+						<strong>Ta prognoza dobiegła końca. Proszę oceń jej skuteczność:</strong>
+					</div>
+					<div>
+						  
+					</div>
+				</div>
+				<div class="tab-pane row" id="kghm-days-60">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									98.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									20%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									980.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									123 45.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row" id="kghm-days-90">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									32.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									25%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									153.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									943 00.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row" id="kghm-days-180">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									12.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									72%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									158.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									807.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane row " id="kghm-days-360">
+					<div class="col-sm-3">
+						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
+					</div>
+					<div class="col-sm-9">
+						<div class="row">
+							<dl class="col-sm-6">
+								<dt>
+									Kurs początkowy:
+								</dt>
+								<dd>
+									53.14 zł
+								</dd>
+								<dt>
+									Zm na przedziale prognozy:
+								</dt>
+								<dd class="rise">
+									87%
+								</dd>
+							</dl>
+							<dl class="col-sm-6">
+								<dt>
+									Aktualny kurs:
+								</dt>
+								<dd class="rise">
+									158.14 zł
+								</dd>
+								<dt>
+									Aktualna wartość akcji:
+								</dt>
+								<dd class="rise">
+									70 708.15 zł
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="tab-pane" id="tab5">
-				<h2></h2>
-
-			</div>
-
 		</div>
 	</div>
 </div>
