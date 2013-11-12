@@ -15,6 +15,8 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+gem 'paperclip', '>= 3.5.1'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
