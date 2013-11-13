@@ -1,0 +1,4 @@
+Rejestracja:
+- kolor podœwietlenia niewype³nionych pól w formularzu zmieniæ na bardziej wyrazisty
+- dodaæ informacjê do ka¿dej niepoprawnej akcji rejestrowania siê przez u¿ytkownika 
+	np. "Proszê o zaakceptowanie regulaminu"
