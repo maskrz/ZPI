@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Pytanie od użytkownika <%= @asker[:last_name]+' '+ @asker[:first_name]+' ('+@asker[:email]+')' %></h1>
+    <blockquote>
+      <%= @asker[:question] %>
+    </blockquote>
+  </body>
+</html>
