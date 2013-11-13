@@ -15,6 +15,7 @@
 //= require typeahead.min
 //= require bootstrap.min
 //= require jquery.bootstrap.wizard
+//= require jquery.raty/raty/lib/jquery.raty.min.js
 //= require_tree .
 
 var GPW = {};
@@ -78,5 +79,8 @@ $(document).ready(function(){
 	$('.typeahead').typeahead({
 		minLength: 0,
 		prefetch: '/ajax/get_indices.json'                     
+	});
+	$('.star').each(function(){
+		$(this).raty();
 	});
 });
