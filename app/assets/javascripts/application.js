@@ -16,7 +16,7 @@
 //= require twitter/bootstrap
 //= require jquery.bootstrap.wizard
 //= require jquery.raty/raty/lib/jquery.raty.min.js
-//= require_tree .
+//= require_directory .
 
 var GPW = {};
 GPW.Ajax = {};
