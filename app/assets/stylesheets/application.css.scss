@@ -11,7 +11,7 @@
  *= require_self
  *= require bootstrap
  *= require bootstrap-theme
- *= require_tree .
+ *= require bootstrap_and_overrides.css.scss
  */
 
 @font-face {
