@@ -1,32 +1,32 @@
-<form class="form-horizontal" role="form" >
-  <div class="form-group">
-    <label for="first-name" class="col-lg-2 col-md-2 col-sm-2 control-label">Imię</label>
-    <div class="col-lg-4 col-md-4 col-sm-5">
-      <input type="text" class="form-control" id="first-name" placeholder="Imię">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="last-name" class="col-lg-2 col-md-2 col-sm-2 control-label">Nazwisko</label>
-    <div class="col-lg-4 col-md-4 col-sm-5">
-      <input type="text" class="form-control" id="last-name" placeholder="Nazwisko">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="email" class="col-lg-2 col-md-2 col-sm-2 control-label">Adres e-mail</label>
-    <div class="col-lg-4 col-md-4 col-sm-5">
-      <input type="email" class="form-control" id="email" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="mail-content" class="col-lg-2 col-md-2 col-sm-2 control-label">Treść wiadomości</label>
-    <div class="col-lg-10 col-md-10 col-sm-9">
-      <textarea class="form-control" rows="3" id="mail-content"></textarea>
-    </div>
-  </div>
- 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-sm-offset-2">
-      <button type="submit" class="btn btn-green">Wyślij wiadomość</button>
-    </div>
-  </div>
-</form>
+<%= form_for :contact, url: page_contact_path, method: :post, html: { class: "form-horizontal", role: "form", id: "contact-form" } do |f| %>
+	<div class="form-group">
+		<%= f.label :first_name, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<div class="col-lg-4 col-md-4 col-sm-5">
+			<%= f.text_field :first_name, class: "form-control", placeholder: :first_name %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :last_name, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<div class="col-lg-4 col-md-4 col-sm-5">
+			<%= f.text_field :last_name, class: "form-control", placeholder: :last_name %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :email, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<div class="col-lg-4 col-md-4 col-sm-5">
+			<%= f.email_field :email, class: "form-control", placeholder: :email %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :question, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<div class="col-sm-9">
+			<%= f.text_area :question, class: "form-control", rows: 4, placeholder: :question %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-4 col-sm-offset-3 control-label">
+			<%= f.button :send, type: :submit, class: "btn btn-green col-sm-6"%>
+			<%= f.button :clear, type: :reset, class: "btn btn-default col-sm-6"%>
+		</div>
+	</div>
+<% end %>
