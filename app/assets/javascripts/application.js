@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require typeahead.min
-//= require twitter/bootstrap
+//= require bootstrap.min
 //= require jquery.bootstrap.wizard
 //= require_tree .
 
