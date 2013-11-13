@@ -17,8 +17,6 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'paperclip', '>= 3.5.1'
 
-gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
