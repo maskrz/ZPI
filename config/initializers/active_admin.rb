@@ -1,11 +1,16 @@
 ActiveAdmin.setup do |config|
 
+
+  config.before_filter do
+    I18n.locale = 'en'
+  end
+  
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Zpi"
+  config.site_title = "GPW Analizer"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
