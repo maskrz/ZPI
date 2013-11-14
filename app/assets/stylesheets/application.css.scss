@@ -9,9 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap
- *= require bootstrap-theme
- *= require bootstrap_and_overrides.css.scss
+ *= require bootstrap/bootstrap
+ *= require bootstrap/bootstrap-theme
+ *= require typehead/typehead
+ *= require bootstrap_and_overrides
  */
 
 @font-face {
