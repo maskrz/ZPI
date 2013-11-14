@@ -1,38 +1,38 @@
 <%= form_for :user, url: auth_sign_up_path, method: :post, html: { class: "form-horizontal", role: "form", id: "registration-form" } do |f| %>
 	<div class="form-group">
-		<%= f.label :first_name, class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.first_name'), class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.text_field :first_name, class: "form-control", placeholder: :first_name %>
+			<%= f.text_field :first_name, class: "form-control", placeholder: t('activerecord.attributes.user.first_name') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :last_name, class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.last_name'), class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.text_field :last_name, class: "form-control", placeholder: :last_name %>
+			<%= f.text_field :last_name, class: "form-control", placeholder: t('activerecord.attributes.user.last_name') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :email, class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.email'), class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.email_field :email, class: "form-control", placeholder: :email %>
+			<%= f.email_field :email, class: "form-control", placeholder: t('activerecord.attributes.user.email') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :password, class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.password'), class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.password_field :password, class: "form-control", placeholder: :password %>
+			<%= f.password_field :password, class: "form-control", placeholder: t('activerecord.attributes.user.password') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :password_confirmation, class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.password_confirmation'), class: "col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.password_field :password_confirmation, class: "form-control", placeholder: :password_confirmation %>
+			<%= f.password_field :password_confirmation, class: "form-control", placeholder: t('activerecord.attributes.user.password_confirmation') %>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-lg-offset-5 col-lg-4 col-md-4 col-md-offset-5 col-sm-7 col-sm-offset-3 checkbox">
 			<%= f.check_box :accept_statuate %>
-			<%= f.label :accept_statuate, 'akceptuję <a data-toggle="modal" href="#statute">regulamin</a> GPW Analizer'.html_safe %>
+			<%= f.label :accept_statuate, t('activerecord.attributes.user.accept_statuate').html_safe %>
 		</div>
 	</div>
 	<div class="form-group">
