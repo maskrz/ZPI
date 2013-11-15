@@ -15,6 +15,7 @@ gem 'paperclip', '>= 3.5.1'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem "coco", "~> 0.7.1"
 #gem 'formtastic'
 
 
