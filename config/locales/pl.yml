@@ -10,3 +10,10 @@ pl:
         password: "Hasło" 
         password_confirmation: "Potwierdź hasło"
         accept_statuate: 'akceptuję <a data-toggle="modal" href="#statute">regulamin</a> GPW Analizer'
+  auth:
+    sign_in: "Zaloguj"
+    sign_up: "Zarejestruj"
+    sign_out: "Wyloguj"
+    accept_statuate: 'akceptuję <a data-toggle="modal" href="#statute">regulamin</a> GPW Analizer'
+    remember_me: "Pamiętaj logowanie"
+    forgot_password: "Zapomniałem hasła"

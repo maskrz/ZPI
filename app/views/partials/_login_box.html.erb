@@ -1,21 +1,21 @@
 <%= form_for :login, url: auth_sign_in_path, method: :post, html: { class: "form-inline login-form pull-right", role: "form", id: "login-form" } do |f| %>
 	<div class="row">
 		<div class="form-group col-lg-5 col-md-5 col-sm-5">
-			<%= f.label :email, class: "sr-only" %>
-			<%= f.email_field :email, class: "form-control input-group-lg input-group-md input-group-sm", placeholder: :email %>
+			<%= f.label t('activerecord.attributes.user.email'), class: "sr-only" %>
+			<%= f.email_field :email, class: "form-control input-group-lg input-group-md input-group-sm", placeholder: t('activerecord.attributes.user.email') %>
 		</div>
 		<div class="form-group col-lg-5 col-md-5 col-sm-5">
-			<%= f.label :password, class: "sr-only" %>
-			<%= f.password_field :password, class: "form-control input-group-lg input-group-md input-group-sm", placeholder: :password %>
+			<%= f.label t('activerecord.attributes.user.password'), class: "sr-only" %>
+			<%= f.password_field :password, class: "form-control input-group-lg input-group-md input-group-sm", placeholder: t('activerecord.attributes.user.password') %>
 		</div>
-		<%= f.button :sign_in, type: :submit, class: "btn btn-primary col-lg-2 col-md-2 col-sm-2" %>
+		<%= f.button t('auth.sign_in'), type: :submit, class: "btn btn-primary col-lg-2 col-md-2 col-sm-2" %>
 	</div>
 	<div class="row">		
 		<div class="col-lg-5 col-md-5 col-sm-5">
-			<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+			<%= f.check_box :remember_me %> <%= f.label :remember_me, t('auth.remember_me') %>
 		</div>
 		<div class="col-lg-5 col-md-5 col-sm-5">
-			<label><%= link_to :forgot_password, auth_forgot_password_path %></label>
+			<label><%= link_to t('auth.forgot_password'), auth_forgot_password_path %></label>
 		</div>
 	</div>
 <% end %>
