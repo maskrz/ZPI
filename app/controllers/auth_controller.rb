@@ -76,9 +76,9 @@ class AuthController < ApplicationController
           @user.password = @user.password_confirmation = Digest::MD5.hexdigest(params[:user][:password])
           @user.password_hash = nil;
           @user.save
-          redirect_to root_path, success: "New password set "+@token+"! Use it to sign in"
+          redirect_to root_path, success: "New password set! Use it to sign in"
         else
-          redirect_to auth_change_password_path(token: @token), error: @user.errors.to_json
+          redirect_to auth_change_password_path+"?token="+@token, error: @user.errors.to_json
         end 
       end
     else
