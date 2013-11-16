@@ -18,7 +18,7 @@
 						</strong>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8">
-						<% if signed_in? %>
+						<% if user_signed_in? %>
 						 <%= render "partials/user_box" %>
 						<% else %>
 						 <%= render "partials/login_box" %>

@@ -3,20 +3,33 @@ class AuthController < ApplicationController
   def login
     user = User.where(email: params[:login][:email]).first
     
-    if user && user.authenticate(params[:login][:password])
-      sign_in_in user
-      redirect_to root_path, success: 'Logged in!'
+    if user
+      if user.is_active?
+        if user.authenticate(params[:login][:password])
+          user.last_logged_at = DateTime.now
+          user.save
+          
+          user_sign_in user.id
+          set_login_cookie if params[:login][:remember_me] == 1
+          
+          redirect_to root_path, success: 'Signed in!'
+        else
+          redirect_to root_path, error: 'Wrong email/password'
+        end
+      else
+        redirect_to root_path, error: 'Your account is inactive. Please activate it to sign in'
+      end
     else
-      redirect_to root_path, error: 'Wrong email/password or account is inactive'
+      redirect_to root_path, error: 'Account does not exists'
     end
   end
   
   def logout
-    if signed_in?
-      sign_out
-      redirect_to root_path, success: 'Logged out!'
+    if user_signed_in?
+      user_sign_out
+      redirect_to root_path, success: 'Signed out!'
     else
-      redirect_to root_path, error: 'You are not logged in. Can not log out.'
+      redirect_to root_path, error: 'You are not signed in. Can not sing out.'
     end
   end
   
