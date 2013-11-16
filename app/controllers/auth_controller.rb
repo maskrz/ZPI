@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
   require 'digest/md5'
+  
   def login
     user = User.where(email: params[:login][:email]).first
     
@@ -50,10 +51,12 @@ class AuthController < ApplicationController
   
   def forgot_password
     if request.post?
-      @user = User.where(email: params[:user][:email]).first
-      if @user
-        @user.password_hash = Digest::MD5.hexdigest(@user.password)
-        UserMailer.reset_password(@user).deliver
+      users = User.where(email: params[:user][:email])
+      if users.any?
+        user = users.first
+        user.password_hash = Digest::MD5.hexdigest(DateTime.now.to_s + user.password)
+        user.save
+        UserMailer.reset_password(user).deliver
         redirect_to root_path, success: "Check your email and restore access to your account!" 
       else
         redirect_to root_path, error: "No account has been registered for typed email address"
@@ -61,14 +64,36 @@ class AuthController < ApplicationController
     end
   end
   
+  def change_password
+    @token = params[:token] || params[:user][:token]
+    users = User.where(password_hash: @token)
+    if users.any?
+      @user = users.first
+      if request.post?
+        @user.password = params[:user][:password]
+        @user.password_confirmation = params[:user][:password_confirmation]
+        if @user.valid?
+          @user.password = @user.password_confirmation = Digest::MD5.hexdigest(params[:user][:password])
+          @user.password_hash = nil;
+          @user.save
+          redirect_to root_path, success: "New password set "+@token+"! Use it to sign in"
+        else
+          redirect_to auth_change_password_path(token: @token), error: @user.errors.to_json
+        end 
+      end
+    else
+      redirect_to root_path, error: "The token is incorrect"
+    end
+  end
+  
   def confirm_email
     token = params[:token]
     users = User.where(registration_hash: token)
     if users.any?
-      user = users.first
-      user.registration_hash = nil
-      user.status = 1
-      user.save
+      @user = users.first
+      @user.registration_hash = nil
+      @user.status = 1
+      @user.save
       redirect_to root_path, success: "Your account has been activated. Feel free to sign in!" 
     else
       redirect_to root_path, error: "Your account has not been activated. Plase check registration token"

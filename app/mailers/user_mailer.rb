@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
   
   def reset_password(user)
     @user = user
-    @url  = 'http://gpwanalizer.pl'+auth_forgot_password_path+'?token='+@user.password_hash
+    @url  = 'http://gpwanalizer.pl'+auth_change_password_path+'?token='+@user.password_hash
     mail(to: @user.email, subject: 'Reset halsa do konta w GPW Analizer')
   end
 end

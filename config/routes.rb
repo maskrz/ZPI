@@ -25,6 +25,7 @@ ZPI::Application.routes.draw do
     match 'sign_up', action: :register, via: [:get, :post]
     get 'sign_out', action: :logout
     match 'forgot_password', via: [:get, :post]
+    match 'change_password', via: [:get, :post]
     match 'confirm_email', via: [:get, :post]
   end
   resources :analisies, :temp_analisies, :companies, :company, :indices, :index, :user_analyses, :messages, :users, :cindices
