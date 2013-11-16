@@ -10,7 +10,7 @@ class AuthController < ApplicationController
           user.save
           
           user_sign_in user.id
-          set_login_cookie if params[:login][:remember_me] == 1
+          set_login_cookie if params[:login][:remember_me] == '1'
           
           redirect_to root_path, success: 'Signed in!'
         else

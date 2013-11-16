@@ -8,7 +8,7 @@ module AuthHelper
   end
 
   def login_cookie_set?
-    !session[:user_cookie_hash].nil?
+    ! cookies[:user_cookie_hash].nil?
   end
 
   def set_login_cookie
@@ -23,7 +23,7 @@ module AuthHelper
   end
   
   def get_login_cookie
-    cookie[:user_cookie_hash]
+    cookies[:user_cookie_hash]
   end
 
   def user_sign_out
