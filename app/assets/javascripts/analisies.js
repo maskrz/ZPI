@@ -13,6 +13,7 @@ GPW.Analysis.Wizard.init = function() {
   		GPW.Analysis.Wizard.splitTabs();
   		GPW.Analysis.Wizard.setTabsListener();
 		GPW.Analysis.Wizard.initTab(0);
+		GPW.Analysis.Wizard.showAdviceForTab(0);
   	};
 };
 
@@ -37,6 +38,7 @@ GPW.Analysis.Wizard.setTabsListener = function() {
 				GPW.Analysis.Wizard.initTab(nextId);
 			}
 		}
+		GPW.Analysis.Wizard.showAdviceForTab(nextId);
 	});
 };
 
@@ -84,6 +86,11 @@ GPW.Analysis.Wizard.checkTab = function(tabId) {
 			return GPW.Analysis.Wizard.indices() != undefined;
 		}
 	}
+};
+GPW.Analysis.Wizard.showAdviceForTab = function(tabId) {
+	$('#advice-place .advice').not('#advice-'+tabId).fadeOut(200, function() {
+		$('#advice-'+tabId).fadeIn(200);
+	});
 };
 GPW.Analysis.Wizard.indices = function() {
 	var result = $('#ms-sel-ctn-0 > input[type="hidden"]').val();

@@ -1,7 +1,7 @@
 <%= render "partials/header" %>
 <section id="content">
 	<div class="wrapper" id="main">
-		<div id="rootwizard" class="wizard">
+		<div class="wizard">
 			<ul class="nav nav-tabs nav-tabs-justified">
 				<li class="active">
 					<a href="#tab1" data-toggle="tab">KROK 1</a>
@@ -17,15 +17,13 @@
 			<div class="tab-content">
 				<div class="tab-pane active" id="tab1">
 					<h2> Wybierz interesujące Cię indeksy: </h2>
-					<div class="input-group">
-						<span class="glyphicon glyphicon-plus-sign" id="add-index" title="Kliknij, aby wybrać kolejny indeks"></span>
+					<div class="col-sm-6 col-sm-offset-3">
 						<input type="text" class="form-control" id="indices-list">
 					</div>
 				</div>
 				<div class="tab-pane" id="tab2">
 					<h2> Wybierz interesujące Cię spółki </h2>
-					<div class="input-group">
-						<span class="glyphicon glyphicon-plus-sign" id="add-company" title="Kliknij, aby wybrać kolejną spółkę"></span>
+					<div class="col-sm-6 col-sm-offset-3">
 						<input type="text" class="form-control" id="companies-list">
 					</div>
 				</div>
@@ -54,7 +52,7 @@
 				</div>
 
 				<ul class="pager steps ">
-					<li class="previous first " style="display:none;">
+					<li class="previous first" style="display:none;">
 						<a href="#">First</a>
 					</li>
 					<li class="previous step">
@@ -69,17 +67,45 @@
 				</ul>
 			</div>
 		</div>
-		<div id= "advice-place" class="advice ">
-			<div class= "col-lg-3 col-md-3 col-sm-3 img-advice">
-				<%= image_tag "books.png", :title => "Porady" %>
+		<div id="advice-place">
+			<div class="advice" id="advice-0">
+				<div class="col-sm-3 img-advice">
+					<%= image_tag "books.png", :title => "Porady" %>
+				</div>
+				<div class="col-sm-9 forecast">
+					<h2>
+						Czym jest INDEKS
+					</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod
+					</p>
+				</div>
 			</div>
-			<div class= "col-lg-9 col-md-9 col-sm-9 forecast" >
-				<h2>
-					Czym jest prognoza?
-				</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod
-				</p>
+			<div class="advice" id="advice-1">
+				<div class="col-sm-3 img-advice">
+					<%= image_tag "books.png", :title => "Porady" %>
+				</div>
+				<div class="col-sm-9 forecast">
+					<h2>
+						Czym jest SPÓŁKA
+					</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod
+					</p>
+				</div>
+			</div>
+			<div class="advice" id="advice-2">
+				<div class="col-sm-3 img-advice">
+					<%= image_tag "books.png", :title => "Porady" %>
+				</div>
+				<div class="col-sm-9 forecast">
+					<h2>
+						Czym jest OKRES PROGNOZY
+					</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. laboris nisi ut aliquip ex ea commod
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>

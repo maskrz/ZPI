@@ -9,25 +9,24 @@
         .wizard .nav .active {border-bottom:none !important}
         
    .wizard .glyphicon { cursor:pointer }
-   .wizard .glyphicon-plus-sign { float:right; margin:5px 0 0 -36px; font-size:24px; color:#81b845;  }
-   .wizard .ms-ctn { float:right; margin-right:36px; width:auto !important;}
+   .wizard .ms-ctn { float:right; width:auto !important;}
    
-   .wizard .input-group{width: 500px; margin: auto}
    .wizard .input-group-btn:last-child > .btn { margin-left:0}
    
    .wizard .caret {border-top-color:#c3bfb9;}
    .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
    .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
    
-   .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c}
-   .wizard .checkboxes .active {background: #716e67; color: white}      
+   .wizard .checkboxes label{ font-family:"Varela", sans-serif; margin-top: 15px; color:#2f4a0b; font-size: 20px ; padding:10px; background-color: #92cf42; border-color: #81b845}
+   .wizard .checkboxes .active {background:#81b845; border-color:#92cf42}      
    .wizard .tooltip {width: 160px}
+   .wizard .pager {width: 100%;display: inline-block;}
    
-.advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
+.advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px; display:none}  
     .advice h2{text-align: left; } 
     .advice p{text-align: left; }   
-    .advice .img-advice {padding-top: 70px; text-align: right}
-    .advice .forecast {margin-top: 50px !important; padding-right: 100px}
+    .advice .img-advice {padding-top: 70px;}
+    .advice .forecast {margin-top: 50px !important; padding-right: 100px; font-size:12px}
 
 #wall { }
 
@@ -40,12 +39,7 @@
               .panel-body .form-control {border-right: 0;}
               .panel-body .btn-common {border-left: 0;}
               .panel-body .checkbox {padding-bottom: 10px}         
-              .panel-body .btn-success {width: 100%; background: #81b845}   
-             
-  .advice h2{text-align: left; }
-  .advice p{text-align: left; }  
-  .advice .img-advice {padding-top: 70px; text-align: right}
-  .advice .forecast {margin-top: 50px !important; padding-right: 100px; font-size: 12px}
+              .panel-body .btn-success {width: 100%; background: #81b845}
 
 .analysis-header {min-height:75px; padding-top: 30px; }  
    .analysis-header .glyphicon-plus-sign {color:#d70707; font: 20px !important;}  
