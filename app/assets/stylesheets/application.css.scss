@@ -12,7 +12,9 @@
  *= require bootstrap/bootstrap
  *= require bootstrap/bootstrap-theme
  *= require typehead/typehead
- *= require bootstrap_and_overrides
+ *= require analisies
+ *= require home
+ *= require static_pages
  */
 
 @font-face {
@@ -23,3 +25,65 @@
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+@import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
+
+body {color: #37698c; font-family: 'Varela' , sans-serif  ;}
+    .wrapper {
+      @media screen and (min-width:1024px) {
+        width: 1000px;
+      }
+      @media screen and (min-width:1015px) and (max-width:1023px) {
+        width: 930px;
+      }
+      @media screen and (min-width:768px) and (max-width:1014px) {
+        width: 720px;
+      }
+      @media screen and (max-width:767px) {
+        width: 600px;  
+      }
+       margin:0 auto
+    }
+  .btn.btn-green { background-color:#92cf42; border-bottom:3px solid #81b845; color: #2b440a; font-weight: bold; font-size: 20px; line-height:40px;}
+  .control-label {font-size:15px; font-weight: lighter; color: #37698c; }
+
+  .caret {border-top-color:#c3bfb9 !important;} 
+  .btn-common {background: white; border-color:#c3bfb9 !important; border-left: 0; border-top-left-radius: 0px !important; border-bottom-left-radius: 0px !important}  
+  .glyphicon-plus-sign {font-size: 25px; color:#81b845; }
+  #flash-messages { position:relative; top:10px; }
+
+  h1, h2, h3, h4 {color: #37698c; font-family: 'Varela', sans-serif !important; font-weight: bold; }
+ 
+  hr { border-color:#d7d7d7; margin:40px 0 -40px 0 !important; }
+  hr + h2 { background-color:#fff; padding-right:10px; display:inline-block }
+ 
+  h1 + p { font-size:1em; color: #37698c; }
+  .field_with_errors { padding:0 !important; display:inline !important; background-color:transparent !important}
+  .field_with_errors input { -webkit-box-shadow: -1px 0px 6px rgba(255, 94, 0, 1); -moz-box-shadow:    -1px 0px 6px rgba(255, 94, 0, 1); box-shadow: -1px 0px 6px rgba(255, 94, 0, 1);}
+   
+  #header { width:100%; height:100px; background-color:#3d759c; border-bottom:5px solid #37698c; -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.225); -moz-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.25); box-shadow:  0px 5px 5px rgba(50, 50, 50, 0.25); }
+    #header #logo { margin:33px 0 0 33px; display:inline-block}
+    #header .login-form { margin:20px 0; }
+      #header .login-form .row { color:#fff; text-align:center }
+      #header .login-form a { color:#fff; }
+      #header .login-form .btn-primary { background-color:#1f5479; border:none; border-bottom:2px solid #163b55; background-image:none; }
+      #header .login-form .form-group { padding:0 3px}
+      #header .login-form label { font-weight:normal; line-height:35px; vertical-align:middle}
+      
+      #header #user_box .nav{ margin-top: 20px; font-size: 25px; color:#08385a}
+        #header #user_box .dropdown-toggle {color: #093d61; margin:15px 10px; padding:0 !important}
+        #header #user_box .dropdown-toggle:hover, 
+        #header #user_box .open .dropdown-toggle  {color: white; background-color:transparent;}
+  
+  #main {text-align: center; color:#37698c}
+      #main h2 {font-size: 30px;  font-weight: bold; }
+           
+  #footer { width:100%; background-color:#c5d4e1; color:#37698c; border-bottom:10px solid #37698c}
+    #footer nav {padding-right: 0 }
+      #footer .menu { float:right; font-size:16px; margin:43px 0; }
+        #footer .menu li { display:inline }
+          #footer .menu li a { color:#37698c; }
+    #footer address {text-align: left; padding-left: 0; }
+       
+  .modal-body {text-align:justify; text-justify:inter-word; }
+      

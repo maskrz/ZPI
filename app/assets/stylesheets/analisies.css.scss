@@ -1,3 +1,65 @@
-// Place all the styles related to the Analisies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wizard { border:1px solid #afaaa0; border-radius:5px; margin-bottom: 30px}
+   .wizard  { margin-top: 50px;  }
+     .wizard h2 {margin-top: 70px}
+     .wizard .nav {width:100%;border-bottom: solid 1px #c3bfb9; background:#ebe7e0 }
+     .wizard .nav li {margin: 0; padding:0; border-right: solid 1px #c3bfb9; }
+     .wizard .nav li:last-child { border-right:0 !important }
+        .wizard .nav li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px}
+        .wizard .nav li.active a {background-color:white; color:#c3bfb9; }
+        .wizard .nav .active {border-bottom:none !important}
+   .wizard .input-group{width: 500px; padding: 20px; margin: auto}     
+   .wizard .input-group{width: 500px; padding: 20px; margin: auto}
+   .wizard .caret {border-top-color:#c3bfb9;}
+   .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
+   .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
+   .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c}
+   .wizard .checkboxes .active {background: #716e67; color: white}      
+   .wizard .tooltip {width: 160px}      
+   .wizard-dropdown-list {text-align: left; width: 100%; margin-top: -20px !important; margin-left: 20px !important; width: 510px; max-height: 250px; overflow:auto}
+   .wizard-dropdown-list a {padding-left: 10px !important}
+   
+.advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
+    .advice h2{text-align: left; } 
+    .advice p{text-align: left; }   
+    .advice .img-advice {padding-top: 70px; text-align: right}
+    .advice .forecast {margin-top: 50px !important; padding-right: 100px}
+
+#wall { }
+
+.filters-col { padding:30px 0; }
+  .filters-col .btn-default {width: 100%; background: #ebe7e0; color:#716e67 } 
+  .panel { margin: 0 0 30px 0; padding: 0 !important; }
+      .panel-heading {background-color: #ebe7e0  !important; text-align: center; color:#716e67 !important; font-size: 20px;  font-weight: bold;}
+      .panel-body label{color:#3d759c; font-weight: normal; font-size: 15px }    
+          .panel-body .input-group {margin-bottom: 15px}   
+              .panel-body .form-control {border-right: 0;}
+              .panel-body .btn-common {border-left: 0;}
+              .panel-body .checkbox {padding-bottom: 10px}         
+              .panel-body .btn-success {width: 100%; background: #81b845}   
+             
+  .advice h2{text-align: left; }
+  .advice p{text-align: left; }  
+  .advice .img-advice {padding-top: 70px; text-align: right}
+  .advice .forecast {margin-top: 50px !important; padding-right: 100px; font-size: 12px}
+
+.analysis-header {min-height:75px; padding-top: 30px; }  
+   .analysis-header .glyphicon-plus-sign {color:#d70707; font: 20px !important;}  
+   .analysis-header .head-line {padding:0;}
+   .analysis-header h2 {margin:0;}
+   .analysis-header .panel-body {padding: 0;}
+   
+   .analysis-wizard .wizard {margin-top:0}
+     .analysis-wizard .wizard .tab-pane {padding:30px 0 0 30px; height: 200px}
+        
+     .analysis-wizard .rise {color: #81b845}
+     .analysis-wizard .fall {color: #d75553}
+   .analysis-wizard {border-color: #afaaa0}
+   .analysis-wizard .nav-tabs { overflow:hidden; position:relative; left:1px; border-bottom-color: white; padding-bottom:1px }
+     .analysis-wizard .nav-tabs li {border-left:1px solid #afaaa0; border-bottom:1px solid #afaaa0}
+     .analysis-wizard .nav-tabs li:first-child{margin-left:-1px}
+       .analysis-wizard .nav-tabs li.active {border-bottom-color:white;}
+       .analysis-wizard .nav-tabs li.active a {border:0 !important}
+       .analysis-wizard .nav-tabs li a {background-color: #ebe7e0; margin-right: 0 !important; border-radius: 0; border: 0; font-size:18px; color:#afaaa0; text-align: center}
+   .analysis-wizard .tab-content dt {font-weight: normal; color:#5f839e; padding-top: 10px}
+   .analysis-wizard .tab-content dd {font-size: 20px;}
+   .analysis-wizard .tab-content .analysis-done {font-size: 20px; color:#5f839e; text-align: center}

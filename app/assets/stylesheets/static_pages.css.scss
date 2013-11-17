@@ -1,3 +1,15 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#about  {}
+    #about .about-us { background:url(man-happy.png) 50% 50% no-repeat; min-height:450px; text-align:center; padding:25px 0}
+    #about .about-us h3 {font-weight: bold; margin-bottom: 15px;}
+    #about .about-us .left-side-text {padding-bottom: 20px}
+    #about {color: #37698c;} 
+    #about .ceos { text-align:center; padding-bottom:25px; }
+    #about h4 {margin-top: 15px;}
+    
+#media { padding:0 0 30px 0}
+  #media .row { margin-top:30px}
+  #media h1 { margin-top:75px; }
+   
+#contact {background:url(man-happy.png) 90% 55px no-repeat; color: #37698c; }
+    #contact .form-control {background-color:#ebe7e0;}
+    #contact textarea.form-control {height: 250px; width:313px;}

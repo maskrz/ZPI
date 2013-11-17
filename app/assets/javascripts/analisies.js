@@ -7,9 +7,8 @@ GPW.Analysis.init = function(){
 };
 
 GPW.Analysis.wizard = function() {
-  	$('.wizard').bootstrapWizard({'tabClass': 'nav nav-pills'});
-  	
   	if(GPW.Common.checkIfExists('.wizard')) {
+  		//$('.wizard').bootstrapWizard();
   		$('.wizard .nav-tabs').each(function(){
   			var items = $('li', this);
   			var itemsNum = items.length;
