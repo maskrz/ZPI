@@ -1,13 +1,14 @@
 var GPW = GPW || {};
 
 GPW.Ajax = {};
-GPW.Ajax.getCompanies = function() {
-	$('select#indices').change(function() {
-		var selectedIndex = $(this).val();
-		$.get('/index/get_companies', {
-			'index_id' : selectedIndex
-		}, function(data) {
-			console.log(data);
-		});
+GPW.Ajax.getIndices = function() {
+	return $.get('/ajax/get_indices', {}, function(data) {
+		indices = data;
 	});
 };
+GPW.Ajax.getCompanies = function(indices) {
+	return $.get('/ajax/get_companies', { 'indices' : indices}, function(data) {
+		companies = data;
+	});
+};
+

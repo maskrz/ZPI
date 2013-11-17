@@ -20,9 +20,6 @@ GPW.Common.tooltip = function(element, options){
 GPW.Common.rating = function(element, options){
 	$(element).raty(options);
 };
-GPW.Common.autocomplete = function(element, dataSource) {
-	$(element).typeahead({
-		minLength: 0,
-		prefetch: dataSource//'/ajax/get_indices.json'                     
-	});
+GPW.Common.autocomplete = function(element, options) {
+	$(element).magicSuggest(options);
 };

@@ -7,16 +7,21 @@
         .wizard .nav li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px}
         .wizard .nav li.active a {background-color:white; color:#c3bfb9; }
         .wizard .nav .active {border-bottom:none !important}
-   .wizard .input-group{width: 500px; padding: 20px; margin: auto}     
-   .wizard .input-group{width: 500px; padding: 20px; margin: auto}
+        
+   .wizard .glyphicon { cursor:pointer }
+   .wizard .glyphicon-plus-sign { float:right; margin:5px 0 0 -36px; font-size:24px; color:#81b845;  }
+   .wizard .ms-ctn { float:right; margin-right:36px; width:auto !important;}
+   
+   .wizard .input-group{width: 500px; margin: auto}
+   .wizard .input-group-btn:last-child > .btn { margin-left:0}
+   
    .wizard .caret {border-top-color:#c3bfb9;}
    .wizard .btn-common {background: white; border-color:#c3bfb9; border-left: 0}    
    .wizard .step a {background: #ebe7e0 !important; color: #716e67; border-color:#c3bfb9; border-radius: 5px; margin: 0 30px 10px 30px }
+   
    .wizard .checkboxes label{margin-top: 15px; color:#4b4a4c; font-size: 20px ; padding:10px; background-color: #c3bfb9; border-color: #4b4a4c}
    .wizard .checkboxes .active {background: #716e67; color: white}      
-   .wizard .tooltip {width: 160px}      
-   .wizard-dropdown-list {text-align: left; width: 100%; margin-top: -20px !important; margin-left: 20px !important; width: 510px; max-height: 250px; overflow:auto}
-   .wizard-dropdown-list a {padding-left: 10px !important}
+   .wizard .tooltip {width: 160px}
    
 .advice { border:1px solid #c3bfb9; border-radius:3px; margin-bottom: 30px; min-height: 265px}  
     .advice h2{text-align: left; } 

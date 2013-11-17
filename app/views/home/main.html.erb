@@ -3,7 +3,7 @@
 	<div class="wrapper" id="main">
 		<div id="rootwizard" class="wizard">
 			<ul class="nav nav-tabs nav-tabs-justified">
-				<li >
+				<li class="active">
 					<a href="#tab1" data-toggle="tab">KROK 1</a>
 				</li>
 				<li>
@@ -15,33 +15,18 @@
 
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane" id="tab1">
+				<div class="tab-pane active" id="tab1">
 					<h2> Wybierz interesujące Cię indeksy: </h2>
-
 					<div class="input-group">
-						<input type="text" class="form-control typeahead">
-						<div class="input-group-btn index-input ">
-							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-								<span class="caret"></span>
-							</button>
-						</div>
-						<span class="tooltip-element " title="Dodaj więcej indeksów"><span class="glyphicon glyphicon-plus-sign"></span></span>
+						<span class="glyphicon glyphicon-plus-sign" id="add-index" title="Kliknij, aby wybrać kolejny indeks"></span>
+						<input type="text" class="form-control" id="indices-list">
 					</div>
 				</div>
 				<div class="tab-pane" id="tab2">
-					<h2>
-						Wybierz interesujące Cię spółki:
-						
-					</h2>  
-					<div class="input-group " > 
-
-						<input type="text" class="form-control ">
-						<div class="input-group-btn index-input">
-							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-								<span class="caret"></span>
-							</button>
-						</div>
-						<span class="tooltip-element" title="Dodaj więcej spółek"><span class="glyphicon glyphicon-plus-sign"></span>
+					<h2> Wybierz interesujące Cię spółki </h2>
+					<div class="input-group">
+						<span class="glyphicon glyphicon-plus-sign" id="add-company" title="Kliknij, aby wybrać kolejną spółkę"></span>
+						<input type="text" class="form-control" id="companies-list">
 					</div>
 				</div>
 				<div class="tab-pane" id="tab3">

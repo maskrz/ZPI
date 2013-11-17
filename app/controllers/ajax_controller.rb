@@ -6,13 +6,18 @@ class AjaxController < ApplicationController
   def get_indices
     result = []
     indices = Index.all.select([:id, :name]).each{ |item|
-     result << { :id => item.id, :name => item.name, :tokens => [item.name], :value => item.name }
+     result << { :id => item.id, :name => item.name }
     }
     render json: result
   end    
   
   def get_companies
-    
+    indices_list = params[:indices]
+    result = []
+    companies = Company.joins(:indices).where('indices.id' => indices_list).distinct.select(['companies.id', 'companies.name']).each{ |item|
+     result << { :id => item.id, :name => item.name }
+    }
+    render json: companies
   end
   
   def fetch_indices

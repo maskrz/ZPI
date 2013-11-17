@@ -1,10 +1,11 @@
 //= require jquery
 //= require jquery_ujs
-//= require typehead/typeahead.min
+//= require magicsuggest/magicsuggest-1.3.1
 //= require bootstrap/bootstrap.min
 //= require jquery.bootstrap.wizard
 //= require jquery-raty/jquery.raty.min
 //= require_directory .
-
-GPW.Analysis.init();
-GPW.Home.init();
+$(document).ready(function() {
+	GPW.Analysis.init();
+	GPW.Home.init();
+}); 
