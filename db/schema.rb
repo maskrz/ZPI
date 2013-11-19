@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 20131112215700) do
 
   create_table "user_analyses", force: true do |t|
     t.float    "rate"
+    t.integer  "user_id"
+    t.integer  "analisy_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

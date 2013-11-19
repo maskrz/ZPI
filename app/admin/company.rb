@@ -4,7 +4,7 @@ ActiveAdmin.register Company do
     column :id
     column :shortcut
     column :name
-    column "Full id", :description
+    column :full_id
     column :created_at
   default_actions  
   end
@@ -12,12 +12,12 @@ ActiveAdmin.register Company do
   filter :indices, :collection => proc { Index.order(:name).all }
   filter :shortcut
   filter :name
-  filter :description
+  filter :full_id
   filter :created_at
   
   controller do
     def permitted_params
-      params.permit company: [:shortcut, :name, :description]
+      params.permit company: [:shortcut, :name, :full_id]
     end
   end
   
