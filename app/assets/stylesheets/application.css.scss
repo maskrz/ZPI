@@ -16,30 +16,21 @@
  *= require static_pages
  */
 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../assets/glyphicons-halflings-regular.eot'),
-       url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
-       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
-
 @import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
 
 body {color: #37698c; font-family: 'Varela' , sans-serif  ;}
     .wrapper {
       @media screen and (min-width:1024px) {
-        width: 1000px;
+        width: 1000px !important;
       }
       @media screen and (min-width:1015px) and (max-width:1023px) {
-        width: 930px;
+        width: 930px !important;
       }
       @media screen and (min-width:768px) and (max-width:1014px) {
-        width: 720px;
+        width: 720px !important;
       }
       @media screen and (max-width:767px) {
-        width: 600px;  
+        width: 600px !important;  
       }
        margin:0 auto
     }
