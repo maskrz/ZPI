@@ -18,6 +18,7 @@ GPW.Common.tooltip = function(element, options){
 	$(element).tooltip(options);
 };
 GPW.Common.rating = function(element, options){
+	options = $.extend({ 'path' : '/assets/jquery-raty' }, options);
 	$(element).raty(options);
 };
 GPW.Common.autocomplete = function(element, options) {

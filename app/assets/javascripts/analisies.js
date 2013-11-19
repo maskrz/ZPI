@@ -4,6 +4,14 @@ GPW.Analysis = {};
 
 GPW.Analysis.init = function(){
 	GPW.Analysis.Wizard.init();
+	GPW.Analysis.Rating.init();
+};
+
+GPW.Analysis.Rating = {};
+GPW.Analysis.Rating.init = function() {
+	$('.rating').each(function() {
+		GPW.Common.rating(this, {});
+	});
 };
 
 GPW.Analysis.Wizard = {};
