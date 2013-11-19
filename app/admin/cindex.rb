@@ -13,7 +13,7 @@ ActiveAdmin.register Cindex do
   
   controller do
     def permitted_params
-      params.permit analisy: [:company, :index]
+      params.permit cindex: [:company_id, :index_id]
     end
   end
 
