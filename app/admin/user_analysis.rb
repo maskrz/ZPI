@@ -16,7 +16,7 @@ ActiveAdmin.register UserAnalysis do
   
   controller do
     def permitted_params
-      params.permit index: [:user, :analisy, :name]
+      params.permit user_analysis: [:user_id, :analisy_id, :rate]
     end
   end
   

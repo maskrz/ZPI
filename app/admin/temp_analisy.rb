@@ -25,7 +25,7 @@ ActiveAdmin.register TempAnalisy do
     
   controller do
     def permitted_params
-      params.permit analisy: [:lowest_rate, :medium_rate, :highest_rate, :algoritms_rate]
+      params.permit temp_analisy: [:lowest_rate, :medium_rate, :highest_rate, :algoritms_rate]
     end
   end
   
