@@ -1,11 +1,11 @@
 .wizard { border:1px solid #afaaa0; border-radius:5px; margin-bottom: 30px}
    .wizard  { margin-top: 50px;  }
      .wizard h2 {margin-top: 70px}
-     .wizard .nav {width:100%;border-bottom: solid 1px #c3bfb9; background:#ebe7e0 }
+     .wizard .nav {width:100%;border-bottom: solid 1px #c3bfb9; background:#ebe7e0; border-right: solid 1px #afaaa0 }
      .wizard .nav li {margin: 0; padding:0; border-right: solid 1px #c3bfb9; }
      .wizard .nav li:last-child { border-right:0 !important }
         .wizard .nav li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px}
-        .wizard .nav li.active a {background-color:white; color:#c3bfb9; }
+        .wizard .nav li.active a {background-color:#ebe7e0; color:#716e67; }
         .wizard .nav .active {border-bottom:none !important}
         
    .wizard .glyphicon { cursor:pointer }
@@ -41,14 +41,16 @@
               .panel-body .checkbox {padding-bottom: 10px}         
               .panel-body .btn-success {width: 100%; background: #81b845}
 
-.analysis-header {min-height:75px; padding-top: 30px; }  
-   .analysis-header .glyphicon-plus-sign {color:#d70707; font: 20px !important;}  
+.analysis-header {min-height:75px; padding-top: 30px; }
+   .analysis-header .glyphicon {font-size: 20px; margin-top: 6px} 
+   .analysis-header .tooltip {padding-bottom:7px;}
+   .analysis-header .glyphicon-minus-sign {color:#d70707; }  
    .analysis-header .head-line {padding:0;}
    .analysis-header h2 {margin:0;}
    .analysis-header .panel-body {padding: 0;}
    
    .analysis-wizard .wizard {margin-top:0}
-     .analysis-wizard .wizard .tab-pane {padding:30px 0 0 30px; height: 200px}
+     .analysis-wizard .wizard .tab-pane {padding:30px; min-height: 200px}
         
      .analysis-wizard .rise {color: #81b845}
      .analysis-wizard .fall {color: #d75553}
@@ -62,3 +64,19 @@
    .analysis-wizard .tab-content dt {font-weight: normal; color:#5f839e; padding-top: 10px}
    .analysis-wizard .tab-content dd {font-size: 20px;}
    .analysis-wizard .tab-content .analysis-done {font-size: 20px; color:#5f839e; text-align: center}
+   
+   .analysis-done h4 {margin-top:25px}
+      .analysis-done .buttons {padding:0}
+      .analysis-done .btn-left {padding-left:0; padding-right:7px}
+      .analysis-done .btn-right {padding-right:0; padding-left:7px}
+      .analysis-done .btn-default {width: 100%; margin-top: 15px; color: white; }
+         .analysis-done .btn-duplicate {background:#81b845; border: #4bad4b;}
+         .analysis-done .btn-delete {background: #d75553; border: #d2413f}
+         .rating {width: auto !important; margin-top: 15px}
+    
+    .pager {margin: 15px;  }   
+      .pager li span {border-radius: 0; border-color: #aaa59b !important}
+      .pager li span a {color: #716e67}
+      .pager li span.nav-pager-left {-webkit-border-top-left-radius: 5px; -webkit-border-bottom-left-radius: 5px; -moz-border-radius-topleft: 5px; -moz-border-radius-bottomleft: 5px; border-top-left-radius: 5px; border-bottom-left-radius: 5px;}
+      .pager li span.nav-pager-right {-webkit-border-top-right-radius: 5px; -webkit-border-bottom-right-radius: 5px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
+
