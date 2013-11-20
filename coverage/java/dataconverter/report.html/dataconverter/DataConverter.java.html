@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataConverter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DataConverter&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.html" class="el_package">dataconverter</a> &gt; <span class="el_source">DataConverter.java</span></div><h1>DataConverter.java</h1><pre class="source lang-java linenums">/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dataconverter;
+
+/**
+ *
+ * @author Skrzypek &amp; Bart
+ */
+<span class="nc" id="L11">public class DataConverter {</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+<span class="nc" id="L17">        System.out.println(&quot;Program has started&quot;);</span>
+
+<span class="nc" id="L19">        Reader reader = new Reader();</span>
+<span class="nc" id="L20">        Writer w = new Writer(reader);</span>
+
+<span class="nc" id="L22">        System.out.println(&quot;Checking entry&quot;);</span>
+<span class="nc" id="L23">        w.checkEntry();</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (!w.entryExists) {</span>
+<span class="nc" id="L25">            System.out.println(&quot;No entry&quot;);</span>
+//        if (true) {
+<span class="nc" id="L27">            reader.readIndices();</span>
+<span class="nc" id="L28">            System.out.println(&quot;indices done&quot;);</span>
+<span class="nc" id="L29">            reader.readCompanies();</span>
+<span class="nc" id="L30">            System.out.println(&quot;companies done&quot;);</span>
+<span class="nc" id="L31">            reader.readEuroAndDollar();</span>
+<span class="nc" id="L32">            System.out.println(&quot;euro dollar done&quot;);</span>
+<span class="nc" id="L33">            reader.readEurostoxx();</span>
+<span class="nc" id="L34">            System.out.println(&quot;eurostoxx done&quot;);</span>
+<span class="nc" id="L35">            reader.readNasdaq();</span>
+<span class="nc" id="L36">            System.out.println(&quot;nasdaq done&quot;);</span>
+<span class="nc" id="L37">            reader.readDji();</span>
+<span class="nc" id="L38">            System.out.println(&quot;dji done&quot;);</span>
+<span class="nc" id="L39">            String save = reader.euro_res + &quot; &quot; + reader.dollar_res + &quot; &quot; + reader.eurostoxx_res</span>
+                    + &quot; &quot; + reader.nasdaq_res + &quot; &quot; + reader.djia_res;
+<span class="nc" id="L41">            System.out.println(save);</span>
+//        reader.setResults();
+
+<span class="nc" id="L44">            w.prepareData();</span>
+<span class="nc" id="L45">            w.save();</span>
+<span class="nc" id="L46">        }</span>
+        else {
+<span class="nc" id="L48">            System.out.println(&quot;Entry exists!&quot;);</span>
+        }
+
+<span class="nc" id="L51">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.3.201306030806</span></div></body></html>

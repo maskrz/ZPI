@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   end
   has_many :user_analyses
   has_many :analisies, :through => :user_analyses
+  has_attached_file :avatar
   
   before_save :prepare_to_save
   

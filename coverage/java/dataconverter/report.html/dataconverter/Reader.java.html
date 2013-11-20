@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Reader.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DataConverter&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.html" class="el_package">dataconverter</a> &gt; <span class="el_source">Reader.java</span></div><h1>Reader.java</h1><pre class="source lang-java linenums">/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dataconverter;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Properties;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ *
+ * @author Skrzypek &amp; Bart
+ */
+public class Reader {
+
+    Date d;
+    String date;
+    BufferedReader buff;
+    InputStreamReader inStream;
+    Pattern CURRENCY;
+    Pattern EUROSTOXX;
+    Pattern NASDAQ;
+    Pattern DJIA;
+    String euro_res;
+    String dollar_res;
+    String eurostoxx_res;
+    String nasdaq_res;
+    String djia_res;
+    String pageURL;
+    String stockReg;
+    boolean euro_found;
+    boolean dollar_found;
+    Properties prop;
+    Matcher m;
+    ArrayList&lt;Node&gt; indices;
+    ArrayList&lt;Node&gt; companies;
+
+<span class="fc" id="L56">    public Reader() {</span>
+<span class="fc" id="L57">        d = new Date();</span>
+<span class="fc" id="L58">        DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+<span class="fc" id="L59">        date = dateFormat.format(d);</span>
+//        date = &quot;2013-11-07&quot;;
+<span class="fc" id="L61">        euro_found = false;</span>
+<span class="fc" id="L62">        dollar_found = false;</span>
+<span class="fc" id="L63">        euro_res = &quot;N/A&quot;;</span>
+<span class="fc" id="L64">        dollar_res = &quot;N/A&quot;;</span>
+<span class="fc" id="L65">        eurostoxx_res = &quot;N/A&quot;;</span>
+<span class="fc" id="L66">        djia_res = &quot;N/A&quot;;</span>
+<span class="fc" id="L67">        prop = new Properties();</span>
+<span class="fc" id="L68">        pageURL = &quot;&quot;;</span>
+<span class="fc" id="L69">        stockReg = &quot;&quot;;</span>
+<span class="fc" id="L70">        m = null;</span>
+<span class="fc" id="L71">        indices = new ArrayList();</span>
+<span class="fc" id="L72">        companies = new ArrayList();</span>
+<span class="fc" id="L73">    }</span>
+
+    public void readIndices() {
+        try {
+<span class="fc" id="L77">            prop = loadProperties(&quot;Indices&quot;);</span>
+<span class="fc" id="L78">            String[] indicesList = readList(prop.getProperty(&quot;list&quot;));</span>
+<span class="fc" id="L79">            int n = Integer.valueOf(indicesList[0]);</span>
+<span class="fc" id="L80">            String url = prop.getProperty(&quot;url&quot;);</span>
+<span class="fc" id="L81">            buff = getConnection(url + date);</span>
+<span class="fc" id="L82">            System.out.println(url+date);</span>
+<span class="fc" id="L83">            String line = buff.readLine();</span>
+<span class="fc" id="L84">            String checkLine = prop.getProperty(&quot;checkLine&quot;);</span>
+<span class="fc" id="L85">            int lineVal = Integer.valueOf(prop.getProperty(&quot;lineVal&quot;));</span>
+<span class="fc" id="L86">            int lineSales = Integer.valueOf(prop.getProperty(&quot;lineSales&quot;));</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            while (line != null) {</span>
+                //            System.out.println(line);
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                if (line.contains(checkLine)) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                    for (int i = 1; i &lt; n; i++) {</span>
+<span class="fc" id="L91">                        String temp = indicesList[i];</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">                        if (line.contains(temp + &quot;&lt;&quot;)) {</span>
+<span class="fc" id="L93">                            String key = temp;</span>
+<span class="fc" id="L94">                            String value = &quot;&quot;;</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                            for (int j = 0; j &lt; lineVal; j++) {</span>
+<span class="fc" id="L96">                                buff.readLine();</span>
+                            }
+<span class="fc" id="L98">                            line = buff.readLine();</span>
+<span class="fc" id="L99">                            String val = line.replaceAll(</span>
+                                    &quot;&lt;td&gt;|&lt;\\/td&gt;|&amp;nbsp;|\\s&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+<span class="fc bfc" id="L101" title="All 2 branches covered.">                            for (int j = 0; j &lt; lineSales; j++) {</span>
+<span class="fc" id="L102">                                buff.readLine();</span>
+                            }
+<span class="fc" id="L104">                            line = buff.readLine();</span>
+<span class="fc" id="L105">                            String sales = line.replaceAll(</span>
+                                    &quot;&lt;td&gt;|&lt;\\/td&gt;|&amp;nbsp;|\\s&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+<span class="fc" id="L107">                            value += val + &quot;;&quot; + sales;</span>
+<span class="fc" id="L108">                            Node node = new Node(key, value);</span>
+<span class="fc" id="L109">                            indices.add(node);</span>
+                        }
+                    }
+                }
+<span class="fc" id="L113">                line = buff.readLine();</span>
+            }
+<span class="fc" id="L115">            fillEmptyValues(indices, indicesList, 'i');</span>
+<span class="fc" id="L116">            buff.close();</span>
+//            showList(indices);
+<span class="nc" id="L118">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L119">            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L120">        } catch (IOException ex) {</span>
+<span class="nc" id="L121">            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L122">        }</span>
+
+
+<span class="fc" id="L125">    }</span>
+    
+    public void readCompanies() {
+        try {
+<span class="fc" id="L129">            prop = loadProperties(&quot;Companies&quot;);</span>
+<span class="fc" id="L130">            String[] companiesList = readList(prop.getProperty(&quot;list&quot;));</span>
+<span class="fc" id="L131">            int n = Integer.valueOf(companiesList[0]);</span>
+<span class="fc" id="L132">            String url = prop.getProperty(&quot;url&quot;);</span>
+<span class="fc" id="L133">            buff = getConnection(url + date);</span>
+<span class="fc" id="L134">            String line = buff.readLine();</span>
+<span class="fc" id="L135">            String checkLine = prop.getProperty(&quot;checkLine&quot;);</span>
+<span class="fc" id="L136">            int lineVal = Integer.valueOf(prop.getProperty(&quot;lineVal&quot;));</span>
+<span class="fc" id="L137">            int lineVolume = Integer.valueOf(prop.getProperty(&quot;lineVolume&quot;));</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">            while (line != null) {</span>
+//                            System.out.println(line);
+<span class="fc bfc" id="L140" title="All 2 branches covered.">                if (line.contains(checkLine)) {</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">                    for (int i = 1; i &lt; n; i++) {</span>
+<span class="fc" id="L142">                        String temp = companiesList[i];</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">                        if (line.contains(temp + &quot;&lt;&quot;)) {</span>
+<span class="fc" id="L144">                            String key = temp;</span>
+<span class="fc" id="L145">                            String value = &quot;&quot;;</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">                            for (int j = 0; j &lt; lineVal; j++) {</span>
+<span class="fc" id="L147">                                buff.readLine();</span>
+                            }
+<span class="fc" id="L149">                            line = buff.readLine();</span>
+<span class="fc" id="L150">                            String val = line.replaceAll(</span>
+                                    &quot;&lt;td&gt;|&lt;\\/td&gt;|&amp;nbsp;|\\s&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+<span class="fc bfc" id="L152" title="All 2 branches covered.">                            for (int j = 0; j &lt; lineVolume; j++) {</span>
+<span class="fc" id="L153">                                buff.readLine();</span>
+                            }
+<span class="fc" id="L155">                            line = buff.readLine();</span>
+<span class="fc" id="L156">                            String volume = line.replaceAll(</span>
+                                    &quot;&lt;td&gt;|&lt;\\/td&gt;|&amp;nbsp;|\\s&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+<span class="fc" id="L158">                            line = buff.readLine();</span>
+<span class="fc" id="L159">                            String transactions = line.replaceAll(</span>
+                                    &quot;&lt;td&gt;|&lt;\\/td&gt;|&amp;nbsp;|\\s&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+<span class="fc" id="L161">                            line = buff.readLine();</span>
+<span class="fc" id="L162">                            String sales = line.replaceAll(</span>
+                                    &quot;&lt;td&gt;|&lt;\\/td&gt;|&amp;nbsp;|\\s&quot;, &quot;&quot;).replace(&quot;,&quot;, &quot;.&quot;);
+<span class="fc" id="L164">                            value += val + &quot;;&quot; + volume+&quot;;&quot;+transactions+&quot;;&quot;+sales;</span>
+<span class="fc" id="L165">                            Node node = new Node(key, value);</span>
+<span class="fc" id="L166">                            companies.add(node);</span>
+                        }
+                    }
+                }
+<span class="fc" id="L170">                line = buff.readLine();</span>
+            }
+<span class="fc" id="L172">            fillEmptyValues(companies, companiesList, 'c');</span>
+<span class="fc" id="L173">            buff.close();</span>
+//            showList(companies);
+<span class="nc" id="L175">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L176">            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L177">        } catch (IOException ex) {</span>
+<span class="nc" id="L178">            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L179">        }</span>
+
+
+<span class="fc" id="L182">    }</span>
+
+    private void showList(ArrayList&lt;Node&gt; list) {
+<span class="nc bnc" id="L185" title="All 2 branches missed.">        for (Node node : list) {</span>
+<span class="nc" id="L186">            System.out.println(node.key + &quot; &quot; + node.value);</span>
+<span class="nc" id="L187">        }</span>
+<span class="nc" id="L188">    }</span>
+
+    public void readEuroAndDollar() {
+
+<span class="fc" id="L192">        prop = loadProperties(&quot;EuroAndDollar&quot;);</span>
+<span class="fc" id="L193">        String url = prop.getProperty(&quot;url&quot;);</span>
+<span class="fc" id="L194">        String euroLine = prop.getProperty(&quot;euroLine&quot;);</span>
+<span class="fc" id="L195">        String dollarLine = prop.getProperty(&quot;dollarLine&quot;);</span>
+<span class="fc" id="L196">        CURRENCY = Pattern.compile(prop.getProperty(&quot;pattern&quot;));</span>
+
+        try {
+
+<span class="fc" id="L200">            buff = getConnection(url);</span>
+<span class="fc" id="L201">            String line = buff.readLine();</span>
+
+<span class="pc bpc" id="L203" title="1 of 6 branches missed.">            while (line != null &amp;&amp; !(euro_found &amp;&amp; dollar_found)) {</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">                if (line.contains(euroLine)) {</span>
+<span class="fc" id="L205">                    euro_found = true;</span>
+<span class="fc" id="L206">                    m = CURRENCY.matcher(line);</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">                    if (m.find()) {</span>
+<span class="fc" id="L208">                        euro_res = m.group(0).replace(&quot;,&quot;, &quot;.&quot;);</span>
+                    }
+                }
+<span class="fc bfc" id="L211" title="All 2 branches covered.">                if (line.contains(dollarLine)) {</span>
+<span class="fc" id="L212">                    Matcher m = CURRENCY.matcher(line);</span>
+<span class="fc" id="L213">                    dollar_found = true;</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">                    if (m.find()) {</span>
+<span class="fc" id="L215">                        dollar_res = m.group(0).replace(&quot;,&quot;, &quot;.&quot;);</span>
+                    }
+                }
+<span class="fc" id="L218">                line = buff.readLine();</span>
+            }
+<span class="fc" id="L220">            buff.close();</span>
+<span class="nc" id="L221">        } catch (Exception e) {</span>
+<span class="nc" id="L222">            e.printStackTrace();</span>
+<span class="fc" id="L223">        };</span>
+
+<span class="fc" id="L225">    }</span>
+
+    public void readEurostoxx() {
+
+<span class="fc" id="L229">        prop = loadProperties(&quot;Eurostoxx50&quot;);</span>
+<span class="fc" id="L230">        EUROSTOXX = setStockProperties();</span>
+<span class="fc" id="L231">        eurostoxx_res = getStockResult(EUROSTOXX);</span>
+<span class="fc" id="L232">    }</span>
+
+    public void readNasdaq() {
+
+<span class="fc" id="L236">        prop = loadProperties(&quot;Nasdaq&quot;);</span>
+<span class="fc" id="L237">        NASDAQ = setStockProperties();</span>
+<span class="fc" id="L238">        nasdaq_res = getStockResult(NASDAQ);</span>
+<span class="fc" id="L239">    }</span>
+
+    public void readDji() {
+
+<span class="fc" id="L243">        prop = loadProperties(&quot;Djia&quot;);</span>
+<span class="fc" id="L244">        DJIA = setStockProperties();</span>
+<span class="fc" id="L245">        djia_res = getStockResult(DJIA);</span>
+<span class="fc" id="L246">    }</span>
+
+    private BufferedReader getConnection(String url_a) {
+        URL url;
+        try {
+<span class="fc" id="L251">            System.out.println(&quot;getting connection&quot;);</span>
+<span class="fc" id="L252">            url = new URL(url_a);</span>
+<span class="fc" id="L253">            System.out.println(&quot;getting connection2&quot;);</span>
+<span class="fc" id="L254">            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L255">            System.out.println(&quot;getting connection3&quot;);</span>
+<span class="fc" id="L256">            urlConnection.setConnectTimeout(10000);</span>
+<span class="fc" id="L257">            urlConnection.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L258">            urlConnection.addRequestProperty(&quot;User-Agent&quot;,</span>
+                    &quot;Mozilla/5.0 (X11; U; Linux i586; en-US; rv:1.7.3) Gecko/20040924 &quot;
+                    + &quot;Epiphany/1.4.4 (Ubuntu)&quot;);
+<span class="fc" id="L261">            System.out.println(&quot;getting connection4&quot;);</span>
+<span class="fc" id="L262">            urlConnection.connect();</span>
+<span class="fc" id="L263">            inStream = new InputStreamReader(urlConnection.getInputStream());</span>
+<span class="fc" id="L264">            System.out.println(&quot;getting connection5&quot;);</span>
+<span class="fc" id="L265">            return new BufferedReader(inStream);</span>
+<span class="nc" id="L266">        } catch (Exception ex) {</span>
+<span class="nc" id="L267">            System.out.println(&quot;getting connection ERROR&quot;);</span>
+<span class="nc" id="L268">            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);</span>
+        }
+<span class="nc" id="L270">        return null;</span>
+
+    }
+
+    private Properties loadProperties(String path) {
+        try {
+<span class="fc" id="L276">            prop.load(new FileInputStream(&quot;src/properties/&quot; + path + &quot;.properties&quot;));</span>
+<span class="nc" id="L277">        } catch (IOException ex) {</span>
+<span class="nc" id="L278">            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L279">        }</span>
+<span class="fc" id="L280">        return prop;</span>
+    }
+
+    private Pattern setStockProperties() {
+<span class="fc" id="L284">        pageURL = prop.getProperty(&quot;url&quot;);</span>
+<span class="fc" id="L285">        stockReg = prop.getProperty(&quot;indexLine&quot;);</span>
+<span class="fc" id="L286">        return Pattern.compile(prop.getProperty(&quot;pattern&quot;));</span>
+    }
+
+    private String getStockResult(Pattern PATTERN) {
+        try {
+<span class="fc" id="L291">            buff = getConnection(pageURL);</span>
+<span class="fc" id="L292">            String line = buff.readLine();</span>
+<span class="pc bpc" id="L293" title="1 of 2 branches missed.">            while (line != null) {</span>
+<span class="fc bfc" id="L294" title="All 2 branches covered.">                if (line.contains(stockReg)) {</span>
+<span class="fc" id="L295">                    m = PATTERN.matcher(line);</span>
+<span class="pc bpc" id="L296" title="1 of 2 branches missed.">                    if (m.find()) {</span>
+<span class="fc" id="L297">                        return m.group(0).replace(&quot;,&quot;, &quot;&quot;);</span>
+                    }
+                }
+<span class="fc" id="L300">                line = buff.readLine();</span>
+            }
+<span class="nc" id="L302">            buff.close();</span>
+<span class="nc" id="L303">        } catch (Exception e) {</span>
+<span class="nc" id="L304">        };</span>
+<span class="nc" id="L305">        return &quot;N/A&quot;;</span>
+    }
+
+    void setResults() {
+<span class="fc" id="L309">        euro_res = &quot;4.1893&quot;;</span>
+<span class="fc" id="L310">        dollar_res = &quot;3.0436&quot;;</span>
+<span class="fc" id="L311">        eurostoxx_res = &quot;3040.67&quot;;</span>
+<span class="fc" id="L312">        nasdaq_res = &quot;3943.52&quot;;</span>
+<span class="fc" id="L313">        djia_res = &quot;15619.64&quot;;</span>
+<span class="fc" id="L314">    }</span>
+
+    private String[] readList(String list) {
+<span class="fc" id="L317">        return list.toUpperCase().split(&quot;;&quot;);</span>
+    }
+
+    private void fillEmptyValues(ArrayList&lt;Node&gt; nodesList, String[] list, char type) {
+<span class="fc" id="L321">        int n = Integer.valueOf(list[0]);</span>
+<span class="fc bfc" id="L322" title="All 2 branches covered.">        for(int i = 1; i &lt; n; i++) {</span>
+<span class="fc" id="L323">            String temp = list[i];</span>
+<span class="fc" id="L324">            boolean found = false;</span>
+<span class="fc bfc" id="L325" title="All 2 branches covered.">            for(Node node : nodesList) {</span>
+<span class="fc bfc" id="L326" title="All 2 branches covered.">                if(node.key.equals(temp)) {</span>
+<span class="fc" id="L327">                    found = true;</span>
+                }
+<span class="fc" id="L329">            }</span>
+<span class="pc bpc" id="L330" title="1 of 2 branches missed.">            if(!found) {</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">                String val = (type == 'i')? &quot;N/A;N/A&quot; : &quot;N/A;N/A;N/A;N/A&quot;;</span>
+<span class="nc" id="L332">                nodesList.add(new Node(temp, val));</span>
+            }
+        }
+<span class="fc" id="L335">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.3.201306030806</span></div></body></html>

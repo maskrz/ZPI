@@ -3,8 +3,8 @@ class Analisy < ActiveRecord::Base
   has_many :user_analyses
   has_many :users, :through => :user_analyses
   
-  def display_name
-    self.period.to_s + " "+self.date.to_s+" "+self.company.name + " " +self.medium_rate.to_s
-  end
+  #def display_name
+   # self.period.to_s + " "+self.date.to_s+" "+self.company.name + " " +self.medium_rate.to_s
+  #end
   
 end

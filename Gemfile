@@ -13,6 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'paperclip', '>= 3.5.1'
 
+gem "cocaine", "~> 0.5.3"
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem "coco", "~> 0.7.1"
