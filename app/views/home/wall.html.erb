@@ -1,11 +1,18 @@
 <%= render "partials/header" %>
 <section id="content">
 	<div class="wrapper" id="wall" class="wall">
-		<div class="col-sm-3 filters-col">
-			<%= render "partials/left_filter_panel" %>
+		<div class="left-side col-sm-3">
+			<div class="filters-col">
+				<%= render "partials/left_filter_panel" %>
+			</div>
 		</div>
-		<div class="col-sm-9 analysis-list">
-			<%= render "partials/analysis_item" %>
+		<div class="right-side col-sm-9">
+			<div class="analysis-list">
+				<%= render "partials/analysis_item" %>
+			</div>
+			<div class="pager">
+				<%= render "partials/pager" %>
+			</div>
 		</div>
 	</div>
 	<div class="clearfix"></div>
