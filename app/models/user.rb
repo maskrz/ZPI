@@ -42,4 +42,14 @@ class User < ActiveRecord::Base
     end
   end
   
+  def get_analysies_history
+    {}.tap do |result|
+      self.analisies.each do |c|
+        result[c.company_id] = {} if result[c.company_id] == nil
+        result[c.company_id][c.date] = [] if result[c.company_id][c.date] == nil
+        
+        result[c.company_id][c.date].push(c)
+      end
+    end
+  end
 end

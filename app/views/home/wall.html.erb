@@ -8,7 +8,9 @@
 		</div>
 		<div class="right-side col-sm-9">
 			<div class="analysis-list">
-				<%= render "partials/analysis_item" %>
+				<% @analysies.each do |k, a| %>
+					<%= render "partials/analysis_item", :object => a %>
+				<% end %>
 			</div>
 			<div class="pager">
 				<%= render "partials/pager" %>
