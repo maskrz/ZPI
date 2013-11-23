@@ -64,6 +64,11 @@ body {color: #37698c; font-family: 'Varela' , sans-serif  ;}
         #header #user_box .dropdown-toggle {color: #093d61; margin:15px 10px; padding:0 !important}
         #header #user_box .dropdown-toggle:hover, 
         #header #user_box .open .dropdown-toggle  {color: white; background-color:transparent;}
+  #header.header-small { height:50px; }
+    #header.header-small #logo { margin:10px 0 0 33px; }
+      #header.header-small #logo img { height:25px; }
+    #header.header-small #user_box .nav { margin-top:0; font-size:22px}
+    #header.header-small #user_box .dropdown-toggle { margin:12px 10px;}
   
   #main {text-align: center; color:#37698c}
       #main h2 {font-size: 30px;  font-weight: bold; }

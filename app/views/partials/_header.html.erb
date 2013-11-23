@@ -8,7 +8,7 @@
 		<%= javascript_include_tag "application" %>
 	</head>
 	<body>
-		<header id="header" class="header">
+		<header id="header" class="header <%= 'header-small' if user_signed_in? %>">
 			<div class="wrapper">
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4">
