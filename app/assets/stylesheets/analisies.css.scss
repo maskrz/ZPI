@@ -6,6 +6,7 @@
      .wizard .nav li:last-child { border-right:0 !important }
         .wizard .nav li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px; text-align:center; border-right: none !important;}
         .wizard .nav li.active a,
+        .wizard .nav li.marked a,
         .wizard .nav li.active a:hover {background-color:#fff; border-radius:0; color:#716e67; border-right: none !important; }
         .wizard .nav .active {border-bottom:none !important}
         

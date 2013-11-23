@@ -15,14 +15,79 @@ GPW.Analysis.Rating.init = function() {
 };
 
 GPW.Analysis.Wizard = {};
+
+// wizard nav buttons pager
+GPW.Analysis.Wizard.Navi = {};
+GPW.Analysis.Wizard.Navi.init = function() {
+	var prevBtn = $('.wizard .step.previous');
+	var nextBtn = $('.wizard .step.next');
+	
+	prevBtn.on('click', function(e){
+		e.preventDefault();
+		GPW.Analysis.Wizard.Navi.step(-1);
+	});
+	nextBtn.on('click', function(e){
+		e.preventDefault();
+		GPW.Analysis.Wizard.Navi.step(1);
+	});
+};
+GPW.Analysis.Wizard.Navi.step = function(way) {
+	var current = $('.wizard .nav-tabs li.active');
+	var nextId = way == -1 ? current.index()-1 : current.index()+1;
+	
+	$('.wizard .step.previous').css('visibility','visible');
+	$('.wizard .step.next a').html('Następny');
+	
+	if(nextId <= 0) {
+		nextId = 0;
+		$('.wizard .step.previous').css('visibility','hidden');
+	}
+	if(nextId == 2) {
+		$('.wizard .step.next a').html('Gotowe');
+	}
+	if(nextId == 3) {
+		$('.wizard .step.next a').html('Gotowe');
+		GPW.Analysis.Wizard.submit();
+	}
+	
+	if(GPW.Analysis.Wizard.checkTab(current.index())) {
+		GPW.Analysis.Wizard.showTab(nextId);
+	}
+	// GPW.Analysis.Wizard.Navi.markPreviousTabs(nextId);
+};
+
+// GPW.Analysis.Wizard.Navi.markPreviousTabs = function(tabId) {
+	// $('.wizard .nav-tabs li').removeClass('marked');
+	// for(var i = 0; i < tabId; i++) {
+		// $('.wizard .nav-tabs li').eq(i).addClass('marked');
+	// }
+// };
+
 GPW.Analysis.Wizard.init = function() {
 	GPW.Analysis.Wizard.initializedTabs = [false, false, false];
   	if(GPW.Common.checkIfExists('.wizard')) {
   		GPW.Analysis.Wizard.splitTabs();
-  		GPW.Analysis.Wizard.setTabsListener();
-		GPW.Analysis.Wizard.initTab(0);
+  		GPW.Analysis.Wizard.disableTabs();
+  		GPW.Analysis.Wizard.Navi.init();
+		GPW.Analysis.Wizard.showTab(0);
 		GPW.Analysis.Wizard.showAdviceForTab(0);
   	};
+};
+
+GPW.Analysis.Wizard.submit = function() {
+	var result = {};
+	result.companies = GPW.Analysis.Wizard.companies();
+	result.periods = GPW.Analysis.Wizard.periods();
+	var goTo = 'ajax/analysis_order?'+$(result).serialize();
+	
+	//window.location.href = goTo;
+};
+
+GPW.Analysis.Wizard.disableTabs = function() {
+	$(document).off('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]');
+	$(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function(e) {
+		e.preventDefault();
+	});
 };
 
 GPW.Analysis.Wizard.splitTabs = function() {
@@ -34,23 +99,13 @@ GPW.Analysis.Wizard.splitTabs = function() {
 	});
 };
 
-GPW.Analysis.Wizard.setTabsListener = function() {
-	$('.wizard .nav-tabs').on('show.bs.tab', 'a', function (e) {
-		var prev = $(e.relatedTarget);
-		var next = $(e.target);
-		var prevId = prev.parent().index();
-		var nextId = next.parent().index();
-		
-		if(prevId + 1 == nextId) {
-			if(GPW.Analysis.Wizard.checkTab(prevId)) {
-				GPW.Analysis.Wizard.initTab(nextId);
-			}
-		}
-		GPW.Analysis.Wizard.showAdviceForTab(nextId);
-	});
+GPW.Analysis.Wizard.showTab = function(tabId) {
+	GPW.Analysis.Wizard.beforeShowTab(tabId);
+	GPW.Analysis.Wizard.showAdviceForTab(tabId);
+	$('.wizard .nav-tabs li a').eq(tabId).tab('show');
 };
 
-GPW.Analysis.Wizard.initTab = function(tabId) {
+GPW.Analysis.Wizard.beforeShowTab = function(tabId) {
 	if(!GPW.Analysis.Wizard.initializedTabs[tabId]) {
 		var autocompleteOptions = {
 		    width: '100%',
@@ -77,7 +132,7 @@ GPW.Analysis.Wizard.initTab = function(tabId) {
 					GPW.Common.autocomplete('#indices-list', autocompleteOptions);
 				});
 			} break;
-			GPW.Analysis.Wizard.initializedTabs[tabId] = true;
+			//GPW.Analysis.Wizard.initializedTabs[tabId] = true;
 		}
 	}
 };
@@ -88,7 +143,7 @@ GPW.Analysis.Wizard.checkTab = function(tabId) {
 			return GPW.Analysis.Wizard.companies() != undefined;
 		} break;
 		case 2 : {
-			
+			return GPW.Analysis.Wizard.periods() != undefined;
 		} break;
 		default : { //first tab
 			return GPW.Analysis.Wizard.indices() != undefined;
@@ -107,4 +162,11 @@ GPW.Analysis.Wizard.indices = function() {
 GPW.Analysis.Wizard.companies = function() {
 	var result = $('#ms-sel-ctn-1 > input[type="hidden"]').val();
 	return result != undefined ? JSON.parse(result) : result;
+};
+GPW.Analysis.Wizard.periods = function() {
+	var result = [];
+	$('#tab3 .checkboxes label.active').each(function(){
+		result.push($(this).find('input').val());
+	});
+	return result.length != 0 ? result : undefined;
 };
