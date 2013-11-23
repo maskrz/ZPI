@@ -5,6 +5,7 @@
 //= require jquery-raty/jquery.raty.min
 //= require_directory .
 $(document).ready(function() {
+	GPW.Common.init();
 	GPW.Analysis.init();
 	GPW.Home.init();
 }); 

@@ -19,6 +19,11 @@ GPW.Analysis.Wizard = {};
 // wizard nav buttons pager
 GPW.Analysis.Wizard.Navi = {};
 GPW.Analysis.Wizard.Navi.init = function() {
+	$('.wizard .pager').on('click', '.submit', function(e){
+		e.preventDefault();
+		GPW.Analysis.Wizard.submit();
+	});
+	
 	var prevBtn = $('.wizard .step.previous');
 	var nextBtn = $('.wizard .step.next');
 	
@@ -35,19 +40,11 @@ GPW.Analysis.Wizard.Navi.step = function(way) {
 	var current = $('.wizard .nav-tabs li.active');
 	var nextId = way == -1 ? current.index()-1 : current.index()+1;
 	
-	$('.wizard .step.previous').css('visibility','visible');
-	$('.wizard .step.next a').html('Następny');
-	
-	if(nextId <= 0) {
+	if(nextId < 0) {
 		nextId = 0;
-		$('.wizard .step.previous').css('visibility','hidden');
 	}
-	if(nextId == 2) {
-		$('.wizard .step.next a').html('Gotowe');
-	}
-	if(nextId == 3) {
-		$('.wizard .step.next a').html('Gotowe');
-		GPW.Analysis.Wizard.submit();
+	if(nextId > 2) {
+		nextId = 2;
 	}
 	
 	if(GPW.Analysis.Wizard.checkTab(current.index())) {
@@ -78,9 +75,10 @@ GPW.Analysis.Wizard.submit = function() {
 	var result = {};
 	result.companies = GPW.Analysis.Wizard.companies();
 	result.periods = GPW.Analysis.Wizard.periods();
-	var goTo = 'ajax/analysis_order?'+$(result).serialize();
 	
-	//window.location.href = goTo;
+	$.get('ajax/order_analysis', result, function(response){
+		console.log(response);
+	});
 };
 
 GPW.Analysis.Wizard.disableTabs = function() {
@@ -114,6 +112,7 @@ GPW.Analysis.Wizard.beforeShowTab = function(tabId) {
 		    selectionStacked: true,
 		    displayField: 'name'
 		};
+	
 		switch(tabId) {
 			case 1 : {
 				var indices = $('#ms-sel-ctn-0 > input[type="hidden"]').val();
@@ -122,11 +121,17 @@ GPW.Analysis.Wizard.beforeShowTab = function(tabId) {
 					autocompleteOptions.data = response;
 					GPW.Common.autocomplete('#companies-list', autocompleteOptions);
 				});
+		
+				$('.wizard .step.previous').css('visibility','visible');
+				$('.wizard .step.next a').html('Następny krok').removeClass('submit');
 			} break;
 			case 2 : {
-				
+				$('.wizard .step.previous').css('visibility','visible');
+				$('.wizard .step.next a').html('Gotowe').addClass('submit');
 			} break;
 			default : { //first tab
+				$('.wizard .step.previous').css('visibility','hidden');
+				$('.wizard .step.next a').html('Następny krok').removeClass('submit');
 				GPW.Ajax.getIndices().success(function(response){ //fetch data first
 					autocompleteOptions.data = response;
 					GPW.Common.autocomplete('#indices-list', autocompleteOptions);

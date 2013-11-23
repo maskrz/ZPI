@@ -2,6 +2,10 @@ var GPW = GPW || {};
 
 GPW.Common = {};
 
+GPW.Common.init = function() {
+	GPW.Common.tooltip('#user_box .nav .dropdown-toggle', { placement : 'bottom' });
+};
+
 GPW.Common.checkIfExists = function(element) {
 	return $(element).length > 0;
 };
