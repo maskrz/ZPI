@@ -80,5 +80,17 @@ body {color: #37698c; font-family: 'Varela' , sans-serif  ;}
           #footer .menu li a { color:#37698c; }
     #footer address {text-align: left; padding-left: 0; }
        
-  .modal-body {text-align:justify; text-justify:inter-word; }
+.modal-body {text-align:justify; text-justify:inter-word; }
+
+.panel-custom { border:1px solid #afaaa0; border-radius:5px; margin: 50px 0 30px 0; }
+
+.nav-custom li {margin: 0; padding:0; border-right: solid 1px #c3bfb9; }
+.nav-custom li:last-child { border-right:0 !important }
+  .nav-custom li a {background-color:#ebe7e0; color:#c3bfb9; font-size: 20px; text-align:center; border-right: none !important;}
+  .nav-custom li.active a,
+  .nav-custom li.marked a,
+  .nav-custom li.active a:hover {background-color:#fff; border-radius:0; color:#716e67; border-right: none !important; }
+  .nav-custom .active {border-bottom:none !important}
+            
+    
       
