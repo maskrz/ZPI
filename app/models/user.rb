@@ -42,14 +42,27 @@ class User < ActiveRecord::Base
     end
   end
   
-  def get_analysies_history
-    {}.tap do |result|
-      self.analisies.each do |c|
-        result[c.company_id] = {} if result[c.company_id] == nil
-        result[c.company_id][c.date] = [] if result[c.company_id][c.date] == nil
-        
-        result[c.company_id][c.date].push(c)
-      end
+  def get_analysies_history(page=1, filter_indices=[], filter_companies=[])
+    items_amount = 3
+    start_with = (page-1)*items_amount
+    where = {}
+    where.index_id = filter_indices if filter_indices.length != 0
+    
+    analysis_companies = self.analisies.joins(:company).select(:company_id, 'companies.name').distinct.order('companies.name ASC').limit(items_amount).offset(start_with)
+    analysis_companies_ids = analysis_companies.map{|elem| elem.company_id } # .where(where)
+
+    if filter_companies.blank?
+      companies_ids = analysis_companies_ids
+    else
+      companies_ids = analysis_companies_ids & filter_companies
+    end
+    analysis_dates = self.analisies.joins(:company).where(:company_id => companies_ids).select([:company_id, :date, 'companies.name', 'companies.full_id']).distinct.order('companies.name ASC')
+    
+    analysis_dates.map do |elem|
+      elem = elem.attributes
+      puts elem.inspect
+      elem['periods'] = self.analisies.where(:company_id => elem['company_id'], :date => elem['date'])
+      elem
     end
   end
 end

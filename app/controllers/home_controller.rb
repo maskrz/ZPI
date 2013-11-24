@@ -10,5 +10,6 @@ class HomeController < ApplicationController
   def wall
     redirect_to root_path unless user_signed_in?
     @analysies = current_user.get_analysies_history
+    #render json: @analysies
   end
 end

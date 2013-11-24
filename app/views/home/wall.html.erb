@@ -8,7 +8,7 @@
 		</div>
 		<div class="right-side col-sm-9">
 			<div class="analysis-list">
-				<% @analysies.each do |k, a| %>
+				<% @analysies.each do |a| %>
 					<%= render "partials/analysis_item", :object => a %>
 				<% end %>
 			</div>

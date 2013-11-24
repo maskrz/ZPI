@@ -19,15 +19,11 @@
 
 	<div class="analysis-content panel-custom">
 		<ul class="nav nav-tabs nav-justified nav-custom">
-			<li class="active">
-				<a href="#bzbwk-days-30" data-toggle="tab">30 DNI</a>
+			<% object['periods'].each_with_index do |elem, index| %>
+			<li<%= ' class="active"'.html_safe if index == 0 %>>
+				<a href="#<%= object['full_id'] %>-period-<%= elem['period'] %>" data-toggle="tab"><%= elem['period'] %> DNI</a>
 			</li>
-			<li>
-				<a href="#bzbwk-days-60" data-toggle="tab">60 DNI</a>
-			</li>
-			<li>
-				<a href="#bzbwk-days-360" data-toggle="tab">360 DNI</a>
-			</li>
+			<% end %>
 		</ul>
 		<div class="tab-content">
 				<div class="tab-pane active row" id="bzbwk-days-30">
