@@ -21,7 +21,9 @@ GPW.Analysis.Wizard.Navi = {};
 GPW.Analysis.Wizard.Navi.init = function() {
 	$('.wizard .pager').on('click', '.submit', function(e){
 		e.preventDefault();
-		GPW.Analysis.Wizard.submit();
+		if(GPW.Analysis.Wizard.valid()) {
+			GPW.Analysis.Wizard.submit();
+		}
 	});
 	
 	var prevBtn = $('.wizard .step.previous');
@@ -76,8 +78,8 @@ GPW.Analysis.Wizard.submit = function() {
 	result.companies = GPW.Analysis.Wizard.companies();
 	result.periods = GPW.Analysis.Wizard.periods();
 	
-	$.get('ajax/order_analysis', result, function(response){
-		console.log(response);
+	$.post('/ajax/order_analysis', result, function(response) {
+		window.location.href = '/home/wall';
 	});
 };
 
@@ -140,6 +142,10 @@ GPW.Analysis.Wizard.beforeShowTab = function(tabId) {
 			//GPW.Analysis.Wizard.initializedTabs[tabId] = true;
 		}
 	}
+};
+
+GPW.Analysis.Wizard.valid = function() {
+	return GPW.Analysis.Wizard.checkTab(0) && GPW.Analysis.Wizard.checkTab(1) && GPW.Analysis.Wizard.checkTab(2);
 };
 
 GPW.Analysis.Wizard.checkTab = function(tabId) {

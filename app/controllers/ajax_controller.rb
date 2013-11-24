@@ -43,4 +43,17 @@ class AjaxController < ApplicationController
     render json: ["completed"]
     
   end
+  
+  def order_analysis
+    columns = TempAnalisy.attribute_names - ['created_at', 'updated_at']
+    temp_analysis = TempAnalisy.where(:company_id => params[:companies], :period => params[:periods]).select(columns)
+
+    temp_analysis.each do |ta|
+      attrs_to_copy = ta.attributes
+      attrs_to_copy.delete(:id)
+      analysis = Analisy.find_or_create_by(attrs_to_copy)
+      current_user.user_analyses.find_or_create_by(:analisy => analysis)
+    end
+    render json: ["completed"]
+  end
 end

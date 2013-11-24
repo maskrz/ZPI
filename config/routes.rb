@@ -19,6 +19,7 @@ ZPI::Application.routes.draw do
     get 'get_indices'
     get 'fetch_companies'
     get 'fetch_indices'
+    match 'order_analysis', via: [:get, :post]
   end
   
   scope :auth, :controller => :auth, :as => :auth do
