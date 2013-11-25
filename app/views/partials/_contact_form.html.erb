@@ -1,31 +1,31 @@
 <%= form_for :contact, url: page_contact_path, method: :post, html: { class: "form-horizontal", role: "form", id: "contact-form" } do |f| %>
 	<div class="form-group">
-		<%= f.label :first_name, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.first_name')+':', class: "col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.text_field :first_name, class: "form-control", placeholder: :first_name %>
+			<%= f.text_field :first_name, class: "form-control", placeholder: t('activerecord.attributes.user.first_name') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :last_name, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.last_name')+':', class: "col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.text_field :last_name, class: "form-control", placeholder: :last_name %>
+			<%= f.text_field :last_name, class: "form-control", placeholder: t('activerecord.attributes.user.last_name') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :email, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.email'), class: "col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
-			<%= f.email_field :email, class: "form-control", placeholder: :email %>
+			<%= f.email_field :email, class: "form-control", placeholder: t('activerecord.attributes.user.email') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :question, class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('contact.question'), class: "col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-sm-9">
-			<%= f.text_area :question, class: "form-control", rows: 4, placeholder: :question %>
+			<%= f.text_area :question, class: "form-control", rows: 4, placeholder: t('contact.question') %>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-4 col-sm-offset-3 control-label">
-			<%= f.button :send, type: :submit, class: "btn btn-green col-sm-6"%>
+			<%= f.button t('contact.send'), type: :submit, class: "btn btn-green col-sm-6"%>
 		</div>
 	</div>
 <% end %>
