@@ -19,3 +19,6 @@ pl:
     remember_me: "Pamiętaj logowanie"
     forgot_password: "Zapomniałem hasła"
     send_reminder: "Wyślij przypomnienie"
+  contact:
+  	question: "Twoje pytanie"
+  	send: "Wyślij!"
