@@ -1,0 +1,51 @@
+<%= render "partials/header" %>
+<section id="content">
+	<div class="wrapper" id="user-edit">
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="buttons-col">
+					<div class="fixed-buttons">
+						<button id="to-change-avatar" type="button" class="btn btn-default col-xs-12">
+							Zmień Avatar
+						</button>
+						<button id="to-data-edition"type="button" class="btn btn-default col-xs-12">
+							Edytuj swoje dane
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="editing-data-col col-xs-8">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="image-place img-responsive">
+									300px x 300px
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="file-selection">
+									<h3>Wybierz plik z dysku...</h3>
+									<div class= "form-control select-place">
+										Wybierz...
+									</div>
+									<button type="button" class="btn btn-success col-xs-12">
+										Wyślij!
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3>... lub wybierz coś z naszej galerii:</h3>
+					</div>
+					<%= render "partials/avatars_gallery" %>
+				</div>
+				<%= render "partials/data_edition" %>
+			</div>
+		</div>
+	</div>
+</section>
+<%= render "partials/footer" %>

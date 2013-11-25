@@ -5,6 +5,8 @@ GPW.Home = {};
 GPW.Home.init = function() {
 	GPW.Common.scrollTo('#go-further', '#landing-page-main');
 	GPW.Common.scrollTo('#register', '#header');
+	GPW.Common.scrollTo('#to-data-edition', '#data-edition');
+	GPW.Common.scrollTo('#to-change-avatar', '#user-edit');
 	GPW.Common.tooltip('#analysis .analysis-header .tooltip-element', { placement : 'right' });
 	GPW.Common.tooltip('#content .tab-pane .tooltip-element', { placement : 'left' });
 	GPW.Home.scrollListener();
