@@ -13,24 +13,24 @@ class AuthController < ApplicationController
           user_sign_in user.id
           set_login_cookie if params[:login][:remember_me] == '1'
           
-          redirect_to root_path, success: 'Signed in!'
+          redirect_to root_path, success: t('auth.success_sign_in')
         else
-          redirect_to root_path, error: 'Wrong email/password'
+          redirect_to root_path, error: t('auth.wrong_email')
         end
       else
-        redirect_to root_path, error: 'Your account is inactive. Please activate it to sign in'
+        redirect_to root_path, error: t('auth.inactive_email')
       end
     else
-      redirect_to root_path, error: 'Account does not exists'
+      redirect_to root_path, error: t('auth.doesnt_exist')
     end
   end
   
   def logout
     if user_signed_in?
       user_sign_out
-      redirect_to root_path, success: 'Signed out!'
+      redirect_to root_path, success: t('auth.success_sign_out')
     else
-      redirect_to root_path, error: 'You are not signed in. Can not sing out.'
+      redirect_to root_path, error: t('auth.failure_sign_out')
     end
   end
   
@@ -42,7 +42,7 @@ class AuthController < ApplicationController
         
         UserMailer.after_sign_up(@user).deliver
         
-        format.html { redirect_to root_path, notice: "Thank you for account registration. For further actions please confirm your account by clicking link from email" }
+        format.html { redirect_to root_path, notice: t('auth.registration_success') }
       else
         format.html { render 'home/index', notice: @user.errors }
       end
@@ -57,9 +57,9 @@ class AuthController < ApplicationController
         user.password_hash = Digest::MD5.hexdigest(DateTime.now.to_s + user.password)
         user.save
         UserMailer.reset_password(user).deliver
-        redirect_to root_path, success: "Check your email and restore access to your account!" 
+        redirect_to root_path, success: t('auth.restore_success') 
       else
-        redirect_to root_path, error: "No account has been registered for typed email address"
+        redirect_to root_path, error: t('auth.restore_failure') 
       end
     end
   end
@@ -76,13 +76,13 @@ class AuthController < ApplicationController
           @user.password = @user.password_confirmation = Digest::MD5.hexdigest(params[:user][:password])
           @user.password_hash = nil;
           @user.save
-          redirect_to root_path, success: "New password set! Use it to sign in"
+          redirect_to root_path, success: t('auth.change_password_success')
         else
           redirect_to auth_change_password_path+"?token="+@token, error: @user.errors.to_json
         end 
       end
     else
-      redirect_to root_path, error: "The token is incorrect"
+      redirect_to root_path, error: t('auth.incorrect_token')
     end
   end
   
@@ -94,9 +94,9 @@ class AuthController < ApplicationController
       @user.registration_hash = nil
       @user.status = 1
       @user.save
-      redirect_to root_path, success: "Your account has been activated. Feel free to sign in!" 
+      redirect_to root_path, success: t('auth.activation_success')
     else
-      redirect_to root_path, error: "Your account has not been activated. Plase check registration token"
+      redirect_to root_path, error: t('auth.activation_failure')
     end
   end
   
