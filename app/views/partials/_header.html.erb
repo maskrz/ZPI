@@ -8,26 +8,27 @@
 		<%= javascript_include_tag "application" %>
 	</head>
 	<body>
-		<header id="header" class="header <%= 'header-small' if user_signed_in? %>">
-			<div class="wrapper">
-				<div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<strong id="logo">
-							<a href="<%= root_path %>">
-								<%= image_tag 'logo.png',:title => 'GPW Analizer' %>
-							</a>
-						</strong>
-					</div>
-					<div class="col-lg-8 col-md-8 col-sm-8">
-						<% if user_signed_in? %>
-						 <%= render "partials/user_box" %>
-						<% else %>
-						 <%= render "partials/login_box" %>
-						<% end %>
+		<section id="page">
+			<header id="header" class="header <%= 'header-small' if user_signed_in? %>">
+				<div class="wrapper">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<strong id="logo">
+								<a href="<%= root_path %>">
+									<%= image_tag 'logo.png',:title => 'GPW Analizer' %>
+								</a>
+							</strong>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<% if user_signed_in? %>
+							 <%= render "partials/user_box" %>
+							<% else %>
+							 <%= render "partials/login_box" %>
+							<% end %>
+						</div>
 					</div>
 				</div>
+			</header>
+			<div class="wrapper" id="flash-messages">
+				<%= render "partials/flash_box" %>
 			</div>
-		</header>
-		<div class="wrapper" id="flash-messages">
-			<%= render "partials/flash_box" %>
-		</div>
