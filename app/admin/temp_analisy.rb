@@ -2,9 +2,9 @@ ActiveAdmin.register TempAnalisy do
 
   index do 
     column :id
-    column :lowest_rate
+    column :current_rate
     column :medium_rate
-    column :highest_rate
+    column :percentage_rate
     column :algoritms_rate
     column :period
     column :date
@@ -15,9 +15,9 @@ ActiveAdmin.register TempAnalisy do
   
   filter :company, :collection => proc { Company.order(:name).all }
   filter :users, :collection => proc { User.order(:last_name).all }
-  filter :lowest_rate
+  filter :current_rate
   filter :medium_rate
-  filter :highest_rate
+  filter :percentage_rate
   filter :algoritms_rate
   filter :period
   filter :date
@@ -25,15 +25,15 @@ ActiveAdmin.register TempAnalisy do
     
   controller do
     def permitted_params
-      params.permit temp_analisy: [:lowest_rate, :medium_rate, :highest_rate, :algoritms_rate]
+      params.permit temp_analisy: [:current_rate, :medium_rate, :percentage_rate, :algoritms_rate]
     end
   end
   
   form do |f|
     f.inputs "Analisy Details" do
-        f.input :lowest_rate
+        f.input :current_rate
         f.input :medium_rate
-        f.input :highest_rate
+        f.input :percentage_rate
         f.input :algoritms_rate
     end
     f.actions
@@ -42,9 +42,9 @@ ActiveAdmin.register TempAnalisy do
   show do |f|
     attributes_table do
       row :id
-      row :lowest_rate
+      row :current_rate
       row :medium_rate
-      row :highest_rate
+      row :percentage_rate
       row :algoritms_rate
       row :period
       row :date
