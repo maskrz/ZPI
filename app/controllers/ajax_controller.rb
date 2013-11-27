@@ -48,18 +48,25 @@ class AjaxController < ApplicationController
     columns = TempAnalisy.attribute_names - ['created_at', 'updated_at']
     temp_analysis = TempAnalisy.where(:company_id => params[:companies], :period => params[:periods]).select(columns)
 
-    temp_analysis.each do |ta|
-      attrs_to_copy = ta.attributes
-      attrs_to_copy.delete("id")
-      analysis = Analisy.find_or_create_by(attrs_to_copy) #rmove id from attrs!
-      current_user.user_analyses.find_or_create_by(:analisy => analysis)
+    response = [].tap do |result|
+      temp_analysis.each do |ta|
+        attrs_to_copy = ta.attributes
+        attrs_to_copy.delete("id")
+        result.push(attrs_to_copy)
+        analysis = Analisy.find_or_create_by(attrs_to_copy) #rmove id from attrs!
+        result.push(analysis)
+        user_analysis = current_user.user_analyses.find_or_create_by(:analisy => analysis)
+        result.push(user_analysis)
+      end
     end
-    render json: ["completed"]
+    render json: response
   end
   
   def get_user_analysis_history
     page = params[:page_no].to_i
-    @analysis = current_user.get_analysies_history(page)
+    filters = params[:filters]
+    @analysis = current_user.get_analysies_history(page, filters)
+    #render json: @analysis
     render 'home/wall'
   end
   
