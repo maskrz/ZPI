@@ -19,12 +19,12 @@ GPW.Common.scrollTo = function(element, destination) {
 	});
 };
 GPW.Common.tooltip = function(element, options){
-	$(element).tooltip(options);
+	return $(element).tooltip(options);
 };
 GPW.Common.rating = function(element, options){
 	options = $.extend({ 'path' : '/assets/jquery-raty' }, options);
-	$(element).raty(options);
+	return $(element).raty(options);
 };
 GPW.Common.autocomplete = function(element, options) {
-	$(element).magicSuggest(options);
+	return $(element).magicSuggest(options);
 };

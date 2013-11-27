@@ -8,15 +8,15 @@
 		</div>
 		<div class="right-side col-sm-9">
 			<div class="analysis-list">
-				<% @analysies.each do |a| %>
-					<%= render "partials/analysis_item", :object => a %>
-				<% end %>
+				<% @analysis[:analysis].each do |k, v| %>
+					<%= render "partials/analysis_item", :object => v %>
+				<%end %>
 			</div>
 			<div class="pager">
-				<%= render "partials/pager" %>
+				<%= render "partials/pager", :total_pages => @analysis[:total_pages] %>
 			</div>
 		</div>
+		<div class="clearfix"></div>
 	</div>
-	<div class="clearfix"></div>
 </section>
 <%= render "partials/footer" %>

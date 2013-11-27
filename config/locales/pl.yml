@@ -33,6 +33,6 @@ pl:
     activation_success: "Aktywacja twojego konta przebiegła pomyślnie. Zaloguj się!"
     activation_failure: "Aktywacja twojego konta nie powiodła się. Spróbuj jeszcze raz."
   contact:
-  	question: "Twoje pytanie"
-  	send: "Wyślij!"
+    question: "Twoje pytanie"
+    send: "Wyślij!"
   

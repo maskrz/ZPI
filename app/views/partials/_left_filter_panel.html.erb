@@ -1,32 +1,19 @@
 <div class="panel panel-default ">
-				<div class="panel-heading">
-					FILTRUJ DANE
-				</div>
-				<div class="panel-body">
-					<label>Wybierz indeks:</label>
-					<div class="input-group">
-						<input type="text" class="form-control " placeholder="Wybierz indeks">
-						<div class="input-group-btn index-input">
-							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-								<span class="caret"></span>
-							</button>
-						</div>
-					</div>
-					<label>Wybierz spółkę:</label>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Wybierz spółkę">
-						<div class="input-group-btn index-input">
-							<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-								<span class="caret"></span>
-							</button>
-						</div>
-					</div>
-					<button type="button" class="btn btn-success">
-						Filtruj wyniki
-					</button>
-				</div>
-			</div>
-
-			<button type="button" class="btn btn-default col-xs-12">
-				Dodaj więcej spółek
-			</button>
+	<div class="panel-heading">
+		FILTRUJ DANE
+	</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<label>Wybierz indeks:</label>
+			<input type="text" class="form-control" id="indices-list">
+		</div>
+		<div class="form-group">
+			<label>Wybierz spółkę:</label>
+			<input type="text" class="form-control" id="companies-list">
+		</div>
+		<button type="button" class="btn btn-success">
+			Filtruj wyniki
+		</button>
+	</div>
+</div>
+<%= link_to 'Dodaj więcej spółek', main_path, :class => "btn btn-default col-xs-12" %>
