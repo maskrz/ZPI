@@ -6,28 +6,28 @@ class AuthHelperTest < ActionView::TestCase
   end
   
   test "sign_in" do
-    sign_in_in(@user)
+    user_sign_in(@user)
     @user2 = User.where(id: session[:user_id]).take
     assert_equal @user2.email, "test@gmail.com"
   end
   
   test "signed in? success" do
-    sign_in_in(@user)
-    assert signed_in?
+    user_sign_in(@user)
+    assert user_signed_in?
   end
   
   test "signed in? failure" do
-    assert_equal false, signed_in?
+    assert_equal false, user_signed_in?
   end
   
   test "sign out" do
-    sign_in_in(@user)
-    sign_out
-    assert_equal false, signed_in?
+    user_sign_in(@user)
+    user_sign_out
+    assert_equal false, user_signed_in?
   end
   
   test "current user" do
-    sign_in_in(@user)
+    user_sign_in(@user)
     assert_equal @user, current_user
   end
     

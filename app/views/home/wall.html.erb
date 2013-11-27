@@ -6,7 +6,7 @@
 				<%= render "partials/left_filter_panel" %>
 			</div>
 		</div>
-		<div class="right-side col-sm-9">
+		<div class="right-side col-sm-9" id="analysis-items">
 			<div class="analysis-list">
 				<% @analysis[:analysis].each do |k, v| %>
 					<%= render "partials/analysis_item", :object => v %>

@@ -69,6 +69,6 @@ class AnalisiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def analisy_params
-      params.require(:analisy).permit(:lowest_rate, :medium_rate, :highest_rate, :algoritms_rate, :period, :date)
+      params.require(:analisy).permit(:current_rate, :medium_rate, :percentage_rate, :algoritms_rate, :period, :date)
     end
 end

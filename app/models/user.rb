@@ -42,19 +42,39 @@ class User < ActiveRecord::Base
     end
   end
   
-  def get_analysies_history(page=1, filter_indices=[], filter_companies=[])
-    items_amount = 3
+  def get_analysies_history(page=1, filters=[])
+    items_amount = 3.0
     start_with = (page-1)*items_amount
     
     base_query = self.analisies.joins(:company).select(:company_id, 'companies.name').distinct
+    if filters != nil
+      if filters[0] == 'company'
+        base_query = self.analisies.where(:company_id => filters[1]).joins(:company).select(:company_id, 'companies.name').distinct
+      else
+        if filters[0] == 'index'
+         # base_query = self.analisies.joins(:company).joins(:cindex).where('indices.id' => filters[1]).select(:company_id, 'companies.name').distinct
+        end
+      end
+    end
     
     analysis_companies = base_query.order('companies.name ASC').limit(items_amount).offset(start_with)
     analysis_companies_ids = analysis_companies.map{|elem| elem.company_id }
 
     analysis_dates = self.analisies.joins(:company).where(:company_id => analysis_companies_ids).select([:company_id, :date, 'companies.name', 'companies.full_id']).distinct.order('companies.name ASC, date DESC')
     
+    count_query = self.analisies.select(:company_id).distinct.count
+    if filters != nil
+      if filters[0] == 'company'
+        count_query = self.analisies.where(:company_id => filters[1]).select(:company_id).distinct.count
+      else
+        if filters[0] == 'index'
+         # count_query = self.analisies.joins(:company).joins(:cindex).where('indices.id' => filters[1]).select(:company_id).distinct.count
+        end
+      end
+    end
+    
     response = {}
-    response[:total_pages] = (self.analisies.select(:company_id).distinct.count / items_amount).ceil
+    response[:total_pages] = (count_query / items_amount).ceil
     response[:analysis] = {}.tap do |result|
       analysis_dates.each do |elem|
         if result[elem['company_id']] == nil
