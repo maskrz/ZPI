@@ -5,6 +5,84 @@ GPW.Analysis = {};
 GPW.Analysis.init = function(){
 	GPW.Analysis.Wizard.init();
 	GPW.Analysis.Rating.init();
+	GPW.Analysis.Wall.init();
+};
+
+GPW.Analysis.Wall = {};
+GPW.Analysis.Wall.init = function() {
+	GPW.Analysis.Wall.addListeners();
+	GPW.Analysis.Wall.initFilters();
+	GPW.Analysis.Wall.pageLoad();
+};
+GPW.Analysis.Wall.initFilters = function() {
+	$('#companies-list').hide(0);
+	$('#companies-list').prev().hide(0);
+	var autocompleteOptions = {
+	    width: '100%',
+	    sortOrder: 'name',
+	    selectionPosition: 'bottom',
+	    selectionStacked: false,
+	    displayField: 'name',
+	    maxSelection: 1
+	}; 
+	GPW.Ajax.getIndices().success(function(response){ //fetch data first
+		autocompleteOptions.data = response;
+		var x = GPW.Common.autocomplete('#indices-list', autocompleteOptions);
+		$(x).on('selectionchange', function(event, combo, selection){
+			if(selection[0] == undefined) {
+				$('#companies-list').slideUp(500).clear(true);
+				$('#companies-list').prev().slideUp(500);
+			} else {
+				var index_id = [selection[0].id];
+				GPW.Ajax.getCompanies(index_id).success(function(response){
+					autocompleteOptions.data = response;
+					GPW.Common.autocomplete('#companies-list', autocompleteOptions);
+					$('#companies-list').slideDown(500);
+					$('#companies-list').prev().slideDown(500);
+				});
+			}
+		});
+	});
+};
+
+GPW.Analysis.Wall.addListeners = function() {
+	$('#wall .pagination li').on('click', 'span', function(){
+		var parent = $(this).parent();
+		$('#wall .pagination li').not(parent).removeClass('active');
+		parent.addClass('active');
+		$('#wall .analysis-list').css('opacity', '.5');
+		
+		var pageNo = parseInt($(this).html());
+		if(!isNaN(pageNo)) {
+			$.get('/ajax/get_user_analysis_history', { 'page_no' : pageNo}, function(response){
+				var res = $(response).find('.analysis-list').html();
+				$('#wall .analysis-list').css('opacity','1').html(res);
+				GPW.Analysis.Wall.pageLoad();
+			});
+		}
+	});
+};
+
+GPW.Analysis.Wall.dateSwitch = function() {
+	$('.selectpicker').each(function() {
+		$(this).selectpicker({ width:'100%'});
+		$(this).change(function(){
+			var parent = $(this).parent().parent().parent();
+			var company_id = $(this).data('companyid');
+			var date = $(this).val();
+			
+			var data = { 'company_id' : company_id, 'date' : date };
+			
+			$.get('/ajax/get_user_company_analysis_for_day', data, function(response) {
+				var filtered_response = $(response).html();
+				parent.find('.analysis-content').html(filtered_response);
+			});
+		});
+	});
+};
+
+GPW.Analysis.Wall.pageLoad = function() {
+	GPW.Analysis.Wall.dateSwitch();
 };
 
 GPW.Analysis.Rating = {};

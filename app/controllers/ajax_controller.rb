@@ -11,7 +11,7 @@ class AjaxController < ApplicationController
     render json: result
   end    
   
-  def get_companies
+  def get_companies(filter = [])
     indices_list = params[:indices]
     result = []
     companies = Company.joins(:indices).where('indices.id' => indices_list).distinct.select(['companies.id', 'companies.name']).each{ |item|
@@ -50,10 +50,23 @@ class AjaxController < ApplicationController
 
     temp_analysis.each do |ta|
       attrs_to_copy = ta.attributes
-      attrs_to_copy.delete(:id)
-      analysis = Analisy.find_or_create_by(attrs_to_copy)
+      attrs_to_copy.delete("id")
+      analysis = Analisy.find_or_create_by(attrs_to_copy) #rmove id from attrs!
       current_user.user_analyses.find_or_create_by(:analisy => analysis)
     end
     render json: ["completed"]
+  end
+  
+  def get_user_analysis_history
+    page = params[:page_no].to_i
+    @analysis = current_user.get_analysies_history(page)
+    render 'home/wall'
+  end
+  
+  def get_user_company_analysis_for_day
+    company_id = params[:company_id]
+    date = params[:date]
+    response = current_user.get_user_company_analysis_for_day(company_id, date)
+    render :partial => 'partials/analysis_item_body', :locals => { :object => response }
   end
 end
