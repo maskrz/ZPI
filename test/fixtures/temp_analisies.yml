@@ -1,17 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  lowest_rate: 1.5
+  current_rate: 1.5
   medium_rate: 1.5
-  highest_rate: 1.5
+  percentage_rate: 1.5
   algoritms_rate: MyString
   period: 
   date: 2013-10-16
 
 two:
-  lowest_rate: 1.5
+  current_rate: 1.5
   medium_rate: 1.5
-  highest_rate: 1.5
+  percentage_rate: 1.5
   algoritms_rate: MyString
   period: 
   date: 2013-10-16
+

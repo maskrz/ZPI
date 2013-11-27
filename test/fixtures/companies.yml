@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  shortcut: MyString
-  name: MyString
+  id: 1
+  shortcut: COM1
+  name: Company1
   full_id: MyText
 
 two:
-  shortcut: MyString
-  name: MyString
+  id: 2
+  shortcut: COM2
+  name: Company2
   full_id: MyText
