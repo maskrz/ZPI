@@ -8,6 +8,8 @@ GPW.Analysis.init = function(){
 	GPW.Analysis.Wall.init();
 };
 
+
+
 GPW.Analysis.Wall = {};
 GPW.Analysis.Wall.init = function() {
 	GPW.Analysis.Wall.page = 1;
@@ -15,6 +17,19 @@ GPW.Analysis.Wall.init = function() {
 	GPW.Analysis.Wall.addListeners();
 	GPW.Analysis.Wall.initFilters();
 	GPW.Analysis.Wall.pageLoad();
+	GPW.Analysis.Wall.Calculator();
+};
+
+GPW.Analysis.Wall.Calculator = function() {
+	var evaluate = $('.edit-place button');
+	
+	evaluate.click(function() {
+		var contribution = parseFloat($('.edit-place #contribution').val());
+		var change = parseFloat($('.edit-place #change-of-course').val());
+		var r = GPW.Calculator.multiplyPercent(contribution, change).getResult();
+		$('.count-place #profit').val(r);
+	});
+	
 };
 GPW.Analysis.Wall.initFilters = function() {
 	$('.filters #companies-list').hide(0);
