@@ -17,7 +17,7 @@ gem "cocaine", "~> 0.5.3"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-gem "coco", "~> 0.7.1"
+gem "coco", "~> 0.7.1", group: :test
 #gem 'formtastic'
 
 

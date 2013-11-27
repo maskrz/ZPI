@@ -1,145 +1,17 @@
 <div class="analysis-item">
-	<div class="analysis-header" class="row">
-		<div class="col-lg-9 col-md-9 col-sm-9 head-line">
+	<div class="analysis-header row">
+		<div class="col-lg-9 col-md-9 col-sm-9">
 			<h2><%= object['name'] %> <span class="tooltip-element" title="Usuń spółkę z listy"><span class="glyphicon glyphicon-minus-sign"></span></span></h2>
-			
-		</div>		
-		<div class="panel-body col-lg-3 col-md-3 col-sm-3">
-			<div class="input-group">
-				<input type="text" class="form-control " placeholder="Wybierz datę">
-				<div class="input-group-btn index-input">
-					<button type="button" class="btn btn-common dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-				</div>
-			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3">
+			<select class="selectpicker" data-companyid="<%= object['company_id'] %>">
+				<% object['dates'].each do |date| %>
+				<option><%= date %></option>
+				<% end %>
+			</select>
 		</div>
 		<div class="clearfix "></div>
 	</div>
-
-	<div class="analysis-content panel-custom">
-		<ul class="nav nav-tabs nav-justified nav-custom">
-			<% object['periods'].each_with_index do |elem, index| %>
-			<li<%= ' class="active"'.html_safe if index == 0 %>>
-				<a href="#<%= object['full_id'] %>-period-<%= elem['period'] %>" data-toggle="tab"><%= elem['period'] %> DNI</a>
-			</li>
-			<% end %>
-		</ul>
-		<div class="tab-content">
-				<div class="tab-pane active row" id="bzbwk-days-30">
-					<div class="col-sm-3">
-						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
-					</div>
-					<div class="col-sm-9">
-						<div class="row">
-							<dl class="col-sm-6">
-								<dt>
-									Kurs początkowy:
-								</dt>
-								<dd>
-									502.14 zł
-								</dd>
-								<dt>
-									Zm na przedziale prognozy:
-								</dt>
-								<dd class="rise">
-									73%
-								</dd>
-							</dl>
-							<dl class="col-sm-6">
-								<dt>
-									Aktualny kurs:
-								</dt>
-								<dd class="rise">
-									158.14 zł
-								</dd>
-								<dt>
-									Aktualna wartość akcji:
-								</dt>
-								<dd class="rise">
-									10 708.15 zł
-								</dd>
-							</dl>
-						</div>
-					</div>
-				</div>
-
-				<div class="tab-pane row" id="bzbwk-days-60">
-					<div class="col-sm-3">
-						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
-					</div>
-					<div class="col-sm-9">
-						<div class="row">
-							<dl class="col-sm-6">
-								<dt>
-									Kurs początkowy:
-								</dt>
-								<dd>
-									332.14 zł
-								</dd>
-								<dt>
-									Zm na przedziale prognozy:
-								</dt>
-								<dd class="rise">
-									23%
-								</dd>
-							</dl>
-							<dl class="col-sm-6">
-								<dt>
-									Aktualny kurs:
-								</dt>
-								<dd class="rise">
-									888.14 zł
-								</dd>
-								<dt>
-									Aktualna wartość akcji:
-								</dt>
-								<dd class="rise">
-									708.15 zł
-								</dd>
-							</dl>
-						</div>
-					</div>
-				</div>
-
-				<div class="tab-pane row " id="bzbwk-days-360">
-					<div class="col-sm-3">
-						<%= image_tag "good-analysis.png", :title => "Trafnie", :class => "img-responsive" %>
-					</div>
-					<div class="col-sm-9">
-						<div class="row">
-							<dl class="col-sm-6">
-								<dt>
-									Kurs początkowy:
-								</dt>
-								<dd>
-									112.14 zł
-								</dd>
-								<dt>
-									Zm na przedziale prognozy:
-								</dt>
-								<dd class="rise">
-									23%
-								</dd>
-							</dl>
-							<dl class="col-sm-6">
-								<dt>
-									Aktualny kurs:
-								</dt>
-								<dd class="rise">
-									58.14 zł
-								</dd>
-								<dt>
-									Aktualna wartość akcji:
-								</dt>
-								<dd class="rise">
-									99 532.15 zł
-								</dd>
-							</dl>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>
+	<%= render 'partials/analysis_item_body', :object => object %>
 </div>
 

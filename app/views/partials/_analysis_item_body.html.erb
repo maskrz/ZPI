@@ -1,0 +1,54 @@
+<div class="analysis-content panel-custom">
+	<ul class="nav nav-tabs nav-justified nav-custom">
+		<% object['periods'].each_with_index do |elem, index| %>
+		<li<%= ' class="active"'.html_safe if index == 0 %>>
+			<a href="#<%= object['full_id'] %>-period-<%= elem['period'] %>" data-toggle="tab"><%= elem['period'] %> DNI</a>
+			</li>
+			<% end %>
+	</ul>
+	<div class="tab-content">
+		<% object['periods'].each_with_index do |elem, index| %>
+		<div class="tab-pane row<%= ' active' if index == 0 %>" id="<%= object['full_id'] %>-period-<%= elem['period'] %>">
+			<div class="col-sm-3">
+				<% if elem['percentage_rate'] > 0 %>
+				<%= image_tag "good-analysis.png", :title => "Przewidywany wzrost", :class => "img-responsive" %>
+				<% else %>
+				<%= image_tag "bad-analysis.png", :title => "Przewidywany spadek", :class => "img-responsive" %>
+				<% end %>
+			</div>
+			<div class="col-sm-9">
+				<div class="row">
+					<dl class="col-sm-6">
+						<dt>
+							Kurs prognozowany
+						</dt>
+						<dd>
+							<%= elem['medium_rate'] %> zł
+						</dd>
+						<dt>
+							Progonozowana zmiana kursu:
+						</dt>
+						<dd class="<%= if elem['percentage_rate'] > 0 then 'rise' else 'fall' end %>">
+							<%= elem['percentage_rate'] %>%
+						</dd>
+					</dl>
+					<dl class="col-sm-6">
+						<dt>
+							Aktualny kurs:
+						</dt>
+						<dd>
+							<%= elem['current_rate'] %> zł
+						</dd>
+						<dt>
+							StdDev prognoz algorytmów:
+						</dt>
+						<dd>
+							<%= elem['algoritms_rate'] %>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

@@ -45,24 +45,33 @@ class User < ActiveRecord::Base
   def get_analysies_history(page=1, filter_indices=[], filter_companies=[])
     items_amount = 3
     start_with = (page-1)*items_amount
-    where = {}
-    where.index_id = filter_indices if filter_indices.length != 0
     
-    analysis_companies = self.analisies.joins(:company).select(:company_id, 'companies.name').distinct.order('companies.name ASC').limit(items_amount).offset(start_with)
-    analysis_companies_ids = analysis_companies.map{|elem| elem.company_id } # .where(where)
+    base_query = self.analisies.joins(:company).select(:company_id, 'companies.name').distinct
+    
+    analysis_companies = base_query.order('companies.name ASC').limit(items_amount).offset(start_with)
+    analysis_companies_ids = analysis_companies.map{|elem| elem.company_id }
 
-    if filter_companies.blank?
-      companies_ids = analysis_companies_ids
-    else
-      companies_ids = analysis_companies_ids & filter_companies
-    end
-    analysis_dates = self.analisies.joins(:company).where(:company_id => companies_ids).select([:company_id, :date, 'companies.name', 'companies.full_id']).distinct.order('companies.name ASC')
+    analysis_dates = self.analisies.joins(:company).where(:company_id => analysis_companies_ids).select([:company_id, :date, 'companies.name', 'companies.full_id']).distinct.order('companies.name ASC, date DESC')
     
-    analysis_dates.map do |elem|
-      elem = elem.attributes
-      puts elem.inspect
-      elem['periods'] = self.analisies.where(:company_id => elem['company_id'], :date => elem['date'])
-      elem
+    response = {}
+    response[:total_pages] = (self.analisies.select(:company_id).distinct.count / items_amount).ceil
+    response[:analysis] = {}.tap do |result|
+      analysis_dates.each do |elem|
+        if result[elem['company_id']] == nil
+          elem = elem.attributes
+          elem['periods'] = self.analisies.where(:company_id => elem['company_id'], :date => elem['date']).order(date: :desc, period: :asc)
+          elem['dates'] = [elem['date']]
+          result[elem['company_id']] = elem
+        end
+        result[elem['company_id']]['dates'].push(elem['date']).uniq!
+      end
+    end
+    response
+  end
+  
+  def get_user_company_analysis_for_day(company_id, date)
+    {}.tap do |result|
+      result['periods'] = self.analisies.where(:company_id => company_id, :date => date).order(date: :desc, period: :asc)
     end
   end
 end

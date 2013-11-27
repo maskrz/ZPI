@@ -99,7 +99,7 @@
              * Defaults to <code>'Type or click here'</code> or just <code>'Click here'</code> if not editable.
              */
             emptyText: function() {
-                return cfg.editable ? 'Type or click here' : 'Click here';
+                return cfg.editable ? 'Wpisz lub kliknij' : 'Click here';
             },
 
             /**
