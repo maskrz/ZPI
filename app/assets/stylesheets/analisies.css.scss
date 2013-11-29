@@ -22,16 +22,18 @@
 
 #wall { }
 
-.filters-col { padding:30px 0; }
+.filters-col, .calculator { padding:30px 0; }
   .filters-col .btn-default {width: 100%; background: #ebe7e0; color:#716e67 } 
   .panel { margin: 0 0 30px 0; padding: 0 !important; }
       .panel-heading {background-color: #ebe7e0  !important; text-align: center; color:#716e67 !important; font-size: 20px;  font-weight: bold;}
       .panel-body label{color:#3d759c; font-weight: normal; font-size: 15px }    
           .panel-body .input-group {margin-bottom: 15px}   
-              .panel-body .form-control {border-right: 0;}
               .panel-body .btn-common {border-left: 0;}
               .panel-body .checkbox {padding-bottom: 10px}         
               .panel-body .btn-success {width: 100%; background: #81b845}
+      .calculator .count-place {margin-top: 10px} 
+      .calculator .count-place .btn-success {background: #d75553; border: #d2413f}
+ 
 
 .analysis-header {min-height:75px; padding-top: 30px; }
    .analysis-header .glyphicon {font-size: 20px; margin-top: 6px} 

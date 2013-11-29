@@ -8,57 +8,83 @@ GPW.Analysis.init = function(){
 	GPW.Analysis.Wall.init();
 };
 
+
+
 GPW.Analysis.Wall = {};
 GPW.Analysis.Wall.init = function() {
+	GPW.Analysis.Wall.page = 1;
+	GPW.Analysis.Wall.filters = [];
 	GPW.Analysis.Wall.addListeners();
 	GPW.Analysis.Wall.initFilters();
 	GPW.Analysis.Wall.pageLoad();
+	GPW.Analysis.Wall.Calculator();
+};
+
+GPW.Analysis.Wall.Calculator = function() {
+	var evaluate = $('.edit-place button');
+	
+	evaluate.click(function() {
+		var contribution = parseFloat($('.edit-place #contribution').val());
+		var change = parseFloat($('.edit-place #change-of-course').val());
+		var r = GPW.Calculator.multiplyPercent(contribution, change).getResult();
+		$('.count-place #profit').val(r);
+	});
+	
 };
 GPW.Analysis.Wall.initFilters = function() {
-	$('#companies-list').hide(0);
-	$('#companies-list').prev().hide(0);
-	var autocompleteOptions = {
-	    width: '100%',
-	    sortOrder: 'name',
-	    selectionPosition: 'bottom',
-	    selectionStacked: false,
-	    displayField: 'name',
-	    maxSelection: 1
-	}; 
-	GPW.Ajax.getIndices().success(function(response){ //fetch data first
-		autocompleteOptions.data = response;
-		var x = GPW.Common.autocomplete('#indices-list', autocompleteOptions);
-		$(x).on('selectionchange', function(event, combo, selection){
-			if(selection[0] == undefined) {
-				$('#companies-list').slideUp(500).clear(true);
-				$('#companies-list').prev().slideUp(500);
-			} else {
-				var index_id = [selection[0].id];
-				GPW.Ajax.getCompanies(index_id).success(function(response){
-					autocompleteOptions.data = response;
-					GPW.Common.autocomplete('#companies-list', autocompleteOptions);
-					$('#companies-list').slideDown(500);
-					$('#companies-list').prev().slideDown(500);
-				});
-			}
-		});
+	$('.filters #companies-list').hide(0);
+	GPW.Ajax.getIndices().success(function(response){
+		$('.filters #indices-list select').html('<option value="0">---</option>');
+		$.each(response, function(){
+        	$('.filters #indices-list select').append('<option value="'+ this.id +'">'+ this.name +'</option>');
+        });
+        $('.filters #indices-list select').selectpicker({ width:'100%','size': 10});
+	});
+	$('.filters #indices-list select').change(function() {
+		var indexId = $(this).val();
+		GPW.Analysis.Wall.getCompanies(indexId);
+	});
+	$('.filters button').click(function(){
+		var filterBy = {};
+		var indexId = $('.filters #indices-list select').val();
+		var companyId = $('.filters #companies-list select').val();
+		if(companyId != undefined && companyId != 0) {
+			GPW.Analysis.Wall.filters = ['company', companyId];
+		} else if (indexId != undefined && indexId != 0) {
+			GPW.Analysis.Wall.filters = ['index', indexId];
+		} else {
+			alert('Nie wybrano kryteriów do filtorwania');
+			return;
+		}
+		GPW.Analysis.Wall.page = 1;
+		GPW.Analysis.Wall.changePage();
+	});
+};
+
+GPW.Analysis.Wall.getCompanies = function(index_id){
+	GPW.Ajax.getCompanies(index_id).success(function(response){
+		$('.filters #companies-list select').html('<option value="0">---</option>');
+		$.each(response, function(){
+        	$('.filters #companies-list select').append('<option value="'+ this.id +'">'+ this.name +'</option>');
+        });
+        $('.filters #companies-list select').selectpicker({'size': 10});
+        $('.filters #companies-list select').selectpicker('refresh');
+        $('.filters #companies-list').slideDown(500);
 	});
 };
 
 GPW.Analysis.Wall.addListeners = function() {
-	$('#wall .pagination li').on('click', 'span', function(){
-		var parent = $(this).parent();
-		$('#wall .pagination li').not(parent).removeClass('active');
-		parent.addClass('active');
-		$('#wall .analysis-list').css('opacity', '.5');
-		
-		var pageNo = parseInt($(this).html());
+	$('#wall').on('click', '.pagination li span', function(){
+		var that = $(this);
+		var pageNo = parseInt(that.html());
 		if(!isNaN(pageNo)) {
-			$.get('/ajax/get_user_analysis_history', { 'page_no' : pageNo}, function(response){
-				var res = $(response).find('.analysis-list').html();
-				$('#wall .analysis-list').css('opacity','1').html(res);
-				GPW.Analysis.Wall.pageLoad();
-			});
+			var parent = that.parent();
+			$('#wall .pagination li').not(parent).removeClass('active');
+			parent.addClass('active');
+			$('#wall .analysis-list').css('opacity', '.5');
+			
+			GPW.Analysis.Wall.page = pageNo;
+			GPW.Analysis.Wall.changePage();
 		}
 	});
 };
@@ -81,8 +107,31 @@ GPW.Analysis.Wall.dateSwitch = function() {
 	});
 };
 
+GPW.Analysis.Wall.changePage = function() {
+	var pageNo = GPW.Analysis.Wall.page;
+	var filters = GPW.Analysis.Wall.filters;
+	var data = { 'page_no' : pageNo, 'filters' : filters };
+	
+	$.get('/ajax/get_user_analysis_history', data, function(response){
+		var res = $(response).find('#analysis-items').html();
+		$('#wall #analysis-items').css('opacity','1').html(res);
+		GPW.Analysis.Wall.pageLoad();
+	});
+};
+
 GPW.Analysis.Wall.pageLoad = function() {
 	GPW.Analysis.Wall.dateSwitch();
+	GPW.Analysis.Wall.setPager(GPW.Analysis.Wall.page);
+};
+GPW.Analysis.Wall.setPager = function(pageNo) {
+	var active;
+	$('#wall .pagination li').each(function(){
+		var thisNo = parseInt($(this).find('span').html());
+		if(thisNo == pageNo) {
+			active = $(this).addClass('active');
+		}
+	});
+	$('#wall .pagination li').not(active).removeClass('active');
 };
 
 GPW.Analysis.Rating = {};
@@ -157,6 +206,7 @@ GPW.Analysis.Wizard.submit = function() {
 	result.periods = GPW.Analysis.Wizard.periods();
 	
 	$.post('/ajax/order_analysis', result, function(response) {
+		//console.log(response);
 		window.location.href = '/home/wall';
 	});
 };

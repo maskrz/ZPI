@@ -4,9 +4,10 @@
 		<div class="left-side col-sm-3">
 			<div class="filters-col">
 				<%= render "partials/left_filter_panel" %>
+				<%= render "partials/calculator" %>
 			</div>
 		</div>
-		<div class="right-side col-sm-9">
+		<div class="right-side col-sm-9" id="analysis-items">
 			<div class="analysis-list">
 				<% @analysis[:analysis].each do |k, v| %>
 					<%= render "partials/analysis_item", :object => v %>
