@@ -21,6 +21,25 @@ ActiveAdmin.register Company do
     end
   end
   
+  form do |f|
+    f.inputs "Edit Company" do
+        f.input :shortcut
+        f.input :name
+        f.input :full_id
+    end
+    f.actions
+  end
+  
+  show do |f|
+    attributes_table do
+      row :id
+      row :shortcut
+      row :name
+      row :full_id
+    end
+    active_admin_comments
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
