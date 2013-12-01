@@ -9,4 +9,5 @@ $(document).ready(function() {
 	GPW.Common.init();
 	GPW.Analysis.init();
 	GPW.Home.init();
+	GPW.Messages.init();
 }); 

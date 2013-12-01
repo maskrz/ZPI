@@ -1,2 +1,14 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var GPW = GPW || {};
+
+GPW.Messages = {};
+
+GPW.Messages.init = function() {
+	GPW.Messages.selectForUsersList();
+};
+GPW.Messages.selectForUsersList = function() {
+	$('#modal').on('shown.bs.modal', function(e){
+		$(this).find('select').selectpicker({
+	        size: 10
+	    });
+	});
+};

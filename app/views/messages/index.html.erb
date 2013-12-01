@@ -1,30 +1,85 @@
-<h1>Listing messages</h1>
+<%= render "partials/header" %>
+<section id="content">
+	<div class="wrapper" id="messages">
+		<div class="row">
+			<div class="messages-col">
+				<a class="btn btn-success col-xs-12" data-target="#modal" data-toggle="modal" href="/messages/new">
+					Wyślij nową wiadomość!
+				</a>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Sent at</th>
-      <th>Is read</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+				<div class="messages-panel">
+					<% if @conversations.count > 0 %>
+					<ul cass="conversations-list">
+						<% @conversations.each do |conversation| %>
+						<li>
+							<div class="messages-avatar">
+				
+							</div>
+	
+							<div class="messages-frame-normal <%= 'unread' if conversation[:last_message].is_read == 0 %>">
+								<h3 class="messages"><%= conversation[:interlocutor].full_name %></h3>
+								<p>
+									<% if conversation[:last_message].is_sender?(current_user.id) %>
+										<span class="glyphicon glyphicon-share-alt"></span> 
+									<% end %>
+									<a href="<%= messages_path %>?interlocutor_id=<%=conversation[:interlocutor].id %>"><%= conversation[:last_message].content %></a>
+								</p>
+							</div>
+						</li>
+						<% end %>
+					</ul>
+					<% else %>
+						<p class="text-muted">Brak konwesacji.</p>
+					<% end %>
+				</div>
 
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.content %></td>
-        <td><%= message.is_read %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+			</div>
+			<div class="messages-main">
+			<% if @conversation != nil %>
+				<div class="messages-header">
+					<h2 class="messages">Konwersacja z <%= @conversation[:interlocutor].full_name %></h2>
+				</div>
+				<div class="conversation">
+					<ul class="chats">
+					<% @conversation[:messages].each do |message| %>
+						<% if message.is_sender?(current_user.id) %>
+						<li class="by-me">
+							<div class="avatar pull-left">
+								<span class="glyphicon glyphicon-user"></span>
+							</div>
 
-<br>
+							<div class="chat-content">
+								<div class="chat-meta">
+									<%= current_user.first_name %> <span class="pull-right"><%= message.created_at %></span>
+								</div>
+								<p><%= message.content %></p>
+								<div class="clearfix"></div>
+							</div>
+						</li>
+						<% else %>
+						<li class="by-other">
+							<div class="avatar pull-right">
+								<span class="glyphicon glyphicon-user"></span>
+							</div>
 
-<%= link_to 'New Message', new_message_path %>
+							<div class="chat-content">
+								<div class="chat-meta">
+									<%= message.created_at %> <span class="pull-right"><%= @conversation[:interlocutor].first_name %></span>
+								</div>
+								<p><%= message.content %></p>
+								<div class="clearfix"></div>
+							</div>
+						</li>
+						<% end %>
+					<% end %>
+					</ul>
+				</div>
+			</div>
+		<% else %>
+			<p class="text-center text-muted">By przeglądać wiadomości, wybierz konwersację z listy obok.</p>
+		<% end %>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</section>
+<%= render "partials/footer" %>

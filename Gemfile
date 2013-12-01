@@ -19,8 +19,10 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem "coco", "~> 0.7.1", group: :test
 #gem 'formtastic'
-
-
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

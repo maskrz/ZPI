@@ -8,6 +8,7 @@
 			</div>
 		</div>
 		<div class="right-side col-sm-9" id="analysis-items">
+			<% if @analysis[:analysis].count > 0 %>
 			<div class="analysis-list">
 				<% @analysis[:analysis].each do |k, v| %>
 					<%= render "partials/analysis_item", :object => v %>
@@ -16,6 +17,9 @@
 			<div class="pager">
 				<%= render "partials/pager", :total_pages => @analysis[:total_pages] %>
 			</div>
+			<% else %>
+				<p class="text-center text-muted" style="padding: 30px 0">Brak historii analiz.</p>
+			<% end %>
 		</div>
 		<div class="clearfix"></div>
 	</div>

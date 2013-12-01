@@ -5,7 +5,6 @@ ZPI::Application.routes.draw do
   scope :home, :controller =>:home do
     get 'main'
     get 'wall'
-    get 'messages'
     get 'user_edit'
   end
   scope :page, :controller => :static_pages, :as => :page do

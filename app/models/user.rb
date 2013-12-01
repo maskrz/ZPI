@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     self.first_name + " " +self.last_name + " "+ self.email
   end
   
+  def full_name
+    self.first_name + " " +self.last_name
+  end
+  
   def prepare_to_save
     if self.new_record?
       crypted_password = Digest::MD5.hexdigest(self.password)

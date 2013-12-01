@@ -17,10 +17,10 @@
 			<a href="#" class="dropdown-toggle" title="Wiadomości" data-toggle="dropdown"><span class="glyphicon glyphicon-comment"></a>
 			<ul class="dropdown-menu" role="menu">
 				<li>
-					<a href="#">Konwersacje</a>
+					<%= link_to 'Konwersacje', messages_path %>
 				</li>
 				<li>
-					<a href="#">Nowa wiadomość</a>
+					<%= link_to 'Nowa wiadomość', new_message_path, { :data => { :toggle => "modal", :target => '#modal'}} %>
 				</li>
 			</ul>
 		</li>
