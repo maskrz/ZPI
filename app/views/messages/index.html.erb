@@ -9,14 +9,14 @@
 
 				<div class="messages-panel">
 					<% if @conversations.count > 0 %>
-					<ul cass="conversations-list">
+					<ul class="conversations-list">
 						<% @conversations.each do |conversation| %>
 						<li>
 							<div class="messages-avatar">
 				
 							</div>
 	
-							<div class="messages-frame-normal <%= 'unread' if conversation[:last_message].is_read == 0 %>">
+							<div class="messages-frame-normal <%= 'unread' unless conversation[:last_message].is_read %>">
 								<h3 class="messages"><%= conversation[:interlocutor].full_name %></h3>
 								<p>
 									<% if conversation[:last_message].is_sender?(current_user.id) %>
@@ -42,36 +42,26 @@
 				<div class="conversation">
 					<ul class="chats">
 					<% @conversation[:messages].each do |message| %>
-						<% if message.is_sender?(current_user.id) %>
-						<li class="by-me">
-							<div class="avatar pull-left">
-								<span class="glyphicon glyphicon-user"></span>
-							</div>
-
-							<div class="chat-content">
-								<div class="chat-meta">
-									<%= current_user.first_name %> <span class="pull-right"><%= message.created_at %></span>
-								</div>
-								<p><%= message.content %></p>
-								<div class="clearfix"></div>
-							</div>
-						</li>
-						<% else %>
-						<li class="by-other">
+						<%= render 'messages/item', :message => message%>
+					<% end %>
+					<li class="by-me">
+						<%= form_for @message, html: { :class => "send-message form-horizontal", :role => "form" } do |f| %>
+							<%= f.hidden_field :reciver_id, :value => @conversation[:interlocutor].id %>
 							<div class="avatar pull-right">
 								<span class="glyphicon glyphicon-user"></span>
 							</div>
-
-							<div class="chat-content">
+							<div class="chat-content form-group">
 								<div class="chat-meta">
-									<%= message.created_at %> <span class="pull-right"><%= @conversation[:interlocutor].first_name %></span>
+									<strong><%= current_user.first_name %></strong>:
 								</div>
-								<p><%= message.content %></p>
+								<%= f.text_area :content, { :class=>"form-control", :placeholder => "Wpisz tresc wiadomosci..." } %>
 								<div class="clearfix"></div>
 							</div>
-						</li>
+							<div class="form-group">
+								<%= f.submit "Wyślij", { :class => "btn btn-success" } %>
+							</div>
 						<% end %>
-					<% end %>
+					</li>
 					</ul>
 				</div>
 			</div>

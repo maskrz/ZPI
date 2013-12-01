@@ -1,0 +1,29 @@
+<% if message.is_sender?(current_user.id) %>
+<li class="by-me">
+	<div class="avatar pull-right">
+		<span class="glyphicon glyphicon-user"></span>
+	</div>
+
+	<div class="chat-content">
+		<div class="chat-meta">
+			<%= message.created_at %> <span class="pull-right"><%= current_user.first_name %></span>
+		</div>
+		<p><%= message.content %></p>
+		<div class="clearfix"></div>
+	</div>
+</li>
+<% else %>
+<li class="by-other">
+	<div class="avatar pull-left">
+		<span class="glyphicon glyphicon-user"></span>
+	</div>
+
+	<div class="chat-content">
+		<div class="chat-meta">
+			<%= @conversation[:interlocutor].first_name %> <span class="pull-right"><%= message.created_at %></span>
+		</div>
+		<p><%= message.content %></p>
+		<div class="clearfix"></div>
+	</div>
+</li>
+<% end %>

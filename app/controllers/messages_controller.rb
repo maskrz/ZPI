@@ -7,8 +7,7 @@ class MessagesController < ApplicationController
   def index
     @conversations = get_user_conversations(current_user.id)
     @conversation = get_users_conversation(current_user.id, params[:interlocutor_id]) if params[:interlocutor_id]
-    #@conversations = []
-    @messages = Message.all
+    @message = Message.new
     #render json: @conversations
   end
 
@@ -32,7 +31,7 @@ class MessagesController < ApplicationController
     
     respond_to do |format|
       if @message.save
-        format.html { redirect_to messages_path, success: 'Wyslano wiadomosc!' }
+        format.html { redirect_to messages_path(:interlocutor_id => @message.reciver_id), success: 'Wyslano wiadomosc!' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
