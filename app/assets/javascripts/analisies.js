@@ -17,20 +17,42 @@ GPW.Analysis.Wall.init = function() {
 	GPW.Analysis.Wall.addListeners();
 	GPW.Analysis.Wall.initFilters();
 	GPW.Analysis.Wall.pageLoad();
+	GPW.Analysis.Wall.HideCalculator();
 	GPW.Analysis.Wall.Calculator();
 };
 
 GPW.Analysis.Wall.Calculator = function() {
-	var evaluate = $('.edit-place button');
-	
-	evaluate.click(function() {
-		var contribution = parseFloat($('.edit-place #contribution').val());
-		var change = parseFloat($('.edit-place #change-of-course').val());
-		var r = GPW.Calculator.multiplyPercent(contribution, change).getResult();
-		$('.count-place #profit').val(r);
+	var evaluate = $('.edit-place button');	
+	evaluate.click(function() 
+	{
+		var contribution = parseFloat($('.edit-place #contribution').val().replace(',','.'));
+		$('.edit-place #contribution').val(contribution);
+		var change = parseFloat($('.edit-place #change-of-course').val().replace(',','.'));
+		$('.edit-place #change-of-course').val(change);
+		if(isNaN(contribution) || isNaN(change)) {
+			alert('Wprowadź liczbę');
+		} else {
+			var r = GPW.Calculator.multiplyPercent(contribution, change).getResult();
+	   		$('.count-place #profit').val(r);
+	   		$('.count-place').fadeIn(500);
+	   }
+	});	
+	var clear = $('.count-place button');
+	clear.click(function(){
+		$('.count-place').fadeOut(500);
+		$('.edit-place input').click(function() {
+    	this.value = '';	
+		});
 	});
-	
 };
+
+GPW.Analysis.Wall.HideCalculator = function() {
+	$(document).ready(function(){
+   	$('.count-place').hide(0);
+	});
+};
+
+
 GPW.Analysis.Wall.initFilters = function() {
 	$('.filters #companies-list').hide(0);
 	GPW.Ajax.getIndices().success(function(response){
