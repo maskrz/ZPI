@@ -30,5 +30,23 @@ class AuthHelperTest < ActionView::TestCase
     user_sign_in(@user)
     assert_equal @user, current_user
   end
+  
+  test "set_login_cookie" do
+    set_login_cookie
+    assert !login_cookie_set?
+  end
+  
+  test "delete login cookie" do
+    set_login_cookie
+    delete_login_cookie
+    assert_equal false, login_cookie_set?
+  end
+  
+  test "get login cookie" do
+    set_login_cookie
+    @cookie = get_login_cookie
+    puts @cookie
+    assert_equal false, login_cookie_set?
+  end
     
 end

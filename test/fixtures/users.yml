@@ -18,7 +18,7 @@ two:
   password_hash: MyString
   registration_hash: MyString
   last_logged_at: 2013-10-16 09:52:44
-  status: 1
+  status: 0
   
 three:
   first_name: MyString3
@@ -28,4 +28,4 @@ three:
   password_hash: MyString
   registration_hash: MyString
   last_logged_at: 2013-10-16 09:52:44
-  status: 1
+  status: 0
