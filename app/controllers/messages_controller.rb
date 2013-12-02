@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to messages_path(:interlocutor_id => @message.reciver_id), success: 'Wyslano wiadomosc!' }
         format.json { render action: 'show', status: :created, location: @message }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to messages_path(:interlocutor_id => @message.reciver_id), error: @message.errors.values.join(", ")}
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
