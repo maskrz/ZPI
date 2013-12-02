@@ -6,7 +6,9 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @conversations = get_user_conversations(current_user.id)
-    @conversation = get_users_conversation(current_user.id, params[:interlocutor_id]) if params[:interlocutor_id]
+    @conversation = get_users_conversation(current_user.id, params[:interlocutor_id], 1) if params[:interlocutor_id]
+    #@conversations = []
+    @messages = Message.all
     @message = Message.new
     #render json: @conversations
   end

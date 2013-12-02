@@ -5,13 +5,16 @@ module MessagesHelper
   def user_messages(id)
     Message.where('sender_id = :id OR reciver_id=:id', { :id => id })
   end
-  def conversation_messages(user_id, interlocutor_id)
+  def conversation_messages(user_id, interlocutor_id, batch_start = 1)
+    batch_size = 5
+    batch_offset = (batch_start - 1) * batch_size 
     participants = [user_id, interlocutor_id]
-    Message.where(:sender_id => participants, :reciver_id => participants)
+    Message.where(:sender_id => participants, :reciver_id => participants).order(created_at: :desc).limit(batch_size).offset(batch_offset).reverse
   end
-  def get_users_conversation(user_id, interlocutor_id)
+  def get_users_conversation(user_id, interlocutor_id, batch_start)
     {}.tap do |result|
-      result[:messages] = conversation_messages(user_id, interlocutor_id)
+      result[:messages] = conversation_messages(user_id, interlocutor_id, batch_start)
+      result[:total_messages] = Message.where(:sender_id => [user_id, interlocutor_id], :reciver_id => [user_id, interlocutor_id]).count
       result[:interlocutor] = User.where(:id => interlocutor_id).first
     end
   end

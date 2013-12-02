@@ -3,9 +3,7 @@
 	<div class="wrapper" id="messages">
 		<div class="row">
 			<div class="messages-col">
-				<a class="btn btn-success col-xs-12" data-target="#modal" data-toggle="modal" href="/messages/new">
-					Wyślij nową wiadomość!
-				</a>
+				<a class="btn btn-success col-xs-12" data-target="#modal" data-toggle="modal" href="/messages/new"> Wyślij nową wiadomość! </a>
 
 				<div class="messages-panel">
 					<% if @conversations.count > 0 %>
@@ -13,61 +11,66 @@
 						<% @conversations.each do |conversation| %>
 						<li>
 							<div class="messages-avatar">
-				
+
 							</div>
-	
+
 							<div class="messages-frame-normal <%= 'unread' unless conversation[:last_message].is_read %>">
 								<h3 class="messages"><%= conversation[:interlocutor].full_name %></h3>
 								<p>
-									<% if conversation[:last_message].is_sender?(current_user.id) %>
-										<span class="glyphicon glyphicon-share-alt"></span> 
+									<% if !conversation[:last_message].is_sender?(current_user.id) %>
+									<span class="glyphicon glyphicon-share-alt"></span>
 									<% end %>
-									<a href="<%= messages_path %>?interlocutor_id=<%=conversation[:interlocutor].id %>"><%= conversation[:last_message].content %></a>
+									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>"><%= conversation[:last_message].content %></a>
 								</p>
 							</div>
 						</li>
 						<% end %>
 					</ul>
 					<% else %>
-						<p class="text-muted">Brak konwesacji.</p>
+					<p class="text-muted">
+						Brak konwesacji.
+					</p>
 					<% end %>
 				</div>
 
 			</div>
 			<div class="messages-main">
-			<% if @conversation != nil %>
+				<% if @conversation != nil %>
 				<div class="messages-header">
 					<h2 class="messages">Konwersacja z <%= @conversation[:interlocutor].full_name %></h2>
 				</div>
-				<div class="conversation">
+				<div class="conversation" data-total-messages="<%= @conversation[:total_messages] %>" data-me-id="<%= current_user.id %>"  data-me-name="<%= current_user.first_name %>" data-other-id="<%= @conversation[:interlocutor].id %>" data-other-name="<%= @conversation[:interlocutor].first_name %>">
+					<div class="well well-sm text-center text-muted" id="messages-load-status">
+						<span>Wczytuję wcześniejsze wiadomości</span>
+					</div>
 					<ul class="chats">
-					<% @conversation[:messages].each do |message| %>
+						<% @conversation[:messages].each do |message| %>
 						<%= render 'messages/item', :message => message%>
-					<% end %>
-					<li class="by-me">
-						<%= form_for @message, html: { :class => "send-message form-horizontal", :role => "form" } do |f| %>
-							<%= f.hidden_field :reciver_id, :value => @conversation[:interlocutor].id %>
-							<div class="avatar pull-right">
-								<span class="glyphicon glyphicon-user"></span>
-							</div>
-							<div class="chat-content form-group">
-								<div class="chat-meta">
-									<strong><%= current_user.first_name %></strong>:
-								</div>
-								<%= f.text_area :content, { :class=>"form-control", :placeholder => "Wpisz tresc wiadomosci..." } %>
-								<div class="clearfix"></div>
-							</div>
-							<div class="form-group">
-								<%= f.submit "Wyślij", { :class => "btn btn-success" } %>
-							</div>
 						<% end %>
-					</li>
 					</ul>
+					<%= form_for @message, html: { :class => "send-message form-horizontal by-me", :role => "form" } do |f| %>
+					<%= f.hidden_field :reciver_id, :value => @conversation[:interlocutor].id %>
+					<div class="avatar pull-right">
+						<span class="glyphicon glyphicon-user"></span>
+					</div>
+					<div class="chat-content form-group">
+						<div class="chat-meta">
+							<strong><%= current_user.first_name %></strong>:
+						</div>
+						<%= f.text_area :content, { :class=>"form-control", :placeholder => "Wpisz tresc wiadomosci..." } %>
+						<div class="clearfix"></div>
+					</div>
+					<div class="form-group">
+						<%= f.submit "Wyślij", { :class => "btn btn-success" } %>
+					</div>
+					<% end %>
 				</div>
 			</div>
-		<% else %>
-			<p class="text-center text-muted">By przeglądać wiadomości, wybierz konwersację z listy obok.</p>
-		<% end %>
+			<% else %>
+			<p class="text-center text-muted">
+				By przeglądać wiadomości, wybierz konwersację z listy obok.
+			</p>
+			<% end %>
 		</div>
 		<div class="clearfix"></div>
 	</div>

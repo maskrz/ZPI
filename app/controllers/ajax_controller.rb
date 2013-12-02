@@ -1,6 +1,11 @@
 class AjaxController < ApplicationController
-  include CompaniesHelper, IndicesHelper
+  include CompaniesHelper, IndicesHelper, MessagesHelper
   def index
+  end
+  
+  def get_messages
+    result = get_users_conversation(current_user.id, params[:interlocutor_id], params[:batch_start].to_i)[:messages].reverse.to_json
+    render json: result
   end
   
   def get_indices

@@ -22,6 +22,7 @@ ZPI::Application.routes.draw do
     match 'order_analysis', via: [:get, :post]
     match 'get_user_analysis_history', via: [:get, :post]
     get 'get_user_company_analysis_for_day'
+    match 'get_messages', via: [:get, :post]
   end
   
   scope :auth, :controller => :auth, :as => :auth do
