@@ -3,6 +3,8 @@
 one:
   content: MyText
   is_read: false
+  sender_id: 1
+  reciver_id: 2
 
 two:
   content: MyText
