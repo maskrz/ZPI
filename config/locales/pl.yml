@@ -35,4 +35,11 @@ pl:
   contact:
     question: "Twoje pytanie"
     send: "Wyślij!"
+  home:
+    main:
+      choose_indices: "Wybierz interesujące Cię indeksy:"
+      choose_companies: "Wybierz interesujące Cię spółki:"
+      choose_period: "Zaznacz przedział prognozy jakim jesteś zainteresowany:"
+      previous_step: "Poprzedni krok"
+      next_step: "Następny krok"
   

@@ -16,20 +16,20 @@
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active" id="tab1">
-					<h2> Wybierz interesujące Cię indeksy: </h2>
+					<h2> <%= t('home.main.choose_indices') %></h2>
 					<div class="col-sm-6 col-sm-offset-3">
 						<input type="text" class="form-control" id="indices-list">
 					</div>
 				</div>
 				<div class="tab-pane" id="tab2">
-					<h2> Wybierz interesujące Cię spółki </h2>
+					<h2> <%= t('home.main.choose_companies') %> </h2>
 					<div class="col-sm-6 col-sm-offset-3">
 						<input type="text" class="form-control" id="companies-list">
 					</div>
 				</div>
 				<div class="tab-pane" id="tab3">
 					<h2>
-						Zaznacz przedział prognozy jakim jesteś zainteresowany:
+						<%= t('home.main.choose_period') %>
 					</h2>
 					<div class="btn-group checkboxes" data-toggle="buttons">
 						<label class="btn btn-primary">
@@ -56,13 +56,13 @@
 						<a href="#">First</a>
 					</li>
 					<li class="previous step">
-						<a href="#"> Poprzedni krok</a>
+						<a href="#"> <%= t('home.main.previous_step') %></a>
 					</li>
 					<li class="next last" style="display:none;">
 						<a href="#">Last</a>
 					</li>
 					<li class="next step">
-						<a href="#">Następny krok</a>
+						<a href="#"><%= t('home.main.next_step') %></a>
 					</li>
 				</ul>
 			</div>
