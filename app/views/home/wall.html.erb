@@ -3,7 +3,7 @@
 	<div class="wrapper" id="wall" class="wall">
 		<div class="left-side col-sm-3">
 			<div class="filters-col">
-				<%= link_to 'Dodaj więcej spółek', main_path, :class => "btn btn-success btn-lg col-xs-12" %>
+				<%= link_to t('home.wall.more_analisies'), main_path, :class => "btn btn-success btn-lg col-xs-12" %>
 				<%= render "partials/left_filter_panel" %>
 				<%= render "partials/calculator" %>
 			</div>
@@ -19,7 +19,7 @@
 				<%= render "partials/pager", :total_pages => @analysis[:total_pages] %>
 			</div>
 			<% else %>
-				<p class="text-center text-muted" style="padding: 30px 0">Brak historii analiz.</p>
+				<p class="text-center text-muted" style="padding: 30px 0"><%= t('home.wall.no_analisies') %></p>
 			<% end %>
 		</div>
 		<div class="clearfix"></div>
