@@ -19,7 +19,17 @@
  *= require users
  */
 
-@import url(http://fonts.googleapis.com/css?family=Varela&subset=latin,latin-ext);
+@font-face {
+  font-family: 'Varela';
+  src: url('bootstrap/fonts/varela-regular-webfont.eot');
+  src: url('bootstrap/fonts/varela-regular-webfont.eot?#iefix') format('embedded-opentype'), url('bootstrap/fonts/varela-regular-webfont.woff') format('woff'), url('bootstrap/fonts/varela-regular-webfont.ttf') format('truetype'), url('bootstrap/fonts/varela-regular-webfont.svg#glyphicons_halflingsregular') format('svg');
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
 html, body {height: 100%; }
 body { color: #37698c; font-family: 'Varela' , sans-serif  }
     #page{min-height: 100%; margin-bottom: -120px;}
