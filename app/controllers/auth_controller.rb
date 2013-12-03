@@ -44,7 +44,7 @@ class AuthController < ApplicationController
         
         format.html { redirect_to root_path, notice: t('auth.registration_success') }
       else
-        format.html { render 'home/index', notice: @user.errors }
+        format.html { render 'home/index', error: @user.errors.values.join(', ') }
       end
     end
   end
