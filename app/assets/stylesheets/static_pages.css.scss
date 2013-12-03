@@ -6,9 +6,13 @@
     #about .ceos { text-align:center; padding-bottom:25px; }
     #about h4 {margin-top: 15px;}
     
-#media { padding:0 0 30px 0}
-  #media .row { margin-top:30px}
-  #media h1 { margin-top:75px; }
+#media { padding:65px  30px 90px 100px}
+  #media.wrapper {}
+    #media.wrapper .media-header .img-responsive{}
+  #media .media-header {border-bottom: 2px solid #37698c; height:165px}
+  #media p {color: #37698c; padding: 20px 5px 40px 5px}
+  #media h1 { margin-top:100px; font-size: 36px; font-weight: bold; padding-left: 3px}
+    #media h1 span {color: #d3cfc9}
    
 #contact {background:url(man-happy.png) 90% 55px no-repeat; color: #37698c; }
     #contact .form-control {background-color:#ebe7e0;}
