@@ -42,4 +42,7 @@ pl:
       choose_period: "Zaznacz przedział prognozy jakim jesteś zainteresowany:"
       previous_step: "Poprzedni krok"
       next_step: "Następny krok"
+    wall: 
+      more_analisies: "Wykonaj analizę"
+      no_analisies: "W tej chwili nie masz żadnych prognoz. Kliknij przycisk po lewej stronie, by wykonać pierwszą."
   
