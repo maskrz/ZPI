@@ -3,7 +3,7 @@
 	<div class="wrapper" id="messages">
 		<div class="row">
 			<div class="messages-col">
-				<a class="btn btn-success col-xs-12" data-target="#modal" data-toggle="modal" href="/messages/new"> Wyślij nową wiadomość! </a>
+				<a class="btn btn-success col-xs-12" data-target="#modal" data-toggle="modal" href="/messages/new"> <%= t('messages.send_new_message') %> </a>
 
 				<div class="messages-panel">
 					<% if @conversations.count > 0 %>
@@ -28,7 +28,7 @@
 					</ul>
 					<% else %>
 					<p class="text-muted">
-						Brak konwesacji.
+						<%= t('messages.no_conversation') %>
 					</p>
 					<% end %>
 				</div>
@@ -41,7 +41,7 @@
 				</div>
 				<div class="conversation" data-total-messages="<%= @conversation[:total_messages] %>" data-me-id="<%= current_user.id %>"  data-me-name="<%= current_user.first_name %>" data-other-id="<%= @conversation[:interlocutor].id %>" data-other-name="<%= @conversation[:interlocutor].first_name %>">
 					<div class="well well-sm text-center text-muted" id="messages-load-status">
-						<span>Wczytuję wcześniejsze wiadomości</span>
+						<span><%= t('messages.reading_earlier') %></span>
 					</div>
 					<ul class="chats">
 						<% @conversation[:messages].each do |message| %>
@@ -57,18 +57,18 @@
 						<div class="chat-meta">
 							<strong><%= current_user.first_name %></strong>:
 						</div>
-						<%= f.text_area :content, { :class=>"form-control", :placeholder => "Wpisz tresc wiadomosci..." } %>
+						<%= f.text_area :content, { :class=>"form-control", :placeholder => t('messages.type_content') } %>
 						<div class="clearfix"></div>
 					</div>
 					<div class="form-group">
-						<%= f.submit "Wyślij", { :class => "btn btn-success" } %>
+						<%= f.submit t('common.send'), { :class => "btn btn-success" } %>
 					</div>
 					<% end %>
 				</div>
 			</div>
 			<% else %>
 			<p class="text-center text-muted">
-				By przeglądać wiadomości, wybierz konwersację z listy obok.
+				<%= t('messages.select_conversation') %>
 			</p>
 			<% end %>
 		</div>

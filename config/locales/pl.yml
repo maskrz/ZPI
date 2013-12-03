@@ -45,4 +45,23 @@ pl:
     wall: 
       more_analisies: "Wykonaj analizę"
       no_analisies: "W tej chwili nie masz żadnych prognoz. Kliknij przycisk po lewej stronie, by wykonać pierwszą."
+      expected_exchange: "Kurs prognozowany:"
+      percentage_expected_exchange: "Progonozowana zmiana kursu:"
+      current_exchange: "Kurs z dnia prognozy:"
+      std_dev: "Rozbieżność algorytmów:"
+      calculator:
+        calculator: "KALKULATOR"
+        contribution: "Wkład inwestycyjny:"
+        percentage_change: "Zmiana kursu w %:"
+        expected_gain: "Prognozowany zysk:"
+        new_calculations: "Nowe obliczenia"
+  messages:
+    send_new_message: "Wyślij nową wiadomość!"
+    no_conversations: "Brak konwersacji."
+    readin_earlier: "Wczytuję wcześniejsze wiadomości..."
+    type_content: "Wpisz treść wiadomości..."
+    select_conversation: "By przeglądać wiadomości, wybierz konwersację z listy obok."
+  common:
+    send: "Wyślij."
+    calculate: "Oblicz"
   

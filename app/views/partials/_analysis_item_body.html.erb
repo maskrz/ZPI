@@ -20,13 +20,13 @@
 				<div class="row">
 					<dl class="col-sm-6">
 						<dt>
-							Kurs prognozowany
+							<%= t('home.wall.expected_exchange') %>
 						</dt>
 						<dd>
 							<%= elem['medium_rate'] %> zł
 						</dd>
 						<dt>
-							Progonozowana zmiana kursu:
+							<%= t('home.wall.percentage_expected_exchange') %>
 						</dt>
 						<dd class="<%= if elem['percentage_rate'] > 0 then 'rise' else 'fall' end %>">
 							<%= elem['percentage_rate'] %>%
@@ -34,13 +34,13 @@
 					</dl>
 					<dl class="col-sm-6">
 						<dt>
-							Kurs z dnia prognozy:
+							<%= t('home.wall.current_exchange') %>
 						</dt>
 						<dd>
 							<%= elem['current_rate'] %> zł
 						</dd>
 						<dt>
-							Rozbieżność algorytmów:
+							<%= t('home.wall.std_dev') %>
 						</dt>
 						<dd>
 							<%= elem['algoritms_rate'] %>
