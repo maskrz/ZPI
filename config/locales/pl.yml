@@ -10,6 +10,25 @@ pl:
         password: "Hasło" 
         password_confirmation: "Potwierdź hasło"
         accept_statuate: 'akceptuję <a data-toggle="modal" href="#statute">regulamin</a> GPW Analizer'
+    errors:
+      models:
+        user:
+          attributes:
+            first_name: 
+              blank: "Pole imię jest wymagane!"
+            last_name:
+              blank: "Pole nazwisko jest wymagane!"
+            email:
+              blank: "Pole email jest wymagane!"
+            password:
+              blank: "Pole hasło jest wymagane!"
+              too_short: "Hasło musi składać się przynajmniej z 5 znaków!"
+            password_confirmation:
+              confirmation: "Oba hasła muszą być identyczne!"
+            email:
+              blank: "Potwierdzenie hasła jest wymagane!"
+            accept_statuate:
+              accepted: "Musisz zatwierdzić regulamin aplikacji!"
   auth:
     save: "Zapisz"
     sign_in: "Zaloguj"

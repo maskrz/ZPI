@@ -45,7 +45,6 @@ class AuthHelperTest < ActionView::TestCase
   test "get login cookie" do
     set_login_cookie
     @cookie = get_login_cookie
-    puts @cookie
     assert_equal false, login_cookie_set?
   end
     
