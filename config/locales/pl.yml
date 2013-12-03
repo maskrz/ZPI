@@ -34,7 +34,6 @@ pl:
     activation_failure: "Aktywacja twojego konta nie powiodła się. Spróbuj jeszcze raz."
   contact:
     question: "Twoje pytanie"
-    send: "Wyślij!"
   home:
     main:
       choose_indices: "Wybierz interesujące Cię indeksy:"
@@ -55,6 +54,13 @@ pl:
         percentage_change: "Zmiana kursu w %:"
         expected_gain: "Prognozowany zysk:"
         new_calculations: "Nowe obliczenia"
+      filter:
+        filter_datas: "FILTRUJ DANE"
+        select_index: "Wybierz indeks:"
+        select_company: "Wybierz spółkę:"
+        filter_results: "Filtruj wyniki"
+    user_edit:
+      save_changes: "Zapisz wprowadzone zmiany"
   messages:
     send_new_message: "Wyślij nową wiadomość!"
     no_conversations: "Brak konwersacji."
@@ -62,6 +68,10 @@ pl:
     type_content: "Wpisz treść wiadomości..."
     select_conversation: "By przeglądać wiadomości, wybierz konwersację z listy obok."
   common:
-    send: "Wyślij."
+    send: "Wyślij"
     calculate: "Oblicz"
+    about: "O GPW Analizer"
+    media: "Dla mediów"
+    contact: "Kontakt"
+    gpw_analizer: "GPW Analizer"
   
