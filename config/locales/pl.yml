@@ -74,4 +74,19 @@ pl:
     media: "Dla mediów"
     contact: "Kontakt"
     gpw_analizer: "GPW Analizer"
+    close: "Zamknij"
+    statuate: "Regulamin"
+    conversations: "Konwersacje"
+    new_message: "Nowa wiadomość"
+    contact_form: "Formularz kontaktowy"
+  menu:
+    analysis_history: "Histroia analiz"
+    new_analysis: "Wykonaj nową analizę"
+    edit_profile: "Edycja profilu"
+  static_pages: 
+    what_is_gpwa: "Czym jest GPW Analizer?"
+    founders: "Twórcy GPW Analizer"
+    media:      
+      partnership: "Współpraca"
+      sponsoring: "Sponsoring"
   
