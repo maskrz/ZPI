@@ -27,10 +27,21 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-xs-6">
-								<div class="image-place img-responsive pull-right">
-									<%= image_tag(current_user.avatar.url, :size => "150x150") %>
-								</div>
+							<div class="col-xs-3 col-xs-offset-3 avatar-preview">
+								<% if current_user.avatar.file? %>
+									<div class="img-rounded image-place">
+										<%= image_tag(current_user.avatar.url, :height => "150", :class => "img-responsive img-bordered") %>
+									</div>
+									<div class="btn-group">
+									  <label class="btn btn-danger">
+									    <input type="checkbox" name="user[delete_avatar]" value="1"> Usuń avatar
+									  </label>
+									</div>
+								<% else %>
+									<div class="img-rounded image-place default">
+										<span class="glyphicon glyphicon-user"></span>
+									</div>
+								<% end %>
 							</div>
 						</div>
 					</div>

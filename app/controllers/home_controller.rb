@@ -29,14 +29,19 @@ class HomeController < ApplicationController
         @user.password = params[:user][:password]
         @user.password_confirmation = params[:user][:password_confirmation]
       end
-      unless params[:user][:avatar].blank?
-        if params[:user][:avatar].instance_of?(String)
-          avatar_url = params[:user][:avatar]
-          @user.avatar = open(URI.parse(avatar_url))
-        else
-          @user.avatar = params[:user][:avatar]
+      if params[:user][:delete_avatar] == '1'
+        @user.avatar.destroy
+      else
+        unless params[:user][:avatar].blank?
+          if params[:user][:avatar].instance_of?(String)
+            avatar_url = params[:user][:avatar]
+            @user.avatar = open(URI.parse(avatar_url))
+          else
+            @user.avatar = params[:user][:avatar]
+          end
         end
       end
+      
       @user.first_name = params[:user][:first_name]
       @user.last_name = params[:user][:last_name]
       

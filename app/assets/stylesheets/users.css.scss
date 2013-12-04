@@ -9,7 +9,7 @@
         #user-edit .fixed-buttons .btn-default { background: #ebe7e0; font-size: 15px; color: #7b7871}
         #user-edit .fixed-buttons .btn-default:focus  {background: white; }
     #user-edit .editing-data-col {padding-left: 20px; min-height: 700px;border-left:1px solid #afaaa0; display: inline !important}    
-        #user-edit .image-place {text-align: center; margin: 20px 0 0 0; border: 1px solid #afaaa0; background: #ebe7e0; border-radius: 3px; height: 150px ; width:150px; overflow: hidden;}
+        #user-edit .image-place {text-align: center; margin: 20px 0 0 0; background: #ebe7e0; overflow: hidden;}
         #user-edit .file-selection {margin-left: 5px}
             #user-edit .btn-success { background:#81b845}
             #user-edit .file-selection .select-place {margin: 20px 0 10px 0}
@@ -19,3 +19,8 @@
             #user-edit .editing-data-col .form-horizontal {margin-top: 20px}
              #user-edit .editing-data-col .form-horizontal .btn-success {width: 100%; margin: 10px 0;}
 .avatars-gallery { text-align:center }
+#user-edit .img-bordered {border:1px solid #afaaa0 }
+.avatar-preview .btn-group { width:100%; margin-top:15px}
+.avatar-preview .btn { width:100% }
+.avatar-preview .btn input[type="checkbox"] { margin:0; vertical-align:-1px }
+.avatar-preview .default .glyphicon { font-size: 8em; margin: .1em 0;}
