@@ -86,6 +86,7 @@ pl:
     readin_earlier: "Wczytuję wcześniejsze wiadomości..."
     type_content: "Wpisz treść wiadomości..."
     select_conversation: "By przeglądać wiadomości, wybierz konwersację z listy obok."
+    receiver: "Odbiorca"
   common:
     send: "Wyślij"
     calculate: "Oblicz"
@@ -98,6 +99,7 @@ pl:
     conversations: "Konwersacje"
     new_message: "Nowa wiadomość"
     contact_form: "Formularz kontaktowy"
+    content: "Treść"
   menu:
     analysis_history: "Histroia analiz"
     new_analysis: "Wykonaj nową analizę"
