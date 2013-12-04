@@ -2,14 +2,14 @@
 	<footer id="footer">
 		<div class="wrapper container">
 			<address class="col-md-6 col-sm-5">
-				<h3>GPW Analizer</h3>
+				<h3><%= t('common.gpw_analizer') %></h3>
 				<p>&copy; All rights reserved. © Copyright 2013</p>
 			</address>
 			<nav class="col-md-6 col-sm-7">
 				<ul class="menu">
-					<li><%= link_to "O GPW Analizer", page_about_path %></li>
-					<li> &bull; <%= link_to "Dla mediów", page_media_path %></li>
-					<li> &bull; <%= link_to "Kontakt", page_contact_path %></li>
+					<li><%= link_to t('common.about'), page_about_path %></li>
+					<li> &bull; <%= link_to t('common.media'), page_media_path %></li>
+					<li> &bull; <%= link_to t('common.contact'), page_contact_path %></li>
 				</ul>
 			</nav>
 		</div>

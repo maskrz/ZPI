@@ -10,6 +10,25 @@ pl:
         password: "Hasło" 
         password_confirmation: "Potwierdź hasło"
         accept_statuate: 'akceptuję <a data-toggle="modal" href="#statute">regulamin</a> GPW Analizer'
+    errors:
+      models:
+        user:
+          attributes:
+            first_name: 
+              blank: "Pole imię jest wymagane!"
+            last_name:
+              blank: "Pole nazwisko jest wymagane!"
+            email:
+              blank: "Pole email jest wymagane!"
+            password:
+              blank: "Pole hasło jest wymagane!"
+              too_short: "Hasło musi składać się przynajmniej z 5 znaków!"
+            password_confirmation:
+              confirmation: "Oba hasła muszą być identyczne!"
+            email:
+              blank: "Potwierdzenie hasła jest wymagane!"
+            accept_statuate:
+              accepted: "Musisz zatwierdzić regulamin aplikacji!"
   auth:
     save: "Zapisz"
     sign_in: "Zaloguj"
@@ -34,7 +53,6 @@ pl:
     activation_failure: "Aktywacja twojego konta nie powiodła się. Spróbuj jeszcze raz."
   contact:
     question: "Twoje pytanie"
-    send: "Wyślij!"
   home:
     main:
       choose_indices: "Wybierz interesujące Cię indeksy:"
@@ -55,6 +73,13 @@ pl:
         percentage_change: "Zmiana kursu w %:"
         expected_gain: "Prognozowany zysk:"
         new_calculations: "Nowe obliczenia"
+      filter:
+        filter_datas: "FILTRUJ DANE"
+        select_index: "Wybierz indeks:"
+        select_company: "Wybierz spółkę:"
+        filter_results: "Filtruj wyniki"
+    user_edit:
+      save_changes: "Zapisz wprowadzone zmiany"
   messages:
     send_new_message: "Wyślij nową wiadomość!"
     no_conversations: "Brak konwersacji."
@@ -62,6 +87,25 @@ pl:
     type_content: "Wpisz treść wiadomości..."
     select_conversation: "By przeglądać wiadomości, wybierz konwersację z listy obok."
   common:
-    send: "Wyślij."
+    send: "Wyślij"
     calculate: "Oblicz"
+    about: "O GPW Analizer"
+    media: "Dla mediów"
+    contact: "Kontakt"
+    gpw_analizer: "GPW Analizer"
+    close: "Zamknij"
+    statuate: "Regulamin"
+    conversations: "Konwersacje"
+    new_message: "Nowa wiadomość"
+    contact_form: "Formularz kontaktowy"
+  menu:
+    analysis_history: "Histroia analiz"
+    new_analysis: "Wykonaj nową analizę"
+    edit_profile: "Edycja profilu"
+  static_pages: 
+    what_is_gpwa: "Czym jest GPW Analizer?"
+    founders: "Twórcy GPW Analizer"
+    media:      
+      partnership: "Współpraca"
+      sponsoring: "Sponsoring"
   

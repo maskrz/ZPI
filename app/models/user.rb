@@ -98,4 +98,8 @@ class User < ActiveRecord::Base
       result['periods'] = self.analisies.where(:company_id => company_id, :date => date).order(date: :desc, period: :asc)
     end
   end
+  
+  def has_analysis?
+    self.analisies.count > 0
+  end
 end

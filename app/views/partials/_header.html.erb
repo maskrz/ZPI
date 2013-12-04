@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>GPW Analizer</title>
+		<title><%= t('common.gpw_analizer') %></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%= csrf_meta_tags %>
 		<%= stylesheet_link_tag    "application", media: "all" %>
@@ -15,7 +15,7 @@
 						<div class="col-lg-4 col-md-4 col-sm-4">
 							<strong id="logo">
 								<a href="<%= root_path %>">
-									<%= image_tag 'logo.png',:title => 'GPW Analizer' %>
+									<%= image_tag 'logo.png',:title => t('common.gpw_analizer') %>
 								</a>
 							</strong>
 						</div>

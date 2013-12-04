@@ -12,20 +12,20 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label t('activerecord.attributes.user.email'), class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('activerecord.attributes.user.email')+':', class: "col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-lg-4 col-md-4 col-sm-5">
 			<%= f.email_field :email, class: "form-control", placeholder: t('activerecord.attributes.user.email') %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label t('contact.question'), class: "col-sm-2 col-sm-offset-1 control-label" %>
+		<%= f.label t('contact.question')+':', class: "col-sm-2 col-sm-offset-1 control-label" %>
 		<div class="col-sm-9">
 			<%= f.text_area :question, class: "form-control", rows: 4, placeholder: t('contact.question') %>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-4 col-sm-offset-3 control-label">
-			<%= f.button t('contact.send'), type: :submit, class: "btn btn-green col-sm-6"%>
+			<%= f.button t('common.send')+'!', type: :submit, class: "btn btn-green col-sm-6"%>
 		</div>
 	</div>
 <% end %>
