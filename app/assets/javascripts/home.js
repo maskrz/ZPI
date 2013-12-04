@@ -11,11 +11,11 @@ GPW.Home.init = function() {
 	GPW.Common.tooltip('#content .tab-pane .tooltip-element', { placement : 'left' });
 	GPW.Home.scrollListener();
 	
-	if(GPW.Common.checkIfExists('#user-edit')) {
-		$(window).scroll(function(e) {
-			$('.fixed-buttons').animate({ 'top' : $(this)[0].scrollY+'px' }, 300);
-		});
-	}
+	// if(GPW.Common.checkIfExists('#user-edit')) {
+		// $(window).scroll(function(e) {
+			// $('.fixed-buttons').animate({ 'top' : $(this)[0].scrollY+'px' }, 300);
+		// });
+	// }
 };
 
 GPW.Home.scrollListener = function() {
