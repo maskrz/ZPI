@@ -83,19 +83,29 @@ GPW.Messages.create = function(data) {
 	var content;
 	
 	var otherName = $('.conversation').data('other-name'),
-		meName = $('.conversation').data('me-name');
+		meName = $('.conversation').data('me-name'),
+		meAvatar =  $('.conversation').data('me-avatar');
 	var meId = $('.conversation').data('me-id'),
-		otherId = $('.conversation').data('other-id');
+		otherId = $('.conversation').data('other-id'),
+		otherAvatar =  $('.conversation').data('other-avatar');
 	
 	if(data.sender_id == otherId) {
 		message.addClass('by-other');
-		message.append('<div class="avatar pull-left"><span class="glyphicon glyphicon-user"></span></div>');
+		if(otherAvatar.indexOf('default') != -1) {
+			message.append('<div class="avatar pull-left"><span class="glyphicon glyphicon-user"></span></div>');
+		} else {
+			message.append('<div class="avatar pull-left"><img class="img-rounded" src="'+otherAvatar+'"></div>');
+		}
 		content = $('<div class="chat-content"/>');
 		content.append('<div class="chat-meta">'+otherName+' <span class="pull-right">'+data.created_at+'</span></div>');
 	
 	} else {
 		message.addClass('by-me');
-		message.append('<div class="avatar pull-right"><span class="glyphicon glyphicon-user"></span></div>');
+		if(meAvatar.indexOf('default') != -1) {
+			message.append('<div class="avatar pull-right"><span class="glyphicon glyphicon-user"></span></div>');
+		} else {
+			message.append('<div class="avatar pull-right"><img class="img-rounded" src="'+meAvatar+'"></div>');
+		}
 		content = $('<div class="chat-content"/>');
 		content.append('<div class="chat-meta">'+data.created_at+' <span class="pull-right">'+meName+'</span></div>');
 	}

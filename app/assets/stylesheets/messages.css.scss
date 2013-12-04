@@ -36,14 +36,6 @@
 .send-message.by-me .avatar .glyphicon { font-size: 48px;
 margin: 13px 0;}
 
-.chats .by-me img{
-  margin-top: 5px;
-  margin-right:10px;
-  padding: 1px;
-  background:#fff;
-  border: 1px solid #ccc;
-}
-
 .chats .chat-meta,
 .send-message.by-me .chat-meta{
   font-size: 13px !important;
@@ -97,6 +89,15 @@ margin: 13px 0;}
   padding: 1px;
   background:#fff;
   border: 1px solid #ccc;
+  width: 48px;
+}
+.chats .by-other img {
+  margin-top: 5px;
+  margin-right:10px;
+  padding: 1px;
+  background:#fff;
+  border: 1px solid #ccc;
+  width: 48px;
 }
 
 .chats .by-me .chat-meta,
@@ -147,4 +148,7 @@ margin: 13px 0;}
   margin-top: -11px; 
 }
 
-#messages{display:table}.messages-col{padding:20px 20px 30px 0;border-right:1px solid #afaaa0;width:35%;display:table-cell}.messages-panel{margin-top:30px}#messages .row{display:table-row;height:100%}.messages-frame-normal{width:70%;height:90px;color:#8b8475;font:12px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ebe7e0;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:0px 5px 5px 0px;margin-top:10px;margin-left:30%;padding:7px}.messages-frame-active{width:70%;height:90px;color:#8b8475;font:12px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:0px 5px 5px 0px;margin-top:10px;margin-left:30%;padding:7px}.messages-avatar{width:30%;height:90px;border-radius:5px 0px 0px 5px;background:#94d2eb;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;float:left;border-top-style:1px solid #afaaa0;border-bottom-style:1px solid #afaaa0;border-left-style:1px solid #afaaa0}.messages-main{border-right:1px solid #afaaa0;padding:0;width:65%;display:table-cell}.messages-header{height:75px;width:100%;border-bottom:1px solid #afaaa0}.messages-friend{width:82%;color:#8b8475;font:13px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ebe7e0;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:5px;margin-top:10px;margin-left:15%;padding:7px}.avatar-friend{width:70px;height:70px;background-color:#75bcf2;border-radius:5px;float:left;margin-left:20px;margin-right:10px}.messages-mine{width:82%;float:left;color:#8b8475;font:13px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:5px;margin-bottom:10px;margin-left:20px;padding:7px}.avatar-mine{width:70px;height:70px;background-color:#75bcf2;border-radius:5px;float:left;margin-left:10px}h2.messages{color:#37698c;font:22px/30px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;padding:22px 0 0 20px;margin:0 0 3px;vertical-align:middle}h3.messages{color:#37698c;font:15px/20px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;padding:0;margin:0 0 3px}.msg{clear:both;margin-top:10px;margin-bottom:10px}
+.messages-avatar .glyphicon { font-size: 7em;
+margin: 0.05em 0;
+text-align: center;}
+#messages{display:table}.messages-col{padding:20px 20px 30px 0;border-right:1px solid #afaaa0;width:35%;display:table-cell}.messages-panel{margin-top:30px}#messages .row{display:table-row;height:100%}.messages-frame-normal{width:70%;height:90px;color:#8b8475;font:12px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ebe7e0;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:0px 5px 5px 0px;margin-top:10px;margin-left:30%;padding:7px}.messages-frame-active{width:70%;height:90px;color:#8b8475;font:12px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:0px 5px 5px 0px;margin-top:10px;margin-left:30%;padding:7px}.messages-avatar{width:30%;height:90px;overflow:hidden;border-radius:5px 0px 0px 5px;background:#94d2eb;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;float:left;border-top-style:1px solid #afaaa0;border-bottom-style:1px solid #afaaa0;border-left-style:1px solid #afaaa0}.messages-avatar img{width:100%}.messages-main{border-right:1px solid #afaaa0;padding:0;width:65%;display:table-cell}.messages-header{height:75px;width:100%;border-bottom:1px solid #afaaa0}.messages-friend{width:82%;color:#8b8475;font:13px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ebe7e0;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:5px;margin-top:10px;margin-left:15%;padding:7px}.avatar-friend{width:70px;height:70px;background-color:#75bcf2;border-radius:5px;float:left;margin-left:20px;margin-right:10px}.messages-mine{width:82%;float:left;color:#8b8475;font:13px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;background:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.2);opacity:1;border:1px solid #afaaa0;border-radius:5px;margin-bottom:10px;margin-left:20px;padding:7px}.avatar-mine{width:70px;height:70px;background-color:#75bcf2;border-radius:5px;float:left;margin-left:10px}h2.messages{color:#37698c;font:22px/30px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;padding:22px 0 0 20px;margin:0 0 3px;vertical-align:middle}h3.messages{color:#37698c;font:15px/20px Varela, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;text-align:left;padding:0;margin:0 0 3px}.msg{clear:both;margin-top:10px;margin-bottom:10px}

@@ -11,7 +11,15 @@
 						<% @conversations.each do |conversation| %>
 						<li>
 							<div class="messages-avatar">
-
+								<% if conversation[:interlocutor].avatar.file? %>
+									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>">
+										<%= image_tag(conversation[:interlocutor].avatar.url, :class => "img-rounded") %>
+									</a>
+								<% else %>
+									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>">
+										<span class="glyphicon glyphicon-user"></span>
+									</a>
+								<% end %>
 							</div>
 
 							<div class="messages-frame-normal <%= 'unread' unless conversation[:last_message].is_read %>">
@@ -39,19 +47,32 @@
 				<div class="messages-header">
 					<h2 class="messages">Konwersacja z <%= @conversation[:interlocutor].full_name %></h2>
 				</div>
-				<div class="conversation" data-total-messages="<%= @conversation[:total_messages] %>" data-me-id="<%= current_user.id %>"  data-me-name="<%= current_user.first_name %>" data-other-id="<%= @conversation[:interlocutor].id %>" data-other-name="<%= @conversation[:interlocutor].first_name %>">
+				<div
+					class="conversation"
+					data-total-messages="<%= @conversation[:total_messages] %>"
+					data-me-id="<%= current_user.id %>"
+					data-me-name="<%= current_user.first_name %>"
+					data-me-avatar="<%= current_user.avatar.url %>"
+					data-other-id="<%= @conversation[:interlocutor].id %>"
+					data-other-name="<%= @conversation[:interlocutor].first_name %>"
+					data-other-avatar="<%= @conversation[:interlocutor].avatar.url %>"
+				>
 					<div class="well well-sm text-center text-muted" id="messages-load-status">
 						<span><%= t('messages.reading_earlier') %></span>
 					</div>
 					<ul class="chats">
 						<% @conversation[:messages].each do |message| %>
-						<%= render 'messages/item', :message => message%>
+						<%= render 'messages/item', :message => message %>
 						<% end %>
 					</ul>
 					<%= form_for @message, html: { :class => "send-message form-horizontal by-me", :role => "form" } do |f| %>
 					<%= f.hidden_field :reciver_id, :value => @conversation[:interlocutor].id %>
 					<div class="avatar pull-right">
-						<span class="glyphicon glyphicon-user"></span>
+						<% if current_user.avatar.file? %>
+							<%= image_tag(current_user.avatar.url, :class => "img-rounded") %>
+						<% else %>
+							<span class="glyphicon glyphicon-user"></span>
+						<% end %>
 					</div>
 					<div class="chat-content form-group">
 						<div class="chat-meta">

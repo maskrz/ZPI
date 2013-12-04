@@ -1,7 +1,11 @@
 <% if message.is_sender?(current_user.id) %>
 <li class="by-me">
 	<div class="avatar pull-right">
-		<span class="glyphicon glyphicon-user"></span>
+		<% if current_user.avatar.file? %>
+			<%= image_tag(current_user.avatar.url, :class => "img-rounded") %>
+		<% else %>
+			<span class="glyphicon glyphicon-user"></span>
+		<% end %>
 	</div>
 
 	<div class="chat-content">
@@ -15,7 +19,11 @@
 <% else %>
 <li class="by-other">
 	<div class="avatar pull-left">
-		<span class="glyphicon glyphicon-user"></span>
+		<% if @conversation[:interlocutor].avatar.file? %>
+			<%= image_tag(@conversation[:interlocutor].avatar.url, :class => "img-rounded") %>
+		<% else %>
+			<span class="glyphicon glyphicon-user"></span>
+		<% end %>
 	</div>
 
 	<div class="chat-content">

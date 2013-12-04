@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   end
   has_many :user_analyses
   has_many :analisies, :through => :user_analyses
-  has_attached_file :avatar
+  has_attached_file :avatar,  :default_url => "/assets/default.jpg"
   
   before_save :prepare_to_save
   
