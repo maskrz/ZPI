@@ -1,80 +1,56 @@
 <div class="avatars-gallery">
 	<div class="row">
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar1.png", :class => "img-responsive", :title => "avatar1" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			<%= f.label :avatar, (image_tag "avatar1.png",:class => "img-responsive", :title => "Avatar 1").html_safe, :value => image_url("avatar1.png") %>
+			<%= f.radio_button :avatar, image_url("avatar1.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar2.png", :class => "img-responsive", :title => "avatar2" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+			<%= f.label :avatar, (image_tag "avatar2.png",:class => "img-responsive", :title => "Avatar 2").html_safe, :value => image_url("avatar2.png") %>
+			<%= f.radio_button :avatar, image_url("avatar2.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar3.png",:class => "img-responsive", :title => "avatar3" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios3" value="option3" checked>
+			<%= f.label :avatar, (image_tag "avatar3.png",:class => "img-responsive", :title => "Avatar 3").html_safe, :value => image_url("avatar3.png") %>
+			<%= f.radio_button :avatar, image_url("avatar3.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar4.png",:class => "img-responsive", :title => "avatar4" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios4" value="option4" checked>
+			<%= f.label :avatar, (image_tag "avatar4.png",:class => "img-responsive", :title => "Avatar 4").html_safe, :value => image_url("avatar4.png") %>
+			<%= f.radio_button :avatar, image_url("avatar4.png") %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar5.png",:class => "img-responsive", :title => "avatar5" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios5" value="option5" checked>
+			<%= f.label :avatar, (image_tag "avatar5.png",:class => "img-responsive", :title => "Avatar 5").html_safe, :value => image_url("avatar5.png") %>
+			<%= f.radio_button :avatar, image_url("avatar5.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar6.png",:class => "img-responsive", :title => "avatar6" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios6" value="option6" checked>
+			<%= f.label :avatar, (image_tag "avatar6.png",:class => "img-responsive", :title => "Avatar 6").html_safe, :value => image_url("avatar6.png") %>
+			<%= f.radio_button :avatar, image_url("avatar6.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar7.png",:class => "img-responsive", :title => "avatar7" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios7" value="option7" checked>
+			<%= f.label :avatar, (image_tag "avatar7.png",:class => "img-responsive", :title => "Avatar 7").html_safe, :value => image_url("avatar7.png") %>
+			<%= f.radio_button :avatar, image_url("avatar7.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar8.png",:class => "img-responsive", :title => "avatar8" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios8" value="option8" checked>
+			<%= f.label :avatar, (image_tag "avatar8.png",:class => "img-responsive", :title => "Avatar 8").html_safe, :value => image_url("avatar8.png") %>
+			<%= f.radio_button :avatar, image_url("avatar8.png") %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar9.png",:class => "img-responsive", :title => "avatar9" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios9" value="option9" checked>
+			<%= f.label :avatar, (image_tag "avatar9.png",:class => "img-responsive", :title => "Avatar 9").html_safe, :value => image_url("avatar9.png") %>
+			<%= f.radio_button :avatar, image_url("avatar9.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar10.png",:class => "img-responsive", :title => "avatar10" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios10" value="option10" checked>
+			<%= f.label :avatar, (image_tag "avatar8.png",:class => "img-responsive", :title => "Avatar 10").html_safe, :value => image_url("avatar10.png") %>
+			<%= f.radio_button :avatar, image_url("avatar10.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar11.png",:class => "img-responsive", :title => "avatar11" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios11" value="option11" checked>
+			<%= f.label :avatar, (image_tag "avatar11.png",:class => "img-responsive", :title => "Avatar 11").html_safe, :value => image_url("avatar11.png") %>
+			<%= f.radio_button :avatar, image_url("avatar11.png") %>
 		</div>
 		<div class="col-xs-3">
-			<div class="avatar">
-				<%= image_tag "avatar12.png",:class => "img-responsive", :title => "avatar12" %>
-			</div>
-				<input class="radio" type="radio" name="optionsRadios" id="optionsRadios12" value="option12" checked>
+			<%= f.label :avatar, (image_tag "avatar12.png",:class => "img-responsive", :title => "Avatar 12").html_safe, :value => image_url("avatar12.png") %>
+			<%= f.radio_button :avatar, image_url("avatar12.png") %>
 		</div>
 	</div>
 </div>
