@@ -56,11 +56,10 @@ class User < ActiveRecord::Base
         base_query = self.analisies.where(:company_id => filters[1]).joins(:company).select(:company_id, 'companies.name').distinct
       else
         if filters[0] == 'index'
-         # base_query = self.analisies.joins(:company).joins(:cindex).where('indices.id' => filters[1]).select(:company_id, 'companies.name').distinct
+          base_query = self.analisies.joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select('companies.id as company_id', 'companies.name').distinct
         end
       end
     end
-    
     analysis_companies = base_query.order('companies.name ASC').limit(items_amount).offset(start_with)
     analysis_companies_ids = analysis_companies.map{|elem| elem.company_id }
 
@@ -72,7 +71,7 @@ class User < ActiveRecord::Base
         count_query = self.analisies.where(:company_id => filters[1]).select(:company_id).distinct.count
       else
         if filters[0] == 'index'
-         # count_query = self.analisies.joins(:company).joins(:cindex).where('indices.id' => filters[1]).select(:company_id).distinct.count
+         count_query = self.analisies.joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select(:company_id).distinct.count
         end
       end
     end
