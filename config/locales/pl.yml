@@ -51,6 +51,7 @@ pl:
     incorrect_token: "Token jest niepoprawny. Spróbuj jeszcze raz."
     activation_success: "Aktywacja twojego konta przebiegła pomyślnie. Zaloguj się!"
     activation_failure: "Aktywacja twojego konta nie powiodła się. Spróbuj jeszcze raz."
+    unauthorized: "Błąd autoryzacji, zaloguj się by zyskać dostęp do wybranego zasobu."
   contact:
     question: "Twoje pytanie"
   home:
@@ -110,4 +111,3 @@ pl:
     media:      
       partnership: "Współpraca"
       sponsoring: "Sponsoring"
-  
