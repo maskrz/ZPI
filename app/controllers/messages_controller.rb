@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
     
     respond_to do |format|
       if @message.save
-        format.html { redirect_to messages_path(:interlocutor_id => @message.reciver_id), success: 'Wyslano wiadomosc!' }
+        format.html { redirect_to messages_path(:interlocutor_id => @message.reciver_id), success: t('messages.sent') }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { redirect_to messages_path(:interlocutor_id => @message.reciver_id), error: @message.errors.values.join(", ")}
