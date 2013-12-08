@@ -80,6 +80,9 @@ pl:
         filter_results: "Filtruj wyniki"
     user_edit:
       save_changes: "Zapisz wprowadzone zmiany"
+      datas_saved: "Zapisano zmiany!"   
+      wrong_password: "Podane hasło jest niepoprawne!" 
+      no_changes: "Nie wprowadzono żadnych zmian!"
   messages:
     send_new_message: "Wyślij nową wiadomość!"
     no_conversations: "Brak konwersacji."
@@ -87,6 +90,7 @@ pl:
     type_content: "Wpisz treść wiadomości..."
     select_conversation: "By przeglądać wiadomości, wybierz konwersację z listy obok."
     receiver: "Odbiorca"
+    sent: "Wysłano wiadomość!"
   common:
     send: "Wyślij"
     calculate: "Oblicz"
