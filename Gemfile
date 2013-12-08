@@ -16,6 +16,7 @@ gem 'paperclip', '>= 3.5.1'
 gem "cocaine", "~> 0.5.3"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem "cancan", :git => "git@github.com:ollym/cancan.git", :branch => "ollym_changes"
 
 gem "coco", "~> 0.7.1", group: :test
 #gem 'formtastic'
