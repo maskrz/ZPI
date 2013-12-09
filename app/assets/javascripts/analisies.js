@@ -171,6 +171,7 @@ GPW.Analysis.Wizard.Navi.init = function() {
 	$('.wizard .pager').on('click', '.submit', function(e){
 		e.preventDefault();
 		if(GPW.Analysis.Wizard.valid()) {
+			$(this).off('click').attr('disabled','disabled').addClass('disabled');
 			GPW.Analysis.Wizard.submit();
 		}
 	});

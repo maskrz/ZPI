@@ -20,6 +20,7 @@ pl:
               blank: "Pole nazwisko jest wymagane!"
             email:
               blank: "Pole email jest wymagane!"
+              taken: "Podany adres email jest już przypisany do istniejącego konta!"
             password:
               blank: "Pole hasło jest wymagane!"
               too_short: "Hasło musi składać się przynajmniej z 5 znaków!"
