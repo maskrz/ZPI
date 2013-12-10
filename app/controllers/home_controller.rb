@@ -1,22 +1,29 @@
 class HomeController < PortalController
   def index
-    if user_signed_in?
-      if current_user.has_analysis?
-        redirect_to wall_path
-      else
-        redirect_to main_path
-      end
+    if current_user.has_analysis?
+      redirect_to wall_path
+    else
+      redirect_to main_path
     end
   end
 
-  def main
-    redirect_to root_path unless user_signed_in?
-  end
-
   def wall
-    redirect_to root_path unless user_signed_in?
     @analysis = current_user.get_analysies_history
-  #render json: @analysis
+    #render json: @analysis
+  end
+  
+  def archive
+    company_id = params[:company_id]
+    company = Company.where(:id => company_id)
+    #current_user.user_analyses.j.archived = false
+    analysis = current_user.analisies.where(:company_id => company_id).select('analisies.id')
+    user_analysis = UserAnalysis.where(:user_id => current_user.id, :analisy_id => analysis)
+    user_analysis.each do |a|
+      a.archived = true
+      a.save
+    end
+    redirect_to wall_path, notice: 'Usunieto dotychczasowe analizy dla spolki'
+    #render json: analysis
   end
 
   def user_edit

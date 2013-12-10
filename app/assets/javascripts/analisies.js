@@ -146,6 +146,10 @@ GPW.Analysis.Wall.changePage = function() {
 GPW.Analysis.Wall.pageLoad = function() {
 	GPW.Analysis.Wall.dateSwitch();
 	GPW.Analysis.Wall.setPager(GPW.Analysis.Wall.page);
+	GPW.Common.tooltip('.archive', { placement : 'bottom' });
+	$('.archive').on('click', function(){
+		return confirm("Czy na pewno chcesz usunąć wszystkie dotychczasowe analizy dla tej spółki?");
+	});
 };
 GPW.Analysis.Wall.setPager = function(pageNo) {
 	var active;

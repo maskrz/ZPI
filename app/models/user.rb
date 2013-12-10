@@ -47,28 +47,28 @@ class User < ActiveRecord::Base
     items_amount = 3.0
     start_with = (page-1)*items_amount
     
-    base_query = self.analisies.joins(:company).select(:company_id, 'companies.name').distinct
+    base_query = self.analisies.where('user_analyses.archived' => false).joins(:company).select(:company_id, 'companies.name').distinct
     if filters != nil
       if filters[0] == 'company'
-        base_query = self.analisies.where(:company_id => filters[1]).joins(:company).select(:company_id, 'companies.name').distinct
+        base_query = self.analisies.where('user_analyses.archived' => false).where(:company_id => filters[1]).joins(:company).select(:company_id, 'companies.name').distinct
       else
         if filters[0] == 'index'
-          base_query = self.analisies.joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select('companies.id as company_id', 'companies.name').distinct
+          base_query = self.analisies.where('user_analyses.archived' => false).joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select('companies.id as company_id', 'companies.name').distinct
         end
       end
     end
     analysis_companies = base_query.order('companies.name ASC').limit(items_amount).offset(start_with)
     analysis_companies_ids = analysis_companies.map{|elem| elem.company_id }
 
-    analysis_dates = self.analisies.joins(:company).where(:company_id => analysis_companies_ids).select([:company_id, :date, 'companies.name', 'companies.full_id']).distinct.order('companies.name ASC, date DESC')
+    analysis_dates = self.analisies.where('user_analyses.archived' => false).joins(:company).where(:company_id => analysis_companies_ids).select([:company_id, :date, 'companies.name', 'companies.full_id', 'user_analyses.archived']).distinct.order('companies.name ASC, date DESC')
     
-    count_query = self.analisies.select(:company_id).distinct.count
+    count_query = self.analisies.where('user_analyses.archived' => false).select(:company_id).distinct.count
     if filters != nil
       if filters[0] == 'company'
-        count_query = self.analisies.where(:company_id => filters[1]).select(:company_id).distinct.count
+        count_query = self.analisies.where(:company_id => filters[1], 'user_analyses.archived' => false).select(:company_id).distinct.count
       else
         if filters[0] == 'index'
-         count_query = self.analisies.joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select(:company_id).distinct.count
+         count_query = self.analisies.where().joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select(:company_id).distinct.count
         end
       end
     end
@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
       analysis_dates.each do |elem|
         if result[elem['company_id']] == nil
           elem = elem.attributes
-          elem['periods'] = self.analisies.where(:company_id => elem['company_id'], :date => elem['date']).order(date: :desc, period: :asc)
+          elem['periods'] = self.analisies.where(:company_id => elem['company_id'], :date => elem['date'], 'user_analyses.archived' => false).order(date: :desc, period: :asc)
           elem['dates'] = [elem['date']]
           result[elem['company_id']] = elem
         end
@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
   
   def get_user_company_analysis_for_day(company_id, date)
     {}.tap do |result|
-      result['periods'] = self.analisies.where(:company_id => company_id, :date => date).order(date: :desc, period: :asc)
+      result['periods'] = self.analisies.where(:company_id => company_id, :date => date,'user_analyses.archived' => false).order(date: :desc, period: :asc)
     end
   end
   

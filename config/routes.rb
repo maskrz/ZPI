@@ -5,6 +5,7 @@ ZPI::Application.routes.draw do
   scope :home, :controller =>:home do
     get 'main'
     get 'wall'
+    get 'wall/archive/:company_id', action: :archive
     match 'user_edit', via: [:get, :patch]
   end
   scope :page, :controller => :static_pages, :as => :page do

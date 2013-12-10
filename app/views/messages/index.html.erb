@@ -13,7 +13,7 @@
 							<div class="messages-avatar">
 								<% if conversation[:interlocutor].avatar.file? %>
 									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>">
-										<%= image_tag(conversation[:interlocutor].avatar.url(:small), :class => "img-rounded") %>
+										<%= image_tag conversation[:interlocutor].avatar.url :small %>
 									</a>
 								<% else %>
 									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>">
