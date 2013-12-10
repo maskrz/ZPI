@@ -7,7 +7,7 @@ class Ability
       if user
         can :access, :all
       else
-        can :access, [:home, :auth, :static_pages]
+        can :access, [:home, :auth, :static_pages, :admin]
       end
     #
     # Here if there is a user he will be able to perform any action on any controller.

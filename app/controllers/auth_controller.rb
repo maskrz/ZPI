@@ -1,4 +1,4 @@
-class AuthController < ApplicationController
+class AuthController < PortalController
   require 'digest/md5'
   
   def login

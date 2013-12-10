@@ -1,4 +1,4 @@
-class AjaxController < ApplicationController
+class AjaxController < PortalController
   include CompaniesHelper, IndicesHelper, MessagesHelper
   def index
   end

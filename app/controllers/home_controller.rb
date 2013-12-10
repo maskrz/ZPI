@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class HomeController < PortalController
   def index
     if user_signed_in?
       if current_user.has_analysis?
