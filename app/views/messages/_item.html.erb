@@ -2,7 +2,7 @@
 <li class="by-me">
 	<div class="avatar pull-right">
 		<% if current_user.avatar.file? %>
-			<%= image_tag(current_user.avatar.url, :class => "img-rounded") %>
+			<%= image_tag(current_user.avatar.url(:thumb), :class => "img-rounded") %>
 		<% else %>
 			<span class="glyphicon glyphicon-user"></span>
 		<% end %>
@@ -20,7 +20,7 @@
 <li class="by-other">
 	<div class="avatar pull-left">
 		<% if @conversation[:interlocutor].avatar.file? %>
-			<%= image_tag(@conversation[:interlocutor].avatar.url, :class => "img-rounded") %>
+			<%= image_tag(@conversation[:interlocutor].avatar.url(:thumb), :class => "img-rounded") %>
 		<% else %>
 			<span class="glyphicon glyphicon-user"></span>
 		<% end %>

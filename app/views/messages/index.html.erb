@@ -13,7 +13,7 @@
 							<div class="messages-avatar">
 								<% if conversation[:interlocutor].avatar.file? %>
 									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>">
-										<%= image_tag(conversation[:interlocutor].avatar.url, :class => "img-rounded") %>
+										<%= image_tag(conversation[:interlocutor].avatar.url(:small), :class => "img-rounded") %>
 									</a>
 								<% else %>
 									<a href="<%= messages_path %>?interlocutor_id=<%= conversation[:interlocutor].id %>">
@@ -52,10 +52,10 @@
 					data-total-messages="<%= @conversation[:total_messages] %>"
 					data-me-id="<%= current_user.id %>"
 					data-me-name="<%= current_user.first_name %>"
-					data-me-avatar="<%= current_user.avatar.url %>"
+					data-me-avatar="<%= current_user.avatar.url(:thumb) %>"
 					data-other-id="<%= @conversation[:interlocutor].id %>"
 					data-other-name="<%= @conversation[:interlocutor].first_name %>"
-					data-other-avatar="<%= @conversation[:interlocutor].avatar.url %>"
+					data-other-avatar="<%= @conversation[:interlocutor].avatar.url(:thumb) %>"
 				>
 					<div class="well well-sm text-center text-muted" id="messages-load-status">
 						<span><%= t('messages.reading_earlier') %></span>

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :user_analyses
   has_many :analisies, :through => :user_analyses
   
-  has_attached_file :avatar, :styles => { :medium => "140x140>", :thumb => "96x96#", :thumb => "48x48#" }, :default_url => "/assets/default.jpg"
+  has_attached_file :avatar, :styles => { :medium => "140x140>", :small => "96x96#", :thumb => "48x48#" }, :default_url => "/assets/default.jpg"
   
   before_save :prepare_to_save
   
