@@ -7,18 +7,15 @@ class User < ActiveRecord::Base
   end
   has_many :user_analyses
   has_many :analisies, :through => :user_analyses
+  
   has_attached_file :avatar,  :default_url => "/assets/default.jpg"
   
   before_save :prepare_to_save
   
   validates :first_name, :presence =>true
   validates :last_name, :presence =>true
-  validates :email, :presence =>true,
-                    :uniqueness=>true
-  validates :password, :presence =>true,
-                    :length => { :minimum => 5, :maximum => 40 },
-                    :confirmation =>true
-  validates_confirmation_of :password
+  validates :email, :presence =>true, :uniqueness=>true
+  validates :password, :confirmation =>true, :presence =>true, :length => { :minimum => 5, :maximum => 40 }
   validates_acceptance_of :accept_statuate
   
   def authenticate (pass)

@@ -1,4 +1,7 @@
 pl:
+  email:
+    blank: "Pole email jest wymagane!"
+    taken: "Podany adres email jest już przypisany do istniejącego konta!"
   activerecord:
     models:
       user: "Użytkownik"
@@ -6,7 +9,7 @@ pl:
       user:
         first_name: "Imię"
         last_name: "Nazwisko" 
-        email: "Adres e-mail" 
+        email: "E-mail" 
         password: "Hasło" 
         password_confirmation: "Potwierdź hasło"
         accept_statuate: 'akceptuję <a data-toggle="modal" href="#statute">regulamin</a> GPW Analizer'

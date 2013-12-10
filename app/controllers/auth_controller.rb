@@ -37,15 +37,13 @@ class AuthController < ApplicationController
   def register
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        
-        UserMailer.after_sign_up(@user).deliver
-        
-        format.html { redirect_to root_path, notice: t('auth.registration_success') }
-      else
-        format.html { redirect_to root_path, error: @user.errors.values.join(', ') }
-      end
+    if @user.valid?
+      
+      UserMailer.after_sign_up(@user).deliver
+      @user.save
+      redirect_to root_path, notice: t('auth.registration_success')
+    else
+      render 'home/index', error: @user.errors.values.join('<br>').html_safe
     end
   end
   

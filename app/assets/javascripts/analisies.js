@@ -54,33 +54,35 @@ GPW.Analysis.Wall.HideCalculator = function() {
 
 
 GPW.Analysis.Wall.initFilters = function() {
+	if(GPW.Common.checkIfExists('.filters')) {
 	$('.filters #companies-list').hide(0);
-	GPW.Ajax.getIndices().success(function(response){
-		$('.filters #indices-list select').html('<option value="0">---</option>');
-		$.each(response, function(){
-        	$('.filters #indices-list select').append('<option value="'+ this.id +'">'+ this.name +'</option>');
-        });
-        $('.filters #indices-list select').selectpicker({ width:'100%','size': 10});
-	});
-	$('.filters #indices-list select').change(function() {
-		var indexId = $(this).val();
-		GPW.Analysis.Wall.getCompanies(indexId);
-	});
-	$('.filters button').click(function(){
-		var filterBy = {};
-		var indexId = $('.filters #indices-list select').val();
-		var companyId = $('.filters #companies-list select').val();
-		if(companyId != undefined && companyId != 0) {
-			GPW.Analysis.Wall.filters = ['company', companyId];
-		} else if (indexId != undefined && indexId != 0) {
-			GPW.Analysis.Wall.filters = ['index', indexId];
-		} else {
-			alert('Nie wybrano kryteriów do filtorwania');
-			return;
-		}
-		GPW.Analysis.Wall.page = 1;
-		GPW.Analysis.Wall.changePage();
-	});
+		GPW.Ajax.getIndices().success(function(response){
+			$('.filters #indices-list select').html('<option value="0">---</option>');
+			$.each(response, function(){
+	        	$('.filters #indices-list select').append('<option value="'+ this.id +'">'+ this.name +'</option>');
+	        });
+	        $('.filters #indices-list select').selectpicker({ width:'100%','size': 10});
+		});
+		$('.filters #indices-list select').change(function() {
+			var indexId = $(this).val();
+			GPW.Analysis.Wall.getCompanies(indexId);
+		});
+		$('.filters button').click(function(){
+			var filterBy = {};
+			var indexId = $('.filters #indices-list select').val();
+			var companyId = $('.filters #companies-list select').val();
+			if(companyId != undefined && companyId != 0) {
+				GPW.Analysis.Wall.filters = ['company', companyId];
+			} else if (indexId != undefined && indexId != 0) {
+				GPW.Analysis.Wall.filters = ['index', indexId];
+			} else {
+				alert('Nie wybrano kryteriów do filtorwania');
+				return;
+			}
+			GPW.Analysis.Wall.page = 1;
+			GPW.Analysis.Wall.changePage();
+		});
+	}
 };
 
 GPW.Analysis.Wall.getCompanies = function(index_id){
