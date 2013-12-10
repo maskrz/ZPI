@@ -65,14 +65,14 @@ class HomeController < ApplicationController
           redirect_to '/home/user_edit', success: t('auth.change_password_success')
         else
           if(!any_changes)
-            redirect_to '/home/user_edit', error: t('home.user_edit.no_changes')
+            redirect_to '/home/user_edit', notice: t('home.user_edit.no_changes')
           else
             @user.save
             redirect_to '/home/user_edit', success: t('home.user_edit.datas_saved')
           end
         end
       else
-        redirect_to '/home/user_edit', error: t('home.user_edit.wrong_password')
+        redirect_to '/home/user_edit', error: @user.errors.values.join('<br>').html_safe
       end
     end
   end

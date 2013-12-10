@@ -43,7 +43,7 @@ class AuthController < ApplicationController
       @user.save
       redirect_to root_path, notice: t('auth.registration_success')
     else
-      render 'home/index', error: @user.errors.values.join('<br>').html_safe
+      redirect_to root_path, error: @user.errors.values.join('<br>').html_safe
     end
   end
   
