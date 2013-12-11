@@ -1,9 +1,13 @@
 class HomeController < PortalController
   def index
-    if current_user.has_analysis?
-      redirect_to wall_path
+    if current_user
+      if current_user.has_analysis?
+        redirect_to wall_path
+      else
+        redirect_to main_path
+      end
     else
-      redirect_to main_path
+      render :index
     end
   end
 
@@ -69,17 +73,17 @@ class HomeController < PortalController
         if pass_changed
           @user.password = @user.password_confirmation = Digest::MD5.hexdigest(params[:user][:password])
           @user.save
-          redirect_to '/home/user_edit', success: t('auth.change_password_success')
+          redirect_to user_edit_path, success: t('auth.change_password_success')
         else
           if(!any_changes)
-            redirect_to '/home/user_edit', notice: t('home.user_edit.no_changes')
+            redirect_to user_edit_path, notice: t('home.user_edit.no_changes')
           else
             @user.save
-            redirect_to '/home/user_edit', success: t('home.user_edit.datas_saved')
+            redirect_to user_edit_path, success: t('home.user_edit.datas_saved')
           end
         end
       else
-        redirect_to '/home/user_edit', error: @user.errors.values.join('<br>').html_safe
+        redirect_to user_edit_path, error: @user.errors.values.join('<br>').html_safe
       end
     end
   end
