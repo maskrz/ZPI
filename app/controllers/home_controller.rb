@@ -26,7 +26,7 @@ class HomeController < PortalController
       a.archived = true
       a.save
     end
-    redirect_to wall_path, notice: 'Usunieto dotychczasowe analizy dla spolki'
+    redirect_to wall_path, notice: t('home.wall.analysis_deleted')
     #render json: analysis
   end
 

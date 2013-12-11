@@ -66,6 +66,7 @@ pl:
       previous_step: "Poprzedni krok"
       next_step: "Następny krok"
     wall: 
+      analysis_deleted: "Usunięto dotychczasowe analizy dla spółki"
       more_analisies: "Wykonaj analizę"
       no_analisies: "W tej chwili nie masz żadnych prognoz. Kliknij przycisk po lewej stronie, by wykonać pierwszą."
       expected_exchange: "Kurs prognozowany:"
