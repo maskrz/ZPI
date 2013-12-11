@@ -38,9 +38,8 @@ class AuthController < PortalController
     @user = User.new(user_params)
 
     if @user.valid?
-      
-      UserMailer.after_sign_up(@user).deliver
       @user.save
+      UserMailer.after_sign_up(@user).deliver
       redirect_to root_path, notice: t('auth.registration_success')
     else
       redirect_to root_path, error: @user.errors.values.join('<br>').html_safe
