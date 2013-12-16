@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
         count_query = self.analisies.where(:company_id => filters[1], 'user_analyses.archived' => false).select(:company_id).distinct.count
       else
         if filters[0] == 'index'
-         count_query = self.analisies.where().joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select(:company_id).distinct.count
+         count_query = self.analisies.joins(:company).joins('INNER JOIN cindices ON cindices.company_id = companies.id').where('cindices.index_id' => filters[1]).select(:company_id).distinct.count
         end
       end
     end
